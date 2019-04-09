@@ -1,0 +1,73 @@
+.social-followers-info a.duyet {
+     background-color: #2ECC40; }
+ .social-followers-info a.duyet:hover {
+        background-color: rgba(0,255,0,0.6); }
+
+
+.social-followers-info a.khongduyet {
+     background-color: #FF4136; }
+ .social-followers-info a.khongduyet:hover {
+        background-color: rgba(255,0,0,0.6); }
+
+
+.mltrue {
+    background-color: white; 
+    color: #5C5353; 
+    border: 1px solid #5C5353;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.mltrue:hover {
+    background-color: green;
+    color: white;
+    border: 0px solid green;
+}
+
+.mltruebut {
+	float: right;
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 1px 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.mlfalse {
+    background-color: white; 
+    color: #5C5353; 
+    border: 1px solid #5C5353;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.mlfalse:hover {
+    background-color: #e60000;
+    color: white;
+    border: 0px solid #e60000;
+}
+
+.mlfalsebut {
+	float: right;
+    background-color: #ff6666;
+    border: none;
+    color: white;
+    padding: 1px 8px;
+    margin-left: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
