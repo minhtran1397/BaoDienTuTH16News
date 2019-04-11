@@ -130,3 +130,13 @@
 .margin{
     margin: 0px !important;
 }
+
+.PadTitle{
+    padding-left: 25px;
+    /*display: inline-block;*/
+}
+
+.PadStatus{
+    float: right;
+    /*display: inline-block;*/
+}
