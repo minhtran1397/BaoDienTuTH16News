@@ -1,0 +1,37 @@
+/* Master Stylesheet */
+/* :: 1.0 Import Fonts */
+@import url("https://fonts.googleapis.com/css?family=Arial:200,300,400,500,600,700");
+/* :: 2.0 Import All CSS */
+@import url(css/bootstrap.min.css);
+@import url(css/classy-nav.css);
+@import url(css/font-awesome.min.css);
+@import url(css/themify-icons.css);
+@import url(css/owl.carousel.min.css);
+@import url(css/animate.css);
+@import url(css/magnific-popup.css);
+/* :: 3.0 Base CSS */
+
+
+body {
+  font-family: "Arial", sans-serif;
+  }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Arial", sans-serif;
+  }
+
+p {
+  font-family: "Arial", sans-serif;
+  }
+
+a,
+a:hover,
+a:focus {
+  font-family: "Arial", sans-serif; 
+  text-decoration: none;
+  }
