@@ -21,7 +21,7 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6 { 	
   font-family: "Arial", sans-serif;
   }
 
@@ -36,6 +36,11 @@ a:focus {
    text-decoration: none !important;
    font-size: auto !important;
   }
+.single-blog-post .post-content .post-title a{
+	color: black;
+}
+
+
 
   /*khung icon goc tren top ben phai*/
   .header-area .mag-main-menu .submit-video {
@@ -127,8 +132,8 @@ a:focus {
  
 	background-repeat: no-repeat;
     background-size: 100% 100%;
-    opacity: 1;
-    box-shadow: inset 0px 0px 40px 0px #282a2d; /* mark the inset */
+    opacity: 0.85;
+    box-shadow: inset 0px -20px 70px 0px   #000000;/*#282a2d  mark the inset */
  }
 
 .thumbbox:hover{
@@ -137,6 +142,7 @@ a:focus {
 
 	-webkit-box-shadow: inset 0px -50px 45px 50px rgba(0,0,0,0.44); 
 	box-shadow: inset 0px -50px 45px 50px rgba(0,0,0,0.44);
+	opacity: 1;
  	transition: 1s ;
  }
 
@@ -148,7 +154,7 @@ a:focus {
 }*/
 
 
- .thumbox-title {
+/* .thumbox-title {
 
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 19px;
@@ -168,13 +174,36 @@ a:focus {
 	color: #FFFFFF;
 	height: 50px;
 	
-}
+}*/
  
-.thumbox-detail:hover{
+/*.thumbox-detail:hover{
 	height: 100px;
 	transition: 0.5s;
-}
+}*/
+.thumbox-text{
+	display: flex;
+	align-items: flex-end;
+	height: 280px;
+	font-family: Arial, Helvetica, sans-serif;
+	letter-spacing: 0.8px;
+	word-spacing: -0.8px;
+	color: #FFFFFF;
+	text-shadow: 1px 1px 0 #000000 ;
+	text-decoration: none;
+	font-style: normal;
+	font-variant: normal;
+	text-transform: none;
+	margin-bottom: -20px;
 
+}
+.thumbox-text:hover{
+	-moz-transform: translate(0px, -50px);
+	-webkit-transform: translate(0px, -50px);
+	-o-transform: translate(0px, -50px);
+	-ms-transform: translate(0px, -50px);
+	transform: translate(0px, -70px);
+	transition:1s;
+}
 
 
 
@@ -266,3 +295,7 @@ margin: 5px 5px 5px 5px;
     z-index: 1;
     padding: 10px 0;
     background-color: #0a0a0a; }
+
+.video-thumb img{
+	height: 250px;
+}

@@ -47,7 +47,7 @@ a:focus {
   outline: 0 solid transparent;
   color: #000000;
   font-weight: 500;
-  font-size: 14px;
+  /*font-size: 14px;*/
   font-family: "Poppins", sans-serif; }
 
 ul,
