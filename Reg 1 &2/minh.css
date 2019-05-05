@@ -34,7 +34,7 @@ a:hover,
 a:focus {
   font-family: "Arial", sans-serif; 
    text-decoration: none !important;
-    font-size: auto;
+   font-size: auto !important;
   }
 
   /*khung icon goc tren top ben phai*/
@@ -43,6 +43,7 @@ a:focus {
       width: 70px; 
       font-size: 35px;
    }
+/*khung icon goc tren top ben phai*/
 
 
    /*gridview*/
@@ -121,6 +122,9 @@ a:focus {
   }*/
 
 .thumbbox{
+	display: flex;
+   	align-items: flex-end;
+ 
 	background-repeat: no-repeat;
     background-size: 100% 100%;
     opacity: 1;
@@ -142,10 +146,13 @@ a:focus {
 	transform: scale(2);
 
 }*/
- .thumbox-text{
- 	position: absolute;
+
+
+ .thumbox-title {
+
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 19px;
+	height: 60px;
 	letter-spacing: 0.8px;
 	word-spacing: -0.8px;
 	color: #FFFFFF;
@@ -154,7 +161,26 @@ a:focus {
 	font-style: normal;
 	font-variant: normal;
 	text-transform: none;
+	
+
  }
+.thumbox-detail{
+	color: #FFFFFF;
+	height: 50px;
+	
+}
+ 
+.thumbox-detail:hover{
+	height: 100px;
+	transition: 0.5s;
+}
+
+
+
+
+
+
+
 
 .mag-posts-content {
  /* -ms-flex: 0 0 calc(100% - 400px) !important;
@@ -218,6 +244,9 @@ font-size: 22pt;
 margin: 5px 5px 5px 5px;
 }
 
+.tagname8 a:hover{
+	font-size: auto !important;
+}
 /*.tagname:hover {
 	transition: 1s;
 	-moz-transform: scale(1.1) translate(0px, -2px);
