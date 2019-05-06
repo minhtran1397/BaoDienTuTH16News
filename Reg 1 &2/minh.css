@@ -271,9 +271,6 @@ font-size: 22pt;
 margin: 5px 5px 5px 5px;
 }
 
-.tagname8 a:hover{
-	font-size: auto !important;
-}
 /*.tagname:hover {
 	transition: 1s;
 	-moz-transform: scale(1.1) translate(0px, -2px);
