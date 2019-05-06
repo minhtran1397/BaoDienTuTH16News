@@ -249,22 +249,26 @@
                             </div>
                         </div>
 
-                        <!-- Single Catagory Post -->
+                        <!-- Single Catagory Post LOCKED-->
                         <div class="single-catagory-post d-flex flex-wrap">
                             <!-- Thumbnail -->
                             <div class="post-thumbnail bg-img" style="background-image: url(img/bg-img/DL1.jpg);">
-                                <a href="baiviet.html">
+                                <a href="baiviet.html" data-toggle="modal" data-target="#lockModal">
                                     <div style="width: 100%; height: 100%">
                                     </div>
                                  </a>    
                             </div>
                             <!-- Post Contetnt -->
-                            <div class="post-content">
-                                <div class="post-meta">
-                                    <a href="#">09/04/2019</a>
+                            <div class="post-content lock">
+                                <div class="post-meta" >
+                                    <a href="#" data-toggle="modal" data-target="#lockModal">09/04/2019</a>
                                     <a href="danhsachbaiviet.html">DU LỊCH</a>
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#lockModal" style="transform: scale(0.8); float: right;">
+                                      <i class="fa fa-lock"></i>
+                                    </button>
                                 </div>
-                                <a href="baiviet.html" class="post-title">Khách sạn lãng mạn nhất thế giới ưu đãi cho các cặp đôi</a>
+                                <a href="#" class="post-title" data-toggle="modal" data-target="#lockModal">Khách sạn lãng mạn nhất thế giới ưu đãi cho các cặp đôi</a>
                                 
                                 <p>Tọa lạc tại Làng Pháp thuộc khu du lịch nổi tiếng Sun World Ba Na Hills, khách sạn Mercure Danang French Village Bana Hills không còn xa lạ đối với du khách khi đến Bà Nà Hills nói riêng và Đà Nẵng nói chung. </p>
                             </div>
@@ -312,22 +316,26 @@
                             </div>
                         </div>
 
-                        <!-- Single Catagory Post -->
+                        <!-- Single Catagory Post LOCKED-->
                         <div class="single-catagory-post d-flex flex-wrap">
                             <!-- Thumbnail -->
                             <div class="post-thumbnail bg-img" style="background-image: url(img/bg-img/DL1.jpg);">
-                                <a href="baiviet.html">
+                                <a href="baiviet.html" data-toggle="modal" data-target="#lockModal">
                                     <div style="width: 100%; height: 100%">
                                     </div>
                                  </a>    
                             </div>
                             <!-- Post Contetnt -->
-                            <div class="post-content">
-                                <div class="post-meta">
-                                    <a href="#">09/04/2019</a>
+                            <div class="post-content lock">
+                                <div class="post-meta" >
+                                    <a href="#" data-toggle="modal" data-target="#lockModal">09/04/2019</a>
                                     <a href="danhsachbaiviet.html">DU LỊCH</a>
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#lockModal" style="transform: scale(0.8); float: right;">
+                                      <i class="fa fa-lock"></i>
+                                    </button>
                                 </div>
-                                <a href="baiviet.html" class="post-title">Khách sạn lãng mạn nhất thế giới ưu đãi cho các cặp đôi</a>
+                                <a href="#" class="post-title" data-toggle="modal" data-target="#lockModal">Khách sạn lãng mạn nhất thế giới ưu đãi cho các cặp đôi</a>
                                 
                                 <p>Tọa lạc tại Làng Pháp thuộc khu du lịch nổi tiếng Sun World Ba Na Hills, khách sạn Mercure Danang French Village Bana Hills không còn xa lạ đối với du khách khi đến Bà Nà Hills nói riêng và Đà Nẵng nói chung. </p>
                             </div>
@@ -939,6 +947,28 @@
         </div>
 
     </footer>
+
+     <!-- Modal -->
+        <div class="modal fade" id="lockModal" tabindex="-1" role="dialog" aria-labelledby="lockModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="lockModalLabel" style="color: red;">BÀI VIẾT PREMIUM</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                Đây là bài viết PREMIUM, độc giả vui lòng đăng kí tài khoản để được trải nghiệm tốt nhất!
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">HỦY</button>
+                <a href="dangkidocgia.html" class="btn btn-danger">ĐĂNG KÍ NGAY</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
     <!-- ##### Footer Area End ##### -->
 
     <!-- ##### All Javascript Script ##### -->
@@ -953,7 +983,8 @@
     <!-- Active js -->
     <script src="js/active.js"></script>
 
-
+    
+    
 </body>
 
 </html>
