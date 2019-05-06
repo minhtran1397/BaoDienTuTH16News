@@ -294,3 +294,8 @@ margin: 5px 5px 5px 5px;
 .video-thumb img{
 	height: 250px;
 }
+
+.post-thumbnail:hover{
+	transform: scale(1.01);
+	transition: 0.4s;
+}
