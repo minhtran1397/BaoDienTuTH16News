@@ -9,7 +9,7 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>Danh sách bài viết</title>
+    <title>Tìm kiếm</title>
 
     <!-- Favicon -->
     <link rel="icon" href="img/core-img/favicon.ico">
@@ -217,7 +217,7 @@
 
 
 
-        <div class="mag-posts-content mt-30 mb-30 p-30 box-shadow">
+        <div class="mag-posts-content mt-30 mb-30 p-30">
             
             <!-- Danh sách bài viết area -->
             <div class="feature-video-posts mb-30">
@@ -225,11 +225,74 @@
                 <div class="featured-video-posts">
                     <div class="row">
                         <div class="col-12 col-lg-12">
+                            <!--SEARCH INFO-->
+                        <div class="about-us-content bg-white mb-30 p-30 box-shadow">
+                        <!-- Team Member Area -->
+                        <div class="section-heading mt-30">
+                            <h5>TÌM KIẾM</h5>
+                        </div>
+
+
+
+                        <div class="row">
+                            <div class="col-md-6 input-group mb-3">
+                                <input type="text" class="form-control rechange" placeholder="Search.." aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-danger btnfilter" type="button"> <i class="fa fa-search"></i></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <form class="form-horizontal">
+                            <div class="row">
+
+
+                                <div class="col-md-4 input-group mb-3">
+                                  <div class="input-group-prepend">
+                                    <label class="input-group-text" for="listChuyenMuc">Chuyên mục</label>
+                                </div>
+                                <select class="custom-select" id="listChuyenMuc">
+                                    <option value="" disabled selected hidden>Chọn</option>
+                                     <option value="1">Tất cả</option>
+                                    <option value="1">Thời sự</option>
+                                    <option value="2">Kinh doanh</option>
+                                    <option value="3">Văn hóa</option>
+                                    <option value="4">Khoa học</option>
+                                    <option value="5">Tổng hợp</option>
+                                </select>
+                                </div>
+
+                            <div class="col-md-4 input-group mb-3">
+                              <div class="input-group-prepend">
+                                <label class="input-group-text" for="listTacGia">Tác giả</label>
+                            </div>
+                            <select class="custom-select" id="listTacGia">
+                                <option value="" disabled selected hidden>Chọn</option>
+                                <option value="1">Tất cả</option>
+                                <option value="2">Hoàng Minh</option>
+                                <option value="3">Mạnh Linh</option>
+                                <option value="4">Bảo Trung</option>
+                                
+                            </select>
+                            </div>
+
+
+                            <div class="col-md-3 form-group">
+                                <button type="button" class="btn btn-outline-danger btnfilter">Bộ lọc</button>
+
+                            </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!--END SEARCH-->
                             <!--Các item bài viết-->
-                        <div class="archive-posts-area bg-white p-30 mb-30">
-                        
+                        <div class="archive-posts-area bg-white p-30 mb-30 box-shadow">
+                            
+                         <h5> KẾT QUẢ TÌM KIẾM </h5>
+                         <div style="color: grey; font-size: 9">123 kết quả được tìm thấy</div></br>
+
                          <!-- Single Catagory Post PREMIUM-->
-                        <div class="single-catagory-post d-flex flex-wrap">
+                        <div class=" single-catagory-post d-flex flex-wrap">
                             <!-- Thumbnail -->
                             <div class="post-thumbnail bg-img" style="background-image: url(img/bg-img/DL1.jpg);">
                                 <a href="baiviet.html" data-toggle="modal" data-target="#lockModal">
