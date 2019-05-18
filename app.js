@@ -13,14 +13,14 @@ app.engine('hbs', exphbs({
 }));
 app.set('view engine', 'hbs');
 
-app.use(require('./middlewares/locals.mdw'));
+// app.use(require('./middlewares/locals.mdw'));
 
 app.get('/', (req, res) => {
   res.render('home');
 })
 
-app.use('/categories', require('./routes/category.route'))
-app.use('/admin/categories', require('./routes/admin/category.route'))
+app.use('/article', require('./routes/article.route'))
+// app.use('/admin/categories', require('./routes/admin/category.route'))
 
 app.listen(3000, () => {
   console.log('server is running at http://localhost:3000');
