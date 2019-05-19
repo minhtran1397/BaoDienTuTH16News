@@ -13,13 +13,14 @@ app.engine('hbs', exphbs({
 }));
 app.set('view engine', 'hbs');
 
+app.use(express.static('public'));
 // app.use(require('./middlewares/locals.mdw'));
 
 app.get('/', (req, res) => {
   res.render('home');
 })
 
-app.use('/article', require('./routes/article.route'))
+app.use('/writer', require('./routes/writer.route'))
 // app.use('/admin/categories', require('./routes/admin/category.route'))
 
 app.listen(3000, () => {

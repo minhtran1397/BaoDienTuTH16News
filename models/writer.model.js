@@ -20,6 +20,10 @@ module.exports = {
   add: entity => {
     return db.add('article', entity);
   },
+  
+  addTag: entity => {
+    return db.add('tag', entity);
+  },
 
   update: entity => {
     return db.update('article', 'id', entity);

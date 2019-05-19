@@ -1,18 +1,19 @@
 var express = require('express');
-var articleModel = require('../models/article.model');
+var articleModel = require('../models/writer.model');
 
 var router = express.Router();
 
 router.get('/', (req, res) => {
-  articleModel.all()
-    .then(rows => {
-      res.render('Req 3 - Writer/WriterListArticle', {
-        categories: rows
-      });
-    }).catch(err => {
-      console.log(err);
-      res.end('error occured.')
-    });
+  // articleModel.all()
+  //   .then(rows => {
+  //     res.render('Req 3 - Writer/WriterListArticle', {
+  //       categories: rows
+  //     });
+  //   }).catch(err => {
+  //     console.log(err);
+  //     res.end('error occured.')
+  //   });
+  res.render('Req 3 - Writer/WriterListArticle');
 })
 
 router.get('/edit/:id', (req, res) => {
@@ -41,12 +42,12 @@ router.get('/edit/:id', (req, res) => {
 })
 
 router.get('/add', (req, res) => {
-  res.render('admin/vwCategories/add');
+  res.render('Req 3 - Writer/WriterPostArticle');
 })
 
 router.post('/add', (req, res) => {
   articleModel.add(req.body).then(id => {
-    res.render('admin/vwCategories/add');
+    res.render('Req 3 - Writer/WriterPostArticle');
   }).catch(err => {
     console.log(err);
     res.end('error occured.')
