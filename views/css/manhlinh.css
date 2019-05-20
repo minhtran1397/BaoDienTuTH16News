@@ -155,3 +155,9 @@
   margin-right: 15px; 
 }
 
+.col-md-ml{-ms-flex:0 0 21.1%;flex:0 0 21.1%;max-width:21.1%
+}
+
+.dmlPower img{
+    height: 280px !important;
+}

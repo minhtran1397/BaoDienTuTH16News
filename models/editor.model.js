@@ -5,26 +5,17 @@ module.exports = {
     return db.load('select * from article');
   },
 
-  allWithDetails: () => {
-    return db.load(`
-      select c.id, c.name, count(p.id) as num_of_articles
-      from category c left join article p on c.id = p.id
-      group by c.id, c.name
-    `);
-  },
+//   allWithDetails: () => {
+//     return db.load(`
+//       select c.CatID, c.CatName, count(p.ProID) as num_of_products
+//       from categories c left join products p on c.CatID = p.CatID
+//       group by c.CatID, c.CatName
+//     `);
+//   },
 
   single: id => {
     return db.load(`select * from article where id = ${id}`);
   },
-
-  // pageByCat: ( limit, offset) => {
-  //   return db.load(`select * from article limit ${limit} offset ${offset}`);
-  // },
-
-  countByCat:() => {
-    return db.load(`select count(*) as total from article`);
-  },
-
 
   add: entity => {
     return db.add('article', entity);
