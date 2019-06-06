@@ -34,6 +34,7 @@ a:hover,
 a:focus {
   font-family: "Arial", sans-serif; 
    text-decoration: none !important;
+<<<<<<< HEAD
    font-size: auto !important;
   }
 .single-blog-post .post-content .post-title a{
@@ -41,6 +42,10 @@ a:focus {
 }
 
 
+=======
+    font-size: auto;
+  }
+>>>>>>> ce9f1c9... Thay đổi Layout, thêm grid slideshow
 
   /*khung icon goc tren top ben phai*/
   .header-area .mag-main-menu .submit-video {
@@ -48,7 +53,10 @@ a:focus {
       width: 70px; 
       font-size: 35px;
    }
+<<<<<<< HEAD
 /*khung icon goc tren top ben phai*/
+=======
+>>>>>>> ce9f1c9... Thay đổi Layout, thêm grid slideshow
 
 
    /*gridview*/
@@ -127,12 +135,19 @@ a:focus {
   }*/
 
 .thumbbox{
+<<<<<<< HEAD
 	display: flex;
    	align-items: flex-end;
  
 	background-repeat: no-repeat;
     background-size: 100% 100%;
    /* box-shadow: inset 0px -20px 70px 0px   #000000;/*#282a2d  mark the inset */*/
+=======
+	background-repeat: no-repeat;
+    background-size: 100% 100%;
+    opacity: 1;
+    box-shadow: inset 0px 0px 40px 0px #282a2d; /* mark the inset */
+>>>>>>> ce9f1c9... Thay đổi Layout, thêm grid slideshow
  }
 
 .thumbbox:hover{
@@ -150,6 +165,7 @@ a:focus {
 	transform: scale(2);
 
 }*/
+<<<<<<< HEAD
 
 
 /* .thumbox-title {
@@ -157,6 +173,12 @@ a:focus {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 19px;
 	height: 60px;
+=======
+ .thumbox-text{
+ 	position: absolute;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 19px;
+>>>>>>> ce9f1c9... Thay đổi Layout, thêm grid slideshow
 	letter-spacing: 0.8px;
 	word-spacing: -0.8px;
 	color: #FFFFFF;
@@ -165,6 +187,7 @@ a:focus {
 	font-style: normal;
 	font-variant: normal;
 	text-transform: none;
+<<<<<<< HEAD
 	
 
  }
@@ -208,6 +231,9 @@ a:focus {
 
 
 
+=======
+ }
+>>>>>>> ce9f1c9... Thay đổi Layout, thêm grid slideshow
 
 .mag-posts-content {
  /* -ms-flex: 0 0 calc(100% - 400px) !important;
@@ -290,6 +316,7 @@ margin: 5px 5px 5px 5px;
     z-index: 1;
     padding: 10px 0;
     background-color: #0a0a0a; }
+<<<<<<< HEAD
 
 .video-thumb img{
 	height: 250px;
@@ -306,3 +333,5 @@ margin: 5px 5px 5px 5px;
 	  padding-top:10px;
 	  padding-right: 5px;
 	}
+=======
+>>>>>>> ce9f1c9... Thay đổi Layout, thêm grid slideshow
