@@ -4,6 +4,18 @@ module.exports = {
   all: () => {
     return db.load('select * from article');
   },
+  allCate: () => {
+    return db.load('select * from category c join article a on a.idCategory = c.id');
+  },
+
+  allByCate: id => {
+    return db.load(`select * from category c join article a on a.idCategory = c.id where c.id= "${id}"`);
+  },
+  
+  allByAllow: name => {
+    return db.load("select * from category c join article a on a.idCategory = c.id where a.allow='"+name+"'");
+  },
+
 
   allWithDetails: () => {
     return db.load(`
@@ -33,6 +45,11 @@ module.exports = {
   addTag: entity => {
     return db.add('tag', entity);
   },
+
+
+  // addTagArticle:entity => {
+  //   return db.addTagArticle('article', entity);
+  // },
 
   update: entity => {
     return db.update('article', 'id', entity);

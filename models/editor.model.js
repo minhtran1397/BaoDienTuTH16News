@@ -5,6 +5,10 @@ module.exports = {
     return db.load('select * from article');
   },
 
+  allByCate: () => {
+    return db.load('select count(*) as soCate, c.name as name from article a join category c on c.id=a.idCategory group by c.id, c.name');
+  },
+
 //   allWithDetails: () => {
 //     return db.load(`
 //       select c.CatID, c.CatName, count(p.ProID) as num_of_products

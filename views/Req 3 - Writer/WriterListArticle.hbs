@@ -195,7 +195,13 @@
                         </div>
 
 
-
+                         <div class="col-md-3 form-group">
+                            
+                            <a class="btn btn-outline-danger btnfilter" href="/writer/add" role="button">
+                                
+                                &nbsp Post Article&nbsp
+                            </a>
+                        </div>
                         <div class="row">
                             <div class="col-md-6 input-group mb-3">
                                 <input type="text" class="form-control rechange" placeholder="Search.." aria-label="Recipient's username" aria-describedby="basic-addon2">
@@ -205,52 +211,44 @@
                             </div>
                         </div>
 
-                        <form class="form-horizontal">
+                        <form action="/writer/split" method="POST">
                             <div class="row">
                                 
 
-                                <div class="col-md-3 input-group mb-3">
+                                {{!-- <div class="col-md-3 input-group mb-3">
                                   <div class="input-group-prepend">
                                     <label class="input-group-text" for="inputGroupSelect01">Category</label>
                                 </div>
-                                <select class="custom-select" id="inputGroupSelect01">
-                                    <option value="" disabled selected hidden>Choose...</option>
-                                    <option value="1">All</option>
-                                    <option value="2">Blog</option>
-                                    <option value="3">News</option>
-                                    <option value="4">Lifestyle</option>
-                                    <option value="5">Trending</option>
+                                <select name="catId" class="custom-select" id="inputGroupSelect01">
+                                    <option value="all" disabled selected hidden>Choose...</option>
+                                    <option value="all">All</option>
+                                    <option value="1">Blog</option>
+                                    <option value="2">News</option>
+                                    <option value="3">Lifestyle</option>
+                                    <option value="4">Trending</option>
                                 </select>
-                            </div>
+                            </div> --}}
 
                             <div class="col-md-3 input-group mb-3">
                               <div class="input-group-prepend">
                                 <label class="input-group-text" for="inputGroupSelect01">Status</label>
                             </div>
-                            <select class="custom-select" id="inputGroupSelect02">
-                                <option value="" disabled selected hidden>Choose...</option>
-                                <option value="1">All</option>
-                                <option value="2">Allowed</option>
-                                <option value="3">WaitForAd</option>
-                                <option value="4">WaitForPost</option>
-                                <option value="5">Blocked</option>
+                            <select name="allow" class="custom-select" id="inputGroupSelect02">
+                                <option value="all" disabled selected hidden>Choose...</option>
+                                <option value="all">All</option>
+                                <option value="Allowed">Allowed</option>
+                                <option value="WaitForAd">WaitForAd</option>
+                                <option value="WaitForPost">WaitForPost</option>
+                                <option value="Blocked">Blocked</option>
                             </select>
                         </div>
 
 
                         <div class="col-md-3 form-group">
-                            <button type="button" class="btn btn-outline-danger btnfilter">Filter</button>
-
+                            <button type="submit" class="btn btn-outline-danger btnfilter">Filter</button>
+                            
                         </div>
-
-              <!--   <div class="col-md-3 input-group mb-3">
-                  <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                  <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="button">Button</button>
-                </div>
-            </div> -->
-
-
+                       
         </div>
     </form>
 
@@ -263,15 +261,24 @@
 
                 <img src="../img/article/{{id}}/main_thumbs.jpg" alt="">
                 <div class="social-btn">   
-                    <button type="button" class="btn btn-outline-light">Detail</button>   
-                    <button type="button" class="btn btn-outline-light">Edit</button>  
+                    <a class="btn btn-outline-light" href="/writer/edit/{{id}}" role="button">
+                        
+                        Detail
+                    </a>
+
+                    {{!-- <button type="button" class="btn btn-outline-light">Detail</button>    --}}
+                    {{!-- <button type="button" class="btn btn-outline-light">Edit</button>   --}}
+                    <a class="btn btn-outline-light" href="/writer/edit/{{id}}" role="button">
+                        
+                        Edit
+                    </a>
 
                 </div>
             </div>
             <div>&nbsp</div>
 
             <div class="row">
-                <div class="col-md-6 PadTitle"><strong>{{idCategory}}</strong></div>
+                <div class="col-md-6 PadTitle"><strong>{{name}}</strong></div>
                 <div class="col-md-6 PadStatus">Status: <i class="far fa-clock"></i></div>
             </div>
             <div class="notetitle"><p>Title: {{title}}</p></div>
@@ -308,86 +315,6 @@
         </nav>
       </div>
     </div>
-
-
-
-
-
-
-
-    {{!-- <div class="row">
-        <div class="col-md single-team-member classborder">
-            <div class="team-member-thumbnail">
-                <img src="../img/bg-img/36.jpg" alt="">
-                <div class="social-btn">   
-                    <button type="button" class="btn btn-outline-light">Detail</button>   
-                    <button type="button" class="btn btn-outline-light">Edit</button>  
-
-                </div>
-            </div>
-            <div>&nbsp</div>
-
-            <div class="row">
-                <div class="col-md-6 PadTitle"><strong>Blog</strong></div>
-                <div class="col-md-6 PadStatus">Status: <i class="far fa-clock"></i></div>
-            </div>
-            <div class="notetitle"><p>Title: Lusum basketballs are manufactured to the highest specifications.</p></div>
-        </div>
-
-
-        <!-- Single Team Member -->
-        <div class="col-md single-team-member classborder">
-            <div class="team-member-thumbnail">
-                <img src="../img/bg-img/37.jpg" alt="">
-                <div class="social-btn">
-                    <button type="button" class="btn btn-outline-light">Detail</button>   
-                    <button type="button" class="btn btn-outline-light">Edit</button>  
-                </div>
-            </div>
-            <div>&nbsp</div>
-            <div class="row">
-                <div class="col-md-6 PadTitle"><strong>News</strong></div>
-                <div class="col-md-6 PadStatus">Status: <i class="far fa-paper-plane"></i></div>
-            </div>
-            <div class="notetitle"><p>Title: Lusum basketballs are manufactured to the highest specifications.</p></div>
-        </div>
-
-        <!-- Single Team Member -->
-        <div class="col-md single-team-member classborder">
-            <div class="team-member-thumbnail">
-                <img src="../img/bg-img/38.jpg" alt="">
-                <div class="social-btn">
-                    <button type="button" class="btn btn-outline-light">Detail</button>   
-                    <button type="button" class="btn btn-outline-light">Edit</button>  
-                </div>
-            </div>
-            <div>&nbsp</div>
-            <div class="row">
-                <div class="col-md-6 PadTitle"><strong>Lifestyle</strong></div>
-                <div class="col-md-6 PadStatus">Status: <i class="fas fa-ban"></i></div>
-            </div>
-            <div class="notetitle"><p>Title: Lusum basketballs are manufactured to the highest specifications.</p></div>
-        </div>
-
-        <!-- Single Team Member -->
-        <div class="col-md single-team-member classborder">
-            <div class="team-member-thumbnail">
-                <img src="../img/bg-img/39.jpg" alt="">
-                <div class="social-btn">
-                    <button type="button" class="btn btn-outline-light">Detail</button>   
-                    <button type="button" class="btn btn-outline-light">Edit</button>  
-                </div>
-            </div>
-            <div>&nbsp</div>
-            <div class="row">
-                <div class="col-md-6 PadTitle"><strong>Blog</strong></div>
-                <div class="col-md-6 PadStatus">Status: <i class="fas fa-thumbtack"></i></div>
-            </div>
-            <div class="notetitle"><p>Title: Lusum basketballs are manufactured to the highest specifications.</p></div>
-        </div>
-
-
-    </div> --}}
 
 
 

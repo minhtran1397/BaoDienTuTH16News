@@ -196,11 +196,16 @@
                         <div class="section-heading mt-30">
                             <h5>List of articles need to be allowed</h5>
                         </div>
-                        <h6>The article has not been approved: 4</h6>
+                        <h7>The article has not been approved: <strong>{{this.article.length}}</strong></h7>
+                        <hr>
                         <!-- Single Team Member -->
-                        <div class="single-team-member d-flex align-items-center">
+                        {{!-- {{#each this.cate}}
+                            
+                        {{/each}} --}}
+                        {{#each this.article}}
+                         <div class="single-team-member d-flex align-items-center">
                             <div class="team-member-thumbnail">
-                                <img src="../img/bg-img/36.jpg" alt="">
+                                <img src="../img/article/{{id}}/main_thumbs.jpg" alt="">
                                 <div class="social-btn">
                                     <a href="#"><i class="far fa-address-card"></i> Info</a>
                                 </div>
@@ -213,13 +218,14 @@
                                  <button class="mltrue mltruebut" data-toggle="modal" data-target="#exampleModaltrue"><i class="fas fa-check"></i></button>
                              </h6>
                              <span>Reporter</span>
-                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consectetur mauris id scelerisque eleifend. Nunc vestibulum cursea quam at scelerisque.</p>
-
+                             
+                             <p><strong>Title:</strong> {{title}}</p>
+                            <p><strong>Summary:</strong> {{summary}}</p>
                              <button type="button" class="btn btn-outline-secondary"><p></p>See details</button>
                          </div>
-                     </div>
-
-                     <!-- Single Team Member -->
+                     </div> 
+                    {{/each}}
+                     {{!-- <!-- Single Team Member -->
                      <div class="single-team-member d-flex align-items-center">
                         <div class="team-member-thumbnail">
                             <img src="../img/bg-img/37.jpg" alt="">
@@ -287,7 +293,7 @@
 
 
         </div>
-    </div>
+    </div> --}}
 </div>
 </div>
 

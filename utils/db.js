@@ -28,7 +28,9 @@ module.exports = {
 
   add: (tableName, entity) => {
     return new Promise((resolve, reject) => {
+    //  var sql = `insert into ${tableName} set ?`;
       var sql = `insert into ${tableName} set ?`;
+      
       var connection = createConnection();
       connection.connect();
       connection.query(sql, entity, (error, value) => {
@@ -41,6 +43,24 @@ module.exports = {
       });
     });
   },
+
+  // addTagArticle: (tableName, entity) => {
+  //   return new Promise((resolve, reject) => {
+  //     var sql = `BEGIN; insert into ${tableName} set ?; INSERT INTO tag (id) VALUES(156);COMMIT;`;
+      
+      
+  //     var connection = createConnection();
+  //     connection.connect();
+  //     connection.query(sql, entity, (error, value) => {
+  //       if (error) {
+  //         reject(error);
+  //       } else {
+  //         resolve(value.insertId);
+  //       }
+  //       connection.end();
+  //     });
+  //   });
+  // },
 
   update: (tableName, idField, entity) => {
     return new Promise((resolve, reject) => {

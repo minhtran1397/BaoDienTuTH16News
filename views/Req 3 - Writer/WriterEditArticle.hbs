@@ -42,7 +42,7 @@
                 <nav class="classy-navbar justify-content-between" id="magNav">
 
                     <!-- Nav brand -->
-                    <a href="index.html" class="nav-brand"><img src="../img/core-img/logo.png" alt=""></a>
+                    <a href="index.html" class="nav-brand"><img src="../../img/core-img/logo.png" alt=""></a>
 
                     <!-- Navbar Toggler -->
                     <div class="classy-navbar-toggler">
@@ -155,7 +155,7 @@
     <!-- ##### Header Area End ##### -->
 
     <!-- ##### Breadcrumb Area Start ##### -->
-    <section class="breadcrumb-area bg-img bg-overlay" style="background-image: url(../img/bg-img/40.jpg);">
+    <section class="breadcrumb-area bg-img bg-overlay" style="background-image: url(../../img/bg-img/40.jpg);">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
@@ -200,22 +200,29 @@
                         </div>
 
                         <div class="video-info mt-30">
-                            <form method="POST">
-                                <!-- <div class="form-group">
-                                    <label for="upload-file">Upload Your File</label>
-                                    <input type="file" class="form-control-file" id="upload-file">
-                                </div> -->
+                            {{#if this.error}}
+                            <div class="alert alert-danger" role="alert">
+                            Invalid to edit because this article allowed or 'WaitForPost' by Admin. <a href="/writer" class="alert-link">Go back</a>.
+                            </div>
+                            
+                            {{else}}
+                            <form method="POST" action="/writer/update">
+                               
+                                <div class="form-group">
+                                    <label for="txtCatID">#ID</label>
+                                    <input readonly type="text" class="form-control" id="txtCatID" name="id" value="{{this.article.id}}">
+                                </div>
                                 <div class="form-group">
                                     <label for="title">Article Title</label>
                                     <div id="toolbar"></div>
                                    
-                                    <input type="text" class="form-control" id="title" name="title" required/>
+                                    <input type="text" class="form-control" id="title" name="title" value="{{this.article.title}}" required/>
                                 </div>
                                 <div class="form-group">
                                     <label for="summary">Article Summary</label>
                                     <!-- <div id="toolbar"></div>
                                     <div id="summary"></div> -->
-                                    <input type="text" class="form-control" id="summary" name="summary" required/>
+                                    <input type="text" class="form-control" id="summary" name="summary" value="{{this.article.summary}}" required/>
 
                                 </div>
 
@@ -229,11 +236,11 @@
 
                                 <div class="form-group">
                                     <label for="tag">Tags*</label>
-                                    <input type="text" class="form-control" id="tag" name="idTag" required/>
+                                    <input type="text" class="form-control" id="tag" name="idTag" value="{{this.article.idTag}}" required/>
                                 </div>
                                 <div class="form-group">
                                     <label for="catagory">Catagory</label>
-                                    <select name="idCategory" class="form-control" id="catagory">
+                                    <select name="idCategory" class="form-control" id="catagory" value="{{this.article.idCategory}}">
                                         <option value="1">Blogs</option>
                                         <option value="2">News</option>
                                         <option value="3">Lifestyle</option>
@@ -245,6 +252,8 @@
                                 </div> --}}
                                 <button type="submit" class="btn mag-btn mt-30" onclick="quillContent()"><i class="fa fa-cloud-upload"></i> Upload your article</button>
                             </form>
+                          
+                            {{/if}}
                         </div>
                     </div>
                 </div>
@@ -261,7 +270,7 @@
                 <div class="col-12 col-sm-6 col-lg-3">
                      <div class="footer-widget">
                         <!-- Logo -->
-                        <a href="index.html" class="foo-logo"><img src="../img/core-img/logo2.png" alt=""></a>
+                        <a href="index.html" class="foo-logo"><img src="../../img/core-img/logo2.png" alt=""></a>
                         <p> Project web - Team 28 </br>
                         Teacher: Ngô Ngọc Đăng Khoa</br>
                         

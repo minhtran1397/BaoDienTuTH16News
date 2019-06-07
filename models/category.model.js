@@ -5,6 +5,10 @@ module.exports = {
     return db.load('select * from category');
   },
 
+  allId:() =>{
+    return db.load('select c.id from category c');
+  },
+
   allWithDetails: () => {
     return db.load(`
       select c.id, c.name, count(p.id) as num_of_articles

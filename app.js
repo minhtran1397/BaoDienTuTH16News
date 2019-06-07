@@ -1,6 +1,7 @@
 var express = require('express');
 var exphbs = require('express-handlebars');
 var morgan = require('morgan');
+var categoryModel = require('./models/category.model.js');
 
 var app = express();
 
@@ -9,7 +10,8 @@ app.use(express.urlencoded({ extended: true }));
 
 app.engine('hbs', exphbs({
   layoutsDir: 'views/_layouts',
-  defaultLayout: 'main.hbs'
+  defaultLayout: 'main.hbs',
+
 }));
 app.set('view engine', 'hbs');
 

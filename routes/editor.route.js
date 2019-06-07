@@ -1,19 +1,37 @@
 var express = require('express');
-var articleModel = require('../models/writer.model');
+var articleModel = require('../models/editor.model');
 
 var router = express.Router();
 
 router.get('/', (req, res) => {
-  // articleModel.all()
+
+  // articleModel.allByCate()
   //   .then(rows => {
-  //     res.render('Req 3 - Writer/WriterListArticle', {
-  //       categories: rows
-  //     });
+      
+  //     var i=0;
+  //     for (i = 0; i < rows.length; i++){
+  //       tongSo[i].soCate = rows[i].soCate;
+  //       tongSo[i].name = rows[i].name;
+  //   }
+  //   res.render('Req 4 - Editor/Editor', {
+  //     article: rows,
+  //   });
   //   }).catch(err => {
   //     console.log(err);
   //     res.end('error occured.')
   //   });
-  res.render('Req 4 - Editor/Editor');
+  
+
+  articleModel.all()
+    .then(rows => {
+      res.render('Req 4 - Editor/Editor', {
+        article: rows
+      });
+    }).catch(err => {
+      console.log(err);
+      res.end('error occured.')
+    });
+  
 })
 
 router.get('/edit/:id', (req, res) => {
