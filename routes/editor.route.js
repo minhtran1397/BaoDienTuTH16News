@@ -27,11 +27,14 @@ router.get('/edit/:id', (req, res) => {
       error: true
     });
   }
-  articleModel.single(id).then(rows => {
+  Promise.all([
+    articleModel.single(id),
+    articleModel.allCate(),]).then(([rows,rows2]) => {
     if (rows.length > 0) {
       res.render('Req 4 - Editor/EditorEdit', {
         error: false,
-        article: rows[0]
+        article: rows[0],
+        cate: rows2
       });
     } else {
       res.render('Req 4 - Editor/EditorEdit', {
@@ -43,6 +46,35 @@ router.get('/edit/:id', (req, res) => {
     res.end('error occured.')
   });
 })
+
+
+router.get('/editTrue/:id', (req, res) => {
+  var id = req.params.id;
+  if (isNaN(id)) {
+    res.render('Req 4 - Editor/Editor', {
+      error: true
+    });
+  }
+  Promise.all([
+    articleModel.single(id),
+    articleModel.allCate(),]).then(([rows,rows2]) => {
+    if (rows.length > 0) {
+      res.render('Req 4 - Editor/EditorEditTrue', {
+        error: false,
+        article: rows[0],
+        cate: rows2
+      });
+    } else {
+      res.render('Req 4 - Editor/EditorEditTrue', {
+        error: true
+      });
+    }
+  }).catch(err => {
+    console.log(err);
+    res.end('error occured.')
+  });
+})
+
 
 router.get('/add', (req, res) => {
   res.render('Req 3 - Writer/WriterPostArticle');
@@ -68,7 +100,7 @@ router.post('/success', (req, res) => {
 
 router.post('/update', (req, res) => {
   articleModel.update(req.body).then(n => {
-    res.redirect('/admin/categories');
+    res.redirect('/editor');
   }).catch(err => {
     console.log(err);
     res.end('error occured.')

@@ -45,12 +45,7 @@ module.exports = {
   addTag: entity => {
     return db.add('tag', entity);
   },
-
-
-  // addTagArticle:entity => {
-  //   return db.addTagArticle('article', entity);
-  // },
-
+  
   update: entity => {
     return db.update('article', 'id', entity);
   },

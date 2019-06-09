@@ -107,7 +107,7 @@ router.post('/add', (req, res) => {
 
 router.post('/update', (req, res) => {
   writerModel.update(req.body).then(n => {
-    res.redirect('/writer/add');
+    res.redirect('/writer');
   }).catch(err => {
     console.log(err);
     res.end('error occured.')
