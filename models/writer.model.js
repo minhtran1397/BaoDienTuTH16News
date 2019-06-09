@@ -8,6 +8,18 @@ module.exports = {
     return db.load('select * from category c join article a on a.idCategory = c.id');
   },
 
+  allCategory: () => {
+    return db.load('select count(*) as soCate, c.name as name from article a join category c on c.id=a.idCategory group by c.id, c.name');
+  },
+
+  TongSo: () => {
+    return db.load('select count(*) as TongSo from article');
+  },
+
+  TongSoAllow: id => {
+    return db.load("select count(*)as TongSo from article where allow= '"+id+"'");
+  },
+
   allByCate: id => {
     return db.load(`select * from category c join article a on a.idCategory = c.id where c.id= "${id}"`);
   },
@@ -27,6 +39,10 @@ module.exports = {
 
   single: id => {
     return db.load(`select * from article where id = ${id}`);
+  },
+
+  singleML: id => {
+    return db.load(`select a.title, a.content, a.summary, a.id, c.name as name from article a join category c on c.id = a.idCategory where a.id = ${id}`);
   },
 
   // pageByCat: ( limit, offset) => {

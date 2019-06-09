@@ -202,8 +202,9 @@
                         {{!-- {{#each this.cate}}
                             
                         {{/each}} --}}
+                        <input type="hidden" class="form-control" id="total" name="total" value="{{this.article.length}}" required/>
                         {{#each this.article}}
-                         <div class="single-team-member d-flex align-items-center">
+                         <div class="single-team-member d-flex align-items-center contentPage">
                             <div class="team-member-thumbnail">
                                 <img src="../img/article/{{id}}/main_thumbs.jpg" alt="">
                                 <div class="social-btn">
@@ -221,11 +222,20 @@
                              
                              <p><strong>Title:</strong> {{title}}</p>
                             <p><strong>Summary:</strong> {{summary}}</p>
-                             <button type="button" class="btn btn-outline-secondary"><p></p>See details</button>
+                             {{!-- <button type="button" class="btn btn-outline-secondary"><p></p>See details</button> --}}
+                             <a class="btn btn-outline-secondary" href="/writer/view/{{id}}" role="button">
+                        
+                                See Detail
+                            </a>
                          </div>
                      </div> 
                      
                     {{/each}}
+
+                     <div style="width: 500px; margin:auto;">
+                        <ul id="pagination"></ul>
+                    </div>
+
                    
 </div>
 </div>

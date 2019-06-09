@@ -5,10 +5,14 @@ var writerModel = require('../models/writer.model');
 var router = express.Router();
 
 router.get('/', (req, res) => {
-  writerModel.allCate()
-    .then(rows => {
+  
+  Promise.all([
+    writerModel.allCate(),
+    writerModel.TongSo(),])
+    .then(([rows,rows2]) => {
       res.render('Req 3 - Writer/WriterListArticle', {
-        article: rows
+        article: rows,
+        TongSo: rows2[0]
       });
     }).catch(err => {
       console.log(err);
@@ -16,34 +20,6 @@ router.get('/', (req, res) => {
     });
 })
 
-// router.get('/', (req, res, next) => {
-//   var page = req.query.page || 1;
-//   if (page < 1) page = 1;
-
-//   var limit = 8;
-//   var offset = (page - 1) * limit;
-
-
-//   Promise.all([
-//   writerModel.all(), writerModel.countByCat()
-//   ]).then(([rows,count_rows]) => {
-   
-
-//     var total = count_rows[0].total;
-//     var nPages = Math.floor(total / limit);
-//     if (total % limit > 0) nPages++;
-//     var pages = [];
-//     for (i = 1; i <= nPages; i++) {
-//       var obj = { value: i, active: i === +page };
-//       pages.push(obj);
-//     }
-
-//     res.render('Req 3 - Writer/WriterListArticle', {
-//       article: rows,
-//       pages
-//     });
-//   }).catch(next);
-// })
 
 router.get('/edit/:id', (req, res) => {
   var id = req.params.id;
@@ -69,12 +45,42 @@ router.get('/edit/:id', (req, res) => {
   });
 })
 
+router.get('/view/:id', (req, res) => {
+  var id = req.params.id;
+  if (isNaN(id)) {
+    res.render('Req 3 - Writer/WriterListArticle', {
+      error: true
+    });
+  }
+
+  Promise.all([
+    writerModel.singleML(id),
+    writerModel.allCategory(),]).then(([rows,rows2]) => {
+    if (rows.length > 0) {
+      res.render('Req 3 - Writer/Article', {
+        error: false,
+        article: rows[0],
+        cate: rows2
+      });
+    } else {
+      res.render('Req 3 - Writer/Article', {
+        error: true
+      });
+    }
+  }).catch(err => {
+    console.log(err);
+    res.end('error occured.')
+  });
+})
+
 router.post('/split', (req, res) => {
     if(req.body.allow == 'all'){
-      writerModel.allCate()
-    .then(rows => {
+      Promise.all([
+        writerModel.allCate(),
+        writerModel.TongSo(),]).then(([rows,rows2]) => {
       res.render('Req 3 - Writer/WriterListArticle', {
-        article: rows
+        article: rows,
+        TongSo: rows2[0]
       });
     }).catch(err => {
       console.log(err);
@@ -82,9 +88,12 @@ router.post('/split', (req, res) => {
     });
     }
     else{
-    writerModel.allByAllow(req.body.allow).then(rows => {
+      Promise.all([
+        writerModel.allByAllow(req.body.allow),
+        writerModel.TongSoAllow(req.body.allow),]).then(([rows,rows2]) => {
       res.render('Req 3 - Writer/WriterListArticle', {
-        article: rows
+        article: rows,
+        TongSo: rows2[0]
       });
     }).catch(err => {
       console.log(err);
@@ -98,7 +107,7 @@ router.get('/add', (req, res) => {
 
 router.post('/add', (req, res) => {
   writerModel.add(req.body).then(id => {
-    res.render('Req 3 - Writer/WriterListArticle');
+    res.redirect('/writer');
   }).catch(err => {
     console.log(err);
     res.end('error occured.')

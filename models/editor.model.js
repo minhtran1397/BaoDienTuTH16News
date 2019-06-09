@@ -9,6 +9,10 @@ module.exports = {
     return db.load('select count(*) as soCate, c.name as name from article a join category c on c.id=a.idCategory group by c.id, c.name');
   },
 
+  TongSo: () =>{
+    return db.load('select count(*) as TongSo from article')
+  },
+
   allCate: ()=>{
     return db.load('SELECT count(*) as tongSo,c.name FROM article a join category c on a.idCategory = c.id group by c.id,c.name ');
   },

@@ -214,21 +214,6 @@
                         <form action="/writer/split" method="POST">
                             <div class="row">
                                 
-
-                                {{!-- <div class="col-md-3 input-group mb-3">
-                                  <div class="input-group-prepend">
-                                    <label class="input-group-text" for="inputGroupSelect01">Category</label>
-                                </div>
-                                <select name="catId" class="custom-select" id="inputGroupSelect01">
-                                    <option value="all" disabled selected hidden>Choose...</option>
-                                    <option value="all">All</option>
-                                    <option value="1">Blog</option>
-                                    <option value="2">News</option>
-                                    <option value="3">Lifestyle</option>
-                                    <option value="4">Trending</option>
-                                </select>
-                            </div> --}}
-
                             <div class="col-md-3 input-group mb-3">
                               <div class="input-group-prepend">
                                 <label class="input-group-text" for="inputGroupSelect01">Status</label>
@@ -254,14 +239,15 @@
 
     <div class="row">
         
-
+    <input type="hidden" class="form-control" id="total" name="total" value="{{TongSo.TongSo}}" required/>
         {{#each this.article}}
-        <div class="col-md-ml single-team-member classborder">
+        
+        <div class="col-md-ml single-team-member classborder contentPage">
             <div class="team-member-thumbnail dmlPower">
                 
                 <img src="../img/article/{{id}}/main_thumbs.jpg" alt="">
                 <div class="social-btn">   
-                    <a class="btn btn-outline-light" href="/writer/edit/{{id}}" role="button">
+                    <a class="btn btn-outline-light" href="/writer/view/{{id}}" role="button">
                         
                         Detail
                     </a>
@@ -283,38 +269,17 @@
             </div>
             <div class="notetitle"><p>Title: {{title}}</p></div>
         </div>
+    
       {{/each}}
 
     </div>
     
 
-    <div class="row">
-      <div class="col-sm-12">
-        <nav aria-label="...">
-          <ul class="pagination">
-            <li class="page-item disabled">
-              <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-            </li>
-            {{#each this.pages}}
-            {{#if active}}
-            <li class="page-item active" aria-current="page">
-            {{!-- <a class="page-link" <span class="sr-only">(current)</span></a> --}}
-             <a class="page-link" href="javascript:;">{{value}} <span class="sr-only">(current)</span></a>
-            </li>
-            {{else}}
-            <li class="page-item">
-              {{!-- <a class="page-link">{{value}}</a> --}}
-              <a class="page-link" href="?page={{value}}">{{value}}</a>
-            </li>
-            {{/if}}
-            {{/each}}
-            <li class="page-item">
-              <a class="page-link" href="#">Next</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </div>
+    
+
+    <div style="width: 500px; margin:auto;">
+		<ul id="pagination"></ul>
+	</div>
 
 
 

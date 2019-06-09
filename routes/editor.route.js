@@ -7,11 +7,13 @@ router.get('/', (req, res) => {
   
 Promise.all([
   articleModel.all(),
-  articleModel.allCate(),])
-    .then(([rows, rows2]) => {
+  articleModel.allCate(),
+  articleModel.TongSo(),])
+    .then(([rows, rows2, rows3]) => {
       res.render('Req 4 - Editor/Editor', {
         article: rows,
-        cate : rows2
+        cate : rows2,
+        TongSo: rows3[0]
       });
     }).catch(err => {
       console.log(err);
@@ -110,6 +112,35 @@ router.post('/update', (req, res) => {
 router.post('/delete', (req, res) => {
   articleModel.delete(req.body.CatID).then(n => {
     res.redirect('/admin/categories');
+  }).catch(err => {
+    console.log(err);
+    res.end('error occured.')
+  });
+})
+
+
+router.get('/view/:id', (req, res) => {
+  var id = req.params.id;
+  if (isNaN(id)) {
+    res.render('Req 3 - Writer/WriterListArticle', {
+      error: true
+    });
+  }
+
+  Promise.all([
+    articleModel.singleML(id),
+    articleModel.allCategory(),]).then(([rows,rows2]) => {
+    if (rows.length > 0) {
+      res.render('Req 3 - Writer/Article', {
+        error: false,
+        article: rows[0],
+        cate: rows2
+      });
+    } else {
+      res.render('Req 3 - Writer/Article', {
+        error: true
+      });
+    }
   }).catch(err => {
     console.log(err);
     res.end('error occured.')
