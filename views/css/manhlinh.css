@@ -74,6 +74,7 @@
 
 #content{
     height: 200px;
+    float:right;
 }
 
 .ql-container.ql-snow {
@@ -139,6 +140,7 @@
 .PadStatus{
     float: right;
     /*display: inline-block;*/
+    font-size: 12px;
 }
 
 .mag-posts-content2 {

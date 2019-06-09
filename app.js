@@ -27,17 +27,17 @@ app.use('/editor', require('./routes/editor.route'))
 // app.use('/admin/categories', require('./routes/admin/category.route'))
 
 
-// app.use((req, res, next) => {
-//   res.render('404', { layout: false });
-// })
+app.use((req, res, next) => {
+  res.render('404', { layout: false });
+})
 
-// app.use((error, req, res, next) => {
-//   res.render('error', {
-//     layout: false,
-//     message: error.message,
-//     error
-//   })
-// })
+app.use((error, req, res, next) => {
+  res.render('error', {
+    layout: false,
+    message: error.message,
+    error
+  })
+})
 
 app.listen(3000, () => {
   console.log('server is running at http://localhost:3000');

@@ -221,15 +221,18 @@
 
                                 <div class="form-group">
                                     <label for="content">Article Content</label>
-                                    <div id="toolbar"></div>
-                                    <div id="content" tabindex="0"></div>
-                                    <input type="hidden" class="form-control" id="dmlContent" name="content" required/>
+                                    {{!-- <div id="toolbar"></div>
+                                    <div id="content" tabindex="0"></div> --}}
+                                    <textarea class="form-control" id="content" name="content" required></textarea>
+                                  
                                     <!-- <textarea name="video-description" class="form-control" cols="30" rows="10" id="content"></textarea> -->
                                 </div>
 
+                                <input type="hidden" id="allow" name="allow" value="WaitForAd" required/>
+
                                 <div class="form-group">
                                     <label for="tag">Tags*</label>
-                                    <input type="text" class="form-control" id="tag" name="idTag" required/>
+                                    <input type="text" class="form-control" id="tag" name="tag" required/>
                                 </div>
                                 <div class="form-group">
                                     <label for="catagory">Catagory</label>
@@ -343,7 +346,7 @@
 
     </footer>
 
-    <script>
+    {{!-- <script>
         var toolbarOptions =[
         ['bold','italic','underline','strike'],
         ['blockquote','code-block'],
@@ -360,20 +363,6 @@
         ];
 
 
-        // var quill = new Quill('#title',{
-        //     modules:{
-        //         toolbar: toolbarOptions
-        //     },
-        //     theme: 'snow'
-        // });
-
-        // var quill2 = new Quill('#summary',{
-        //     modules:{
-        //         toolbar: toolbarOptions
-        //     },
-        //     theme: 'snow'
-        // });
-
 
         var quill3 = new Quill('#content',{
             modules:{
@@ -388,11 +377,8 @@
             console.log(content);
             document.getElementById("dmlContent").innerHTML= content;
         }
-        // document.getElementById('content').onclick = function () {
-        //     document.getElementById('content').focus();
-        // };
-        // document.getElementById('content').focus();
-    </script>
+       
+    </script> --}}
 
     <!-- ##### Footer Area End ##### -->
 

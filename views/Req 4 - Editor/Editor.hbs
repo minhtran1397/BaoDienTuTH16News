@@ -212,8 +212,7 @@
                             </div>
                             <div class="team-member-content">
                                 <h6>Mrs. Susan Monroe
-                                 <button class="mlfalse mlfalsebut" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-lock"></i></button>
-
+                                <a class="mlfalse mlfalsebut" href="/editor/edit/{{id}}"><i class="fas fa-lock"></i></a>
 
                                  <button class="mltrue mltruebut" data-toggle="modal" data-target="#exampleModaltrue"><i class="fas fa-check"></i></button>
                              </h6>
@@ -224,76 +223,9 @@
                              <button type="button" class="btn btn-outline-secondary"><p></p>See details</button>
                          </div>
                      </div> 
+                     
                     {{/each}}
-                     {{!-- <!-- Single Team Member -->
-                     <div class="single-team-member d-flex align-items-center">
-                        <div class="team-member-thumbnail">
-                            <img src="../img/bg-img/37.jpg" alt="">
-                            <div class="social-btn">
-                             <a href="#"><i class="far fa-address-card"></i> Info</a>
-                         </div>
-                     </div>
-                     <div class="team-member-content">
-                        <h6>Mr. Luke Garner
-                          <button class="mlfalse mlfalsebut" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-lock"></i></button>
-
-
-                          <button class="mltrue mltruebut" data-toggle="modal" data-target="#exampleModaltrue"><i class="fas fa-check"></i></button>
-                      </h6>
-                      <span>Editor in Chief</span>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consectetur mauris id scelerisque eleifend. Nunc vestibulum cursea quam at scelerisque.</p>
-
-                      <button type="button" class="btn btn-outline-secondary"><p></p>See details</button>
-                  </div>
-              </div>
-
-              <!-- Single Team Member -->
-              <div class="single-team-member d-flex align-items-center">
-                <div class="team-member-thumbnail">
-                    <img src="../img/bg-img/38.jpg" alt="">
-                    <div class="social-btn">
-                     <a href="#"><i class="far fa-address-card"></i> Info</a>
-                 </div>
-             </div>
-             <div class="team-member-content">
-                <h6>Ms. Elena Korikova
-                    <button class="mlfalse mlfalsebut" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-lock"></i></button>
-
-
-                    <button class="mltrue mltruebut" data-toggle="modal" data-target="#exampleModaltrue"><i class="fas fa-check"></i></button>
-                </h6>
-                <span>Marketer</span>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consectetur mauris id scelerisque eleifend. Nunc vestibulum cursea quam at scelerisque.</p>
-
-                <button type="button" class="btn btn-outline-secondary"><p></p>See details</button>
-            </div>
-        </div>
-
-        <!-- Single Team Member -->
-        <div class="single-team-member d-flex align-items-center">
-            <div class="team-member-thumbnail">
-                <img src="../img/bg-img/39.jpg" alt="">
-                <div class="social-btn">
-                 <a href="#"><i class="far fa-address-card"></i> Info</a>
-             </div>
-         </div>
-         <div class="team-member-content">
-            <h6>Mr. Tom Wellington 
-                <button class="mlfalse mlfalsebut" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-lock"></i></button>
-
-
-                <button class="mltrue mltruebut" data-toggle="modal" data-target="#exampleModaltrue"><i class="fas fa-check"></i></button>
-
-
-            </h6>
-            <span>Photographer</span>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consectetur mauris id scelerisque eleifend. Nunc vestibulum cursea quam at scelerisque.</p>
-
-            <button type="button" class="btn btn-outline-secondary"><p></p>See details</button>
-
-
-        </div>
-    </div> --}}
+                   
 </div>
 </div>
 
@@ -319,14 +251,13 @@
             </div>
 
             <!-- Catagory Widget -->
+         
             <ul class="catagory-widgets">
-                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> Life Style</span> <span>35</span></a></li>
-                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> Travel</span> <span>30</span></a></li>
-                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> Foods</span> <span>13</span></a></li>
-                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> Game</span> <span>06</span></a></li>
-                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> Sports</span> <span>28</span></a></li>
-                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> Football</span> <span>08</span></a></li>
-                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> TV Show</span> <span>13</span></a></li>
+            {{#each this.cate}}
+               
+                    <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> {{name}}</span> <span>{{tongSo}}</span></a></li>
+                
+            {{/each}}
             </ul>
         </div>
 
@@ -437,9 +368,8 @@
     </footer>
 
 
-
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    {{!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -480,7 +410,7 @@
   </div>
   <form>
   <div class="modal-body">
-
+    <form action="/editor/success" method="POST">
      
           <div class="form-group">
             <label for="Category">Category</label>
@@ -494,13 +424,13 @@
 
         <div class="form-group">
             <label for="Datetime">Date-time</label>
-            <input id="input" id="Datetime" width="312" />
+            <input id="inputdml" id="Datetime" width="312" />
             <script>
-                $('#input').datetimepicker({ footer: true, modal: true });
+                $('#inputdml').datetimepicker({ footer: true, modal: true });
             </script>
         </div>
 
-
+        </form>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
@@ -509,7 +439,7 @@
     </form>
 </div>
 </div>
-</div>
+</div> --}}
 
 <!-- ##### Footer Area End ##### -->
 

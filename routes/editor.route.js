@@ -4,28 +4,14 @@ var articleModel = require('../models/editor.model');
 var router = express.Router();
 
 router.get('/', (req, res) => {
-
-  // articleModel.allByCate()
-  //   .then(rows => {
-      
-  //     var i=0;
-  //     for (i = 0; i < rows.length; i++){
-  //       tongSo[i].soCate = rows[i].soCate;
-  //       tongSo[i].name = rows[i].name;
-  //   }
-  //   res.render('Req 4 - Editor/Editor', {
-  //     article: rows,
-  //   });
-  //   }).catch(err => {
-  //     console.log(err);
-  //     res.end('error occured.')
-  //   });
   
-
-  articleModel.all()
-    .then(rows => {
+Promise.all([
+  articleModel.all(),
+  articleModel.allCate(),])
+    .then(([rows, rows2]) => {
       res.render('Req 4 - Editor/Editor', {
-        article: rows
+        article: rows,
+        cate : rows2
       });
     }).catch(err => {
       console.log(err);
@@ -37,19 +23,18 @@ router.get('/', (req, res) => {
 router.get('/edit/:id', (req, res) => {
   var id = req.params.id;
   if (isNaN(id)) {
-    res.render('admin/vwCategories/edit', {
+    res.render('Req 4 - Editor/Editor', {
       error: true
     });
   }
-
   articleModel.single(id).then(rows => {
     if (rows.length > 0) {
-      res.render('admin/vwCategories/edit', {
+      res.render('Req 4 - Editor/EditorEdit', {
         error: false,
-        category: rows[0]
+        article: rows[0]
       });
     } else {
-      res.render('admin/vwCategories/edit', {
+      res.render('Req 4 - Editor/EditorEdit', {
         error: true
       });
     }
@@ -66,6 +51,15 @@ router.get('/add', (req, res) => {
 router.post('/add', (req, res) => {
   articleModel.add(req.body).then(id => {
     res.render('Req 3 - Writer/WriterPostArticle');
+  }).catch(err => {
+    console.log(err);
+    res.end('error occured.')
+  });
+})
+
+router.post('/success', (req, res) => {
+  articleModel.updateTagAndCate(req.body).then(id => {
+    res.render('Req 4 - Editor/Editor');
   }).catch(err => {
     console.log(err);
     res.end('error occured.')

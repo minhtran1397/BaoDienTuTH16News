@@ -98,7 +98,7 @@ router.get('/add', (req, res) => {
 
 router.post('/add', (req, res) => {
   writerModel.add(req.body).then(id => {
-    res.render('Req 3 - Writer/WriterPostArticle');
+    res.render('Req 3 - Writer/WriterListArticle');
   }).catch(err => {
     console.log(err);
     res.end('error occured.')

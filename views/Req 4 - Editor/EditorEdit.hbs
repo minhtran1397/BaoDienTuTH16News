@@ -1,27 +1,4 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="description" content="">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    Title
-    <title>Mag</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    Favicon 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
-    <link rel="icon" href="../img/core-img/favicon.ico">
-    
-    Stylesheet 
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
-    <link rel="stylesheet" type="text/css" href="../css/manhlinh.css">
-</head>
-
-<body> -->
-    
-    <!-- Preloader -->
     <div class="preloader d-flex align-items-center justify-content-center">
         <div class="spinner">
             <div class="double-bounce1"></div>
@@ -157,7 +134,7 @@
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="breadcrumb-content">
-                        <h2>MY ARTICLE</h2>
+                        <h2>MANAGE ARTICLES</h2>
                     </div>
                 </div>
             </div>
@@ -173,7 +150,7 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">My Article</li>
+                            <li class="breadcrumb-item active" aria-current="page">Manage Articles</li>
                         </ol>
                     </nav>
                 </div>
@@ -186,140 +163,132 @@
     <section class="about-us-area">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-md-12">
-                    <!-- About Us Content -->
-                    <div class="about-us-content bg-white mb-30 p-30 box-shadow">
-                        <!-- Team Member Area -->
-                        <div class="section-heading mt-30">
-                            <h5>History Article</h5>
-                        </div>
+                <div class="col-12 col-xl-8">
+                    
+
+   
 
 
-                         <div class="col-md-3 form-group">
-                            
-                            <a class="btn btn-outline-danger btnfilter" href="/writer/add" role="button">
-                                
-                                &nbsp Post Article&nbsp
-                            </a>
+    <div class="video-submit-area">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <!-- Video Submit Content -->
+                    <div class="video-submit-content mb-50 p-30 bg-white box-shadow">
+                        <!-- Section Title -->
+                        <div class="section-heading">
+                            <h5>refuse the article</h5>
                         </div>
-                        <div class="row">
-                            <div class="col-md-6 input-group mb-3">
-                                <input type="text" class="form-control rechange" placeholder="Search.." aria-label="Recipient's username" aria-describedby="basic-addon2">
-                                <div class="input-group-append">
-                                    <button class="btn btn-outline-danger btnfilter" type="button"> <i class="fa fa-search"></i></button>
-                                </div>
+                             <div class="video-info mt-30">
+                            {{#if this.error}}
+                            <div class="alert alert-danger" role="alert">
+                            Invalid to edit because this article allowed or 'WaitForPost' by Admin. <a href="/writer" class="alert-link">Go back</a>.
                             </div>
-                        </div>
-
-                        <form action="/writer/split" method="POST">
-                            <div class="row">
-                                
-
-                                {{!-- <div class="col-md-3 input-group mb-3">
-                                  <div class="input-group-prepend">
-                                    <label class="input-group-text" for="inputGroupSelect01">Category</label>
-                                </div>
-                                <select name="catId" class="custom-select" id="inputGroupSelect01">
-                                    <option value="all" disabled selected hidden>Choose...</option>
-                                    <option value="all">All</option>
-                                    <option value="1">Blog</option>
-                                    <option value="2">News</option>
-                                    <option value="3">Lifestyle</option>
-                                    <option value="4">Trending</option>
-                                </select>
-                            </div> --}}
-
-                            <div class="col-md-3 input-group mb-3">
-                              <div class="input-group-prepend">
-                                <label class="input-group-text" for="inputGroupSelect01">Status</label>
-                            </div>
-                            <select name="allow" class="custom-select" id="inputGroupSelect02">
-                                <option value="all" disabled selected hidden>Choose...</option>
-                                <option value="all">All</option>
-                                <option value="Allowed">Allowed</option>
-                                <option value="WaitForAd">WaitForAd</option>
-                                <option value="WaitForPost">WaitForPost</option>
-                                <option value="Blocked">Blocked</option>
-                            </select>
-                        </div>
-
-
-                        <div class="col-md-3 form-group">
-                            <button type="submit" class="btn btn-outline-danger btnfilter">Filter</button>
                             
+                            {{else}}
+                            <form method="POST" action="/writer/update">
+                               
+                                <div class="form-group">
+                                    <label for="txtCatID">#ID</label>
+                                    <input readonly type="text" class="form-control" id="txtCatID" name="id" value="{{this.article.id}}">
+                                </div>
+                                <div class="form-group">
+                                    
+                                    <div id="toolbar"></div>
+                                   
+                                    <input type="hidden" class="form-control" id="title" name="title" value="{{this.article.title}}" required/>
+                                </div>
+                                <div class="form-group">
+                                    <input type="hidden" class="form-control" id="summary" name="summary" value="{{this.article.summary}}" required/>
+
+                                </div>
+
+                                <div class="form-group">
+                                    
+                                     <textarea class="form-control" id="content" name="content" style="display:none;">{{this.article.content}}</textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    
+                                    <input type="hidden" class="form-control" id="tag" name="tag" value="{{this.article.tag}}" required/>
+                                </div>
+                                <div class="form-group">
+                                   
+                                    <select name="idCategory" class="form-control" id="catagory" value="{{this.article.idCategory}}" style="display:none;">
+                                        <option value="1">Blogs</option>
+                                        <option value="2">News</option>
+                                        <option value="3">Lifestyle</option>
+                                        <option value="4">Trending</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="reason">Reason</label>
+                                    <input type="text" class="form-control" id="reason" name="reason" value="{{this.article.reason}}" required/>
+                                </div>
+                                {{!-- <div>
+                                    <input type="file" name="file" placeholder="chọn hình">
+                                </div> --}}
+                                <button type="submit" class="btn mag-btn mt-30"><i class="fa fa-cloud-upload"></i> Approved article</button>
+                            </form>
+                          
+                            {{/if}}
                         </div>
-                       
-        </div>
-    </form>
-
-    <div class="row">
-        
-
-        {{#each this.article}}
-        <div class="col-md-ml single-team-member classborder">
-            <div class="team-member-thumbnail dmlPower">
-                
-                <img src="../img/article/{{id}}/main_thumbs.jpg" alt="">
-                <div class="social-btn">   
-                    <a class="btn btn-outline-light" href="/writer/edit/{{id}}" role="button">
-                        
-                        Detail
-                    </a>
-
-                    {{!-- <button type="button" class="btn btn-outline-light">Detail</button>    --}}
-                    {{!-- <button type="button" class="btn btn-outline-light">Edit</button>   --}}
-                    <a class="btn btn-outline-light" href="/writer/edit/{{id}}" role="button">
-                        
-                        Edit
-                    </a>
-
+                    </div>
                 </div>
             </div>
-            <div>&nbsp</div>
-
-            <div class="row">
-                <div class="col-md-6 PadTitle"><strong>{{name}}</strong></div>
-                {{!-- <div class="col-md-6 PadStatus">Status: {{allow}}</div> --}}
-            </div>
-            <div class="notetitle"><p>Title: {{title}}</p></div>
         </div>
-      {{/each}}
-
     </div>
-    
 
-    <div class="row">
-      <div class="col-sm-12">
-        <nav aria-label="...">
-          <ul class="pagination">
-            <li class="page-item disabled">
-              <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-            </li>
-            {{#each this.pages}}
-            {{#if active}}
-            <li class="page-item active" aria-current="page">
-            {{!-- <a class="page-link" <span class="sr-only">(current)</span></a> --}}
-             <a class="page-link" href="javascript:;">{{value}} <span class="sr-only">(current)</span></a>
-            </li>
-            {{else}}
-            <li class="page-item">
-              {{!-- <a class="page-link">{{value}}</a> --}}
-              <a class="page-link" href="?page={{value}}">{{value}}</a>
-            </li>
-            {{/if}}
+
+
+
+
+
+                </div>
+
+<div class="col-12 col-md-6 col-lg-5 col-xl-4">
+    <div class="sidebar-area bg-white mb-30 box-shadow">
+        <!-- Sidebar Widget -->
+        <div class="single-sidebar-widget p-30">
+            <!-- Social Followers Info -->
+            <div class="social-followers-info">
+                <!-- Facebook -->
+                <a href="#" class="duyet"><i class="fas fa-check"></i> 4,360 <span>Allow</span></a>
+                <!-- Twitter -->
+                <a href="#" class="khongduyet"><i class="fas fa-lock"></i>&nbsp 3,280 <span>Locked</span></a>
+                <!-- YouTube -->
+            </div>
+        </div>
+
+        <!-- Sidebar Widget -->
+        <div class="single-sidebar-widget p-30">
+            <!-- Section Title -->
+            <div class="section-heading">
+                <h5>Categories</h5>
+            </div>
+
+            <!-- Catagory Widget -->
+         
+            <ul class="catagory-widgets">
+            {{#each this.cate}}
+               
+                    <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> {{name}}</span> <span>{{tongSo}}</span></a></li>
+                
             {{/each}}
-            <li class="page-item">
-              <a class="page-link" href="#">Next</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
+            </ul>
+        </div>
+
+        <!-- Sidebar Widget -->
+       
+
+        <!-- Sidebar Widget -->
+        <div class="single-sidebar-widget p-30">
+            <!-- Section Title -->
+            
+
+        </div>
     </div>
-
-
-
-
-</div>
 </div>
 </div>
 </div>
@@ -353,16 +322,16 @@
                             
 
                             <ul >
-                                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i>News</span> </a></li>
-                                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i>Bussiness</span> </a></li>
+                                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> News</span> </a></li>
+                                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> Bussiness</span> </a></li>
                                 <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i>Agricultural</span> </a></li>
                                 <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i>Seafood</span> </a></li>
                                 <!-- <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> Đời sống</span> </a></li> -->
-                                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i>Cutural</span> </a></li>
+                                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> Cutural</span> </a></li>
                                 <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i>Films </span> </a></li>
-                                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i>Travel  </span> </a></li>
+                                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> Travel  </span> </a></li>
                                 <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i>Fashion  </span> </a></li>
-                                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i>Health </span> </a></li>
+                                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> Health </span> </a></li>
                                 <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i>Food </span> </a></li>
                                 <!-- <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> Khoa học  </span></a></li> -->
                                 <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> Invention  </span> </a></li>
@@ -415,22 +384,3 @@
         </div>
 
     </footer>
-    <!-- ##### Footer Area End ##### -->
-
-    <!-- ##### All Javascript Script ##### -->
-    <!-- jQuery-2.2.4 js -->
-    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="../js/jquery/jquery-2.2.4.min.js"></script>
-
-    <script src="../js/bootstrap/popper.min.js"></script>
-
-    <script src="../js/bootstrap/bootstrap.min.js"></script>
-
-    <script src="../js/plugins/plugins.js"></script>
-
-    <script src="../js/active.js"></script>
-</body>
-
-</html> -->
