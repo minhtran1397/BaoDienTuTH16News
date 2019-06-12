@@ -8,11 +8,10 @@ var app = express();
 app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }));
 
-app.engine('hbs', exphbs({
-  layoutsDir: 'views/_layouts',
-  defaultLayout: 'main.hbs',
+require('./middlewares/view-engine')(app);
+require('./middlewares/session')(app);
+require('./middlewares/passport')(app);
 
-}));
 app.set('view engine', 'hbs');
 
 app.use(express.static('views'));
@@ -24,6 +23,7 @@ app.get('/', (req, res) => {
 
 app.use('/writer', require('./routes/writer.route'))
 app.use('/editor', require('./routes/editor.route'))
+app.use('/register', require('./routes/register.route'))
 // app.use('/admin/categories', require('./routes/admin/category.route'))
 
 

@@ -18,9 +18,16 @@
   },
   "homepage": "https://github.com/minhtran1397/BaoDienTuTH16News#readme",
   "dependencies": {
+    "bcrypt": "^3.0.6",
     "express": "^4.17.0",
     "express-handlebars": "^3.1.0",
+    "express-handlebars-sections": "^1.0.1",
+    "express-session": "^1.16.2",
+    "moment": "^2.24.0",
     "morgan": "^1.9.1",
-    "mysql": "^2.17.1"
+    "mysql": "^2.17.1",
+    "numeral": "^2.0.6",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0"
   }
 }
