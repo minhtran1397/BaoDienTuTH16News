@@ -173,6 +173,16 @@
                                                 <option value="editor">Editor</option>
                                             </select>
                                         </div>
+
+                                        <div class="form-group">
+                                            <label for="catagory">Catagory (if you are Editor)</label>
+                                            <select name="idCategory" class="form-control" id="catagory">
+                                                {{#each this.cate2}}
+                                                <option value="{{id}}">{{name}}</option>     
+                                              {{/each}}
+                                            </select>
+                                        </div>
+
                                         </div>
                                         <div class="card-footer text-right">
                                         <button type="submit" class="btn btn-lg btn-success btn-block">

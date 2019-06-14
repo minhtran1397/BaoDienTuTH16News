@@ -36,7 +36,7 @@
             <div class="double-bounce2"></div>
         </div>
     </div>
-
+<form id="thishereform" action="/account/logout" method="POST"></form>
     <!-- ##### Header Area Start ##### -->
   <header class="header-area">
 
@@ -127,7 +127,17 @@
                                     </li>
                                      <li><a href="timkiem.html">Search</a> </li>
                                      
-                                    <li><a href="/account/login" class="login-btn"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+                                    <li><a href="#" class="login-btn"><i class="fa fa-user" aria-hidden="true"></i></a>
+                                        <ul class="dropdown">
+                                            <a class="dropdown-item" href="/account/login" role="button">
+                                                Prolife
+                                            </a>
+                                            <a class="dropdown-item" href="javascript: $('#thishereform').submit();">
+                                                Logout
+                                            </a>
+                                        </ul>
+                                    
+                                    </li>
                                     
                                     <li>
                                         <div class="top-meta-data d-flex align-items-center" class="classynav">
@@ -139,10 +149,10 @@
                                             <a class="dropdown-item" href="/account/login" role="button">
                                                 Subcriber
                                             </a>
-                                            <a class="dropdown-item" href="/account/login2" role="button">
+                                            <a class="dropdown-item" href="/writer" role="button">
                                                 Writer
                                             </a>
-                                            <a class="dropdown-item" href="/account/login3" role="button">
+                                            <a class="dropdown-item" href="/editor" role="button">
                                                 Editor
                                             </a>
                                             <a class="dropdown-item" href="/account/login3" role="button">

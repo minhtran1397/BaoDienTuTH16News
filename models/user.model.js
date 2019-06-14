@@ -5,6 +5,10 @@ module.exports = {
     return db.load('select * from user');
   },
 
+  allCate:() => {
+    return db.load('select * from category');
+  },
+
   single: id => {
     return db.load(`select * from user where id = ${id}`);
   },

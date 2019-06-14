@@ -8,8 +8,18 @@ var auth = require('../middlewares/auth');
 var router = express.Router();
 
 router.get('/register', (req, res) => {
-    res.render('Req 3 - Writer/Register');
-  })
+
+  userModel.allCate()
+    .then(rows => {
+      res.render('Req 3 - Writer/Register', {
+        cate2: rows
+      });
+    }).catch(err => {
+      console.log(err);
+      res.end('error occured.')
+    });
+
+})
 
 router.get('/is-available', (req, res, next) => {
   var user = req.query.username;
@@ -39,7 +49,8 @@ router.post('/registeradd', (req, res, next) => {
     email: req.body.email,
     dob: dob,
     role: req.body.role,
-    duration: datetime
+    duration: datetime,
+    idCategory: req.body.idCategory
   }
 
   userModel.add(entity).then(id => {

@@ -21,22 +21,6 @@ router.get('/', auth, (req, res, next) => {
       res.end('error occured.')
     });
 })
-// router.get('/', (req, res) => {
-  
-//   Promise.all([
-//     writerModel.allCate(),
-//     writerModel.TongSo(),])
-//     .then(([rows,rows2]) => {
-//       res.render('Req 3 - Writer/WriterListArticle', {
-//         article: rows,
-//         TongSo: rows2[0]
-//       });
-//     }).catch(err => {
-//       console.log(err);
-//       res.end('error occured.')
-//     });
-// })
-
 
 router.get('/edit/:id', (req, res) => {
   var id = req.params.id;
@@ -48,13 +32,14 @@ router.get('/edit/:id', (req, res) => {
 
   Promise.all([
     writerModel.single(id),
-    writerModel.allTag()]).then(([rows,rows2]) => {
+    writerModel.allTag(),
+    writerModel.allCate2()]).then(([rows,rows2,rows3]) => {
     if (rows.length > 0 && rows[0].allow !='Allowed' &&rows[0].allow !='WaitForPost') {
       res.render('Req 3 - Writer/WriterEditArticle', {
         error: false,
         article: rows[0],
-        tag: rows2
-
+        tag: rows2,
+        cate2: rows3
       });
     } else {
       res.render('Req 3 - Writer/WriterEditArticle', {
@@ -128,12 +113,14 @@ router.get('/add', auth, (req, res, next) => {
   Promise.all([
     writerModel.allCateByIdWriter(req.user.id),
     writerModel.TongSoByIdWriter(req.user.id),
-    writerModel.allTag()])
-    .then(([rows,rows2,rows3]) => {
+    writerModel.allTag(),
+    writerModel.allCate2()])
+    .then(([rows,rows2,rows3,rows4]) => {
       res.render('Req 3 - Writer/WriterPostArticle', {
         article: rows,
         TongSo: rows2[0],
-        tag: rows3
+        tag: rows3,
+        cate2: rows4
       });
     }).catch(err => {
       console.log(err);

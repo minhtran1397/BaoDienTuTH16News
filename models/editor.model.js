@@ -4,6 +4,27 @@ module.exports = {
   all: () => {
     return db.load('select * from article');
   },
+  
+  allCate2: () => {
+    return db.load('select * from category');
+  },
+
+  allTag: () => {
+    return db.load('select * from tag');
+  },
+
+  allAllow:()=>{
+    return db.load('select count(*)as tongso from article where allow = "Allowed"');
+  },
+
+  allBlock:()=>{
+    return db.load('select count(*) as tongso from article where allow="Blocked"');
+  },
+
+
+  allByIdEditor: id => {
+    return db.load(`select * from article where idCategory = ${id}`);
+  },
 
   allByCate: () => {
     return db.load('select count(*) as soCate, c.name as name from article a join category c on c.id=a.idCategory group by c.id, c.name');

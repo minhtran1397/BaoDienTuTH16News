@@ -8,6 +8,10 @@ module.exports = {
     return db.load('select * from category c join article a on a.idCategory = c.id');
   },
 
+  allCate2:() => {
+    return db.load('select * from category');
+  },
+
   allTag: () => {
     return db.load('select * from  tag');
   },

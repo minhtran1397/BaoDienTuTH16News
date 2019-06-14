@@ -8,14 +8,18 @@ var router = express.Router();
 router.get('/', auth, (req, res, next) => {
   
 Promise.all([
-  articleModel.all(),
+  articleModel.allByIdEditor(req.user.id),
   articleModel.allCate(),
-  articleModel.TongSo(),])
-    .then(([rows, rows2, rows3]) => {
+  articleModel.TongSo(),
+  articleModel.allAllow(),
+  articleModel.allBlock()])
+    .then(([rows, rows2, rows3, rows4,rows5]) => {
       res.render('Req 4 - Editor/Editor', {
         article: rows,
         cate : rows2,
-        TongSo: rows3[0]
+        TongSo: rows3[0],
+        allow: rows4[0],
+        block: rows5[0]
       });
     }).catch(err => {
       console.log(err);
@@ -33,12 +37,16 @@ router.get('/edit/:id', (req, res) => {
   }
   Promise.all([
     articleModel.single(id),
-    articleModel.allCate(),]).then(([rows,rows2]) => {
+    articleModel.allCate(),
+    articleModel.allAllow(),
+    articleModel.allBlock()]).then(([rows,rows2,rows3,rows4]) => {
     if (rows.length > 0) {
       res.render('Req 4 - Editor/EditorEdit', {
         error: false,
         article: rows[0],
-        cate: rows2
+        cate: rows2,
+        allow: rows3,
+        block: rows4
       });
     } else {
       res.render('Req 4 - Editor/EditorEdit', {
@@ -61,12 +69,20 @@ router.get('/editTrue/:id', (req, res) => {
   }
   Promise.all([
     articleModel.single(id),
-    articleModel.allCate(),]).then(([rows,rows2]) => {
+    articleModel.allCate(),
+    articleModel.allCate2(),
+    articleModel.allTag(),
+    articleModel.allAllow(),
+    articleModel.allBlock()]).then(([rows,rows2,rows3,rows4, rows5,rows6]) => {
     if (rows.length > 0) {
       res.render('Req 4 - Editor/EditorEditTrue', {
         error: false,
         article: rows[0],
-        cate: rows2
+        cate: rows2,
+        cate2: rows3,
+        tag: rows4,
+        allow: rows5,
+        block: rows6
       });
     } else {
       res.render('Req 4 - Editor/EditorEditTrue', {

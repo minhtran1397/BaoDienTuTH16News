@@ -148,10 +148,9 @@
                                 <div class="form-group">
                                     <label for="catagory">Catagory</label>
                                     <select name="idCategory" class="form-control" id="catagory" value="{{this.article.idCategory}}">
-                                        <option value="1">Blogs</option>
-                                        <option value="2">News</option>
-                                        <option value="3">Lifestyle</option>
-                                        <option value="4">Trending</option>
+                                        {{#each this.cate2}}
+                                        <option value="{{id}}">{{name}}</option>     
+                                      {{/each}}
                                     </select>
                                 </div>
                                 {{!-- <div>
