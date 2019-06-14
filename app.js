@@ -21,6 +21,8 @@ app.get('/', (req, res) => {
   res.render('home');
 })
 
+app.use('/guest/detailcategories',require('./routes/guests/guestdetailcategory.route'));
+
 app.use('/writer', require('./routes/writer.route'))
 app.use('/editor', require('./routes/editor.route'))
 app.use('/register', require('./routes/register.route'))
