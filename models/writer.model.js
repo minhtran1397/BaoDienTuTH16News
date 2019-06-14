@@ -8,12 +8,24 @@ module.exports = {
     return db.load('select * from category c join article a on a.idCategory = c.id');
   },
 
+  allTag: () => {
+    return db.load('select * from  tag');
+  },
+
+  allCateByIdWriter: id => {
+    return db.load(`select * from category c join article a on a.idCategory = c.id where a.idWriter="${id}"`);
+  },
+
   allCategory: () => {
     return db.load('select count(*) as soCate, c.name as name from article a join category c on c.id=a.idCategory group by c.id, c.name');
   },
 
   TongSo: () => {
     return db.load('select count(*) as TongSo from article');
+  },
+
+  TongSoByIdWriter: id => {
+    return db.load(`select count(*) as TongSo from article where idWriter="${id}"`);
   },
 
   TongSoAllow: id => {

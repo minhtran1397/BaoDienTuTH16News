@@ -1,9 +1,11 @@
 var express = require('express');
 var articleModel = require('../models/editor.model');
+var auth = require('../middlewares/auth');
+var auth = require('../middlewares/auth-Editor');
 
 var router = express.Router();
 
-router.get('/', (req, res) => {
+router.get('/', auth, (req, res, next) => {
   
 Promise.all([
   articleModel.all(),
@@ -78,11 +80,11 @@ router.get('/editTrue/:id', (req, res) => {
 })
 
 
-router.get('/add', (req, res) => {
+router.get('/add',  auth, (req, res, next) => {
   res.render('Req 3 - Writer/WriterPostArticle');
 })
 
-router.post('/add', (req, res) => {
+router.post('/add', auth, (req, res, next) => {
   articleModel.add(req.body).then(id => {
     res.render('Req 3 - Writer/WriterPostArticle');
   }).catch(err => {
@@ -91,7 +93,7 @@ router.post('/add', (req, res) => {
   });
 })
 
-router.post('/success', (req, res) => {
+router.post('/success',  auth, (req, res, next) => {
   articleModel.updateTagAndCate(req.body).then(id => {
     res.render('Req 4 - Editor/Editor');
   }).catch(err => {
@@ -100,7 +102,7 @@ router.post('/success', (req, res) => {
   });
 })
 
-router.post('/update', (req, res) => {
+router.post('/update', auth, (req, res, next) => {
   articleModel.update(req.body).then(n => {
     res.redirect('/editor');
   }).catch(err => {

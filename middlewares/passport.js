@@ -17,7 +17,7 @@ module.exports = function (app) {
       }
 
       var user = rows[0];
-      var ret = bcrypt.compareSync(password, rows[0].f_Password);
+      var ret = bcrypt.compareSync(password, rows[0].password);
       if (ret) {
         return done(null, user);
       }

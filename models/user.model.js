@@ -18,12 +18,12 @@ module.exports = {
   },
 
   update: entity => {
-    var id = entity.f_ID;
-    delete entity.f_ID;
-    return db.update('users', 'id', entity, id);
+    var id = entity.id;
+    delete entity.id;
+    return db.update('user', 'id', entity, id);
   },
 
   delete: id => {
-    return db.delete('users', 'id', id);
+    return db.delete('user', 'id', id);
   }
 };
