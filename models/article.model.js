@@ -64,24 +64,53 @@ module.exports = {
     limit 10;
     `);
   },
-  // allPremiumArticlesByCatAllowed:id => {
+
+  top1Newest:()=>{
+    return db.load(`
+    SELECT a.id, title, views, c.name as catName,DATE_FORMAT(datePost,'%d/%m/%Y') AS datePostFormated,tag, image
+    FROM article a, category c
+    WHERE idCategory=c.id and a.allow='Allowed'  and datePost <= DATE(NOW())
+    ORDER BY a.datePost desc 
+    limit 1 OFFSET 0;
+    `);
+  },
+
+  top5Newest:()=>{
+    return db.load(`
+    SELECT a.id, title, views, c.name as catName,DATE_FORMAT(datePost,'%d/%m/%Y') AS datePostFormated,tag, image
+    FROM article a, category c
+    WHERE idCategory=c.id and a.allow='Allowed'  and datePost <= DATE(NOW())
+    ORDER BY a.datePost desc 
+    limit 5 OFFSET 0;
+    `);
+  },
+  top5to10Newest:()=>{
+    return db.load(`
+    SELECT a.id, title, views, c.name as catName,DATE_FORMAT(datePost,'%d/%m/%Y') AS datePostFormated,tag, image
+    FROM article a, category c
+    WHERE idCategory=c.id and a.allow='Allowed'  and datePost <= DATE(NOW())
+    ORDER BY a.datePost desc 
+    limit 5 OFFSET 5;
+    `);
+  },
+  // top10to15:()=>{
   //   return db.load(`
-  //   SELECT a.id, title
-	// 	,summary,content,datePost, image, premium, tag, idCategory, idWriter, views, c.name as catName, DATE_FORMAT(datePost,'%d/%m/%Y') AS datePostFormated
-  //   FROM article a join  category c on a.idCategory=c.id  
-  //   WHERE a.allow='Allowed'  and datePost <= DATE(NOW()) and premium=1 and idCategory=  ${id}	
+  //   SELECT a.id, title, views, c.name as catName,DATE_FORMAT(datePost,'%d/%m/%Y') AS datePostFormated,tag, image
+  //   FROM article a, category c
+  //   WHERE idCategory=c.id and a.allow='Allowed'  and datePost <= DATE(NOW())
   //   ORDER BY a.datePost desc 
+  //   limit 5 OFFSET 10;
   //   `);
   // },
 
-  // allNonPremiumArticlesByCatAllowed:id => {
-  //   return db.load(`
-  //   SELECT a.id, title
-	// 	,summary,content,datePost, image, premium, tag, idCategory, idWriter, views, c.name as catName, DATE_FORMAT(datePost,'%d/%m/%Y') AS datePostFormated
-  //   FROM article a join  category c on a.idCategory=c.id  
-  //   WHERE a.allow='Allowed'  and datePost <= DATE(NOW()) and premium=0 and idCategory=  ${id}	
-  //   ORDER BY a.datePost desc 
-  //   `);
-  // },
+  top1NewestEachCate:()=>{
+    return db.load(`
+    SELECT a.id, a.idCategory, a.title,DATE_FORMAT(a.datePost,'%d/%m/%Y') AS datePostFormated, c.name as catName, c.id as catID, a.image, a.summary    FROM((article a INNER JOIN (SELECT MAX(ar.datePost) AS maxdate,idCategory FROM article ar GROUP BY idCategory) maxDateByCatTable 
+                    ON a.idCategory = maxDateByCatTable.idCategory AND a.datePost = maxDateByCatTable.maxdate)
+          INNER JOIN category c	
+          ON a.idCategory=c.id)
+    ORDER BY c.id ASC;				
+    `);
+  },
 
 };

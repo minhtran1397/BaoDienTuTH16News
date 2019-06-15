@@ -121,7 +121,7 @@
     <div class="carousel-item active">  
         <div class="container">
           <div class="row">
-             <div class="col-sm-6 thumbbox" style="background-image: url(../img/bg-img/DA1.jpg); ">
+             <div class="col-sm thumbbox" style="background-image: url(../img/bg-img/DA1.jpg); ">
                 <a href="baiviet.html">
                     <div class="thumbox-text">
                         <div>
@@ -132,7 +132,7 @@
                     </div >  
                  </a>
             </div>
-            <div class="col-sm-6 thumbbox" style="background-image: url(../img/bg-img/TS1.jpg);">
+            <div class="col-sm thumbbox" style="background-image: url(../img/bg-img/TS1.jpg);">
                 <a href="baiviet.html">
                      <div class="thumbox-text">
                         <div>
@@ -176,6 +176,7 @@
                 </a>
             </div>
           </div>
+          
         </div>
     </div>
     <!--end slide1-->
@@ -331,116 +332,82 @@
              Main Posts Area
         <<<<<<<<<<<<<<<<<<<<< -->
         <div class="mag-posts-content mt-30 mb-30 p-30 box-shadow">
-            
+                       
             <!-- Tin mới nhất Area -->
             <div class="feature-video-posts mb-30">
                 <!-- Section Title -->
                 <div class="section-heading">
-                    <h5>Tin mới nhất</h5>
+                    <h5>Newest post</h5>
                 </div>
 
                 <div class="featured-video-posts">
                     <div class="row">
-                        <div class="col-12 col-lg-7">
+
+                        
+                        <div class="col-12 col-lg-7 ">
+                            {{#each top1newest}}
                             <!-- Single Featured Post -->
                             <div class="single-featured-post">
                                 <!-- Thumbnail -->
                                 <div class="post-thumbnail mb-50">
                                     
-                                    <a href="baiviet.html" ><img src="../img/bg-img/VH1.jpg" alt="" ></a>
+                                    <a href="baiviet.html" ><img src="{{image}}" alt="" ></a>
                                 </div>
                                 <!-- Post Contetnt -->
                                 <div class="post-content">
                                     <div class="post-meta">
-                                        <a href="danhsachbaiviet.html">10/04/2019 </a>
-                                        <a href="danhsachbaiviet.html">văn hóa</a>
+                                        <a href="/guest/detailcategories/{{idCategory}}">{{datePostFormated}}</a>|
+                                        <a href="/guest/detailcategories/{{idCategory}}">{{catName}}</a>
                                     </div>
-                                    <a href="baiviet.html" class="post-title">Phát hiện những bí ẩn mới bên trong hang động Sơn Đoòng <span class="badge badge-primary">Mới</span></a>
-                                    <p>(Ngày Nay) - Các chuyên gia lặn hang động hàng đầu thế giới đã khám phá thêm được những bí ẩn mới bên trong hang Sơn Đoòng (Quảng Bình).</p>
+                                    <a href="baiviet.html" class="post-title">{{title}} <span class="badge badge-primary">New</span></a>
+                                    <p>{{summary}}</p>
                                 </div>
                             </div>
+                             {{/each}}
                         </div>
+                       
+
 
                         <div class="col-12 col-lg-5">
                             <!-- Featured Video Posts Slide -->
                             <div class="featured-video-posts-slide owl-carousel">
 
                                 <div class="single--slide">
-                                    <!-- Single Blog Post -->
-                                    <div class="single-blog-post d-flex style-3">
-                                        <div class="post-thumbnail">
-                                             <a href="baiviet.html" ><img src="../img/bg-img/TS1.jpg" alt=""></a>
-                                             
-                                        </div>
-                                        <div class="post-content">
-                                            <a href="baiviet.html" class="post-title">Mad&Women hợp tác với UNESCO để thúc đẩy bình đẳng giới<span class="badge badge-primary">Mới</span></a>
-                                            <div class="post-meta d-flex">
-                                                <a href="danhsachbaiviet.html">10/04/2019 |</a>
-                                                <a href="danhsachbaiviet.html">THỜI SỰ</a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Single Blog Post -->
-                                    <div class="single-blog-post d-flex style-3">
-                                        <div class="post-thumbnail">
-                                            <a href="baiviet.html" data-toggle="modal" data-target="#lockModal"> <img src="../img/bg-img/VH2.jpg" alt=""></a>
-                                            
-                                        </div>
-                                        <div class="post-content">
-                                            <a href="baiviet.html" class="post-title"data-toggle="modal" data-target="#lockModal">Taylor Swift quyên góp 113.000 USD cho nhóm đấu tranh quyền bình đẳng giới<span class="badge badge-warning">Premium</span></a>
-                                            <div class="post-meta d-flex">   
-                                                <a href="danhsachbaiviet.html">10/04/2019 |</a>
-                                                <a href="danhsachbaiviet.html">VĂN HÓA</a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Single Blog Post -->
-                                    <div class="single-blog-post d-flex style-3">
-                                        <div class="post-thumbnail">
-                                            <a href="baiviet.html" > <img src="../img/bg-img/DA1.jpg" alt=""></a>
-                                        </div>
-                                        <div class="post-content">
-                                            <a href="baiviet.html" class="post-title">Iron Man & Captain America bắt tay làm hòa trong  'Avengers: Endgame'?<span class="badge badge-primary">Mới</span></a>
-                                            <div class="post-meta d-flex">   
-                                                <a href="danhsachbaiviet.html">10/04/2019 |</a>
-                                                <a href="danhsachbaiviet.html">ĐIỆN ẢNH</a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Single Blog Post -->
-                                    <div class="single-blog-post d-flex style-3">
-                                        <div class="post-thumbnail">
-                                             <a href="baiviet.html" ><img src="../img/bg-img/DL1.jpg" alt=""></a>
-                                        </div>
-                                        <div class="post-content">
-                                            <a href="baiviet.html" class="post-title">Khách sạn lãng mạn nhất thế giới’ ưu đãi đặc biệt cho các cặp đôi<span class="badge badge-primary">Mới</span></a>
-                                            <div class="post-meta d-flex">   
-                                                <a href="danhsachbaiviet.html">10/04/2019 |</a>
-                                                <a href="danhsachbaiviet.html">DU LỊCH</a>
-                                            </div>
-                                        </div>
-                                    </div>
-
+                                    {{#each top5newest}}
                                      <!-- Single Blog Post -->
                                     <div class="single-blog-post d-flex style-3">
                                         <div class="post-thumbnail">
-                                             <a href="baiviet.html" ><img src="../img/bg-img/SK1.jpg" alt=""></a>
+                                             <a href="baiviet.html" ><img src="{{image}}" alt=""></a>
                                         </div>
                                         <div class="post-content">
-                                            <a href="baiviet.html" class="post-title">Loại bỏ khối u bạch huyết khổng lồ cho bé trai 20 tháng tuổi<span class="badge badge-primary">Mới</span></a>
+                                            <a href="baiviet.html" class="post-title">{{title}}<span class="badge badge-primary">New</span></a>
                                             <div class="post-meta d-flex">   
-                                                <a href="danhsachbaiviet.html">10/04/2019 |</a>
-                                                <a href="danhsachbaiviet.html">SỨC KHỎE</a>
+                                                <a href="#">{{datePostFormated}} |</a>
+                                                <a href="/guest/detailcategories/{{idCategory}}">{{catName}}</a>
                                             </div>
                                         </div>
                                     </div>
+                                    {{/each}}
                                 </div>
 
                                 <div class="single--slide">
+                                    {{#each top5to10newest}}
                                     <!-- Single Blog Post -->
+                                    <div class="single-blog-post d-flex style-3">
+                                        <div class="post-thumbnail">
+                                             <a href="baiviet.html" ><img src="{{image}}" alt=""></a>
+                                        </div>
+                                        <div class="post-content">
+                                            <a href="baiviet.html" class="post-title">{{title}}<span class="badge badge-primary">New</span></a>
+                                            <div class="post-meta d-flex">   
+                                                <a href="#">{{datePostFormated}} |</a>
+                                                <a href="/guest/detailcategories/{{idCategory}}">{{catName}}</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {{/each}}
+
+                                    {{!-- <!-- Single Blog Post -->
                                     <div class="single-blog-post d-flex style-3">
                                         <div class="post-thumbnail">
                                             <a href="baiviet.html" > <img src="../img/bg-img/AT1.jpg" alt=""></a>
@@ -452,63 +419,8 @@
                                                 <a href="danhsachbaiviet.html">ẨM THỰC</a>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> --}}
 
-                                   <!-- Single Blog Post -->
-                                    <div class="single-blog-post d-flex style-3">
-                                        <div class="post-thumbnail">
-                                             <a href="baiviet.html" ><img src="../img/bg-img/NS1.jpg" alt=""></a>
-                                        </div>
-                                        <div class="post-content">
-                                            <a href="baiviet.html" class="post-title">Việt Nam-Hà Lan sẽ hợp tác trong ứng dụng công nghệ sau thu hoạch<span class="badge badge-primary">Mới</span></a>
-                                            <div class="post-meta d-flex">   
-                                                <a href="danhsachbaiviet.html">10/04/2019 |</a>
-                                                <a href="danhsachbaiviet.html">NÔNG SẢN</a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                     <!-- Single Blog Post -->
-                                    <div class="single-blog-post d-flex style-3">
-                                        <div class="post-thumbnail">
-                                            <a href="baiviet.html" > <img src="../img/bg-img/HS1.jpg" alt=""></a>
-                                        </div>
-                                        <div class="post-content">
-                                            <a href="baiviet.html" class="post-title">Thuế chống bán phá giá tôm tại Mỹ còn 0%<span class="badge badge-primary">Mới</span></a>
-                                           <div class="post-meta d-flex">   
-                                                <a href="danhsachbaiviet.html">10/04/2019 |</a>
-                                                <a href="danhsachbaiviet.html">HẢI SẢN</a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Single Blog Post -->
-                                    <div class="single-blog-post d-flex style-3">
-                                        <div class="post-thumbnail">
-                                             <a href="baiviet.html" ><img src="../img/bg-img/TT1.jpg" alt=""></a>
-                                        </div>
-                                        <div class="post-content">
-                                            <a href="baiviet.html" class="post-title">Mười bộ váy đẹp nhất trên thảm đỏ Oscar 2019<span class="badge badge-primary">Mới</span></a>
-                                           <div class="post-meta d-flex">   
-                                                <a href="danhsachbaiviet.html">10/04/2019 |</a>
-                                                <a href="danhsachbaiviet.html">HẢI SẢN</a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Single Blog Post -->
-                                    <div class="single-blog-post d-flex style-3">
-                                        <div class="post-thumbnail">
-                                             <a href="baiviet.html" ><img src="../img/bg-img/CN1.jpg" alt=""></a>
-                                        </div>
-                                        <div class="post-content">
-                                            <a href="baiviet.html" class="post-title"data-toggle="modal" data-target="#lockModal">Samsung Galaxy S10 không chỉ đơn thuần là smartphone pin trâu<span class="badge badge-warning">Premium</span></a>
-                                            <div class="post-meta d-flex">   
-                                                <a href="danhsachbaiviet.html">10/04/2019 |</a>
-                                                <a href="danhsachbaiviet.html">HẢI SẢN</a>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
 
                             </div>
@@ -516,193 +428,51 @@
                     </div>
                 </div>
             </div>
-
             <!-- Tin mới nhất - end -->
 
 
-            <!-- Trending Now Posts Area -->
-<!--             <div class="trending-now-posts mb-30">
+            <!-- Bài viết nổi bật -->
+             <div class="trending-now-posts mb-30">
                 
                 <div class="section-heading">
-                    <h5>TRENDING NOW</h5>
+                    <h5>Featured posts</h5>
                 </div>
 
                 <div class="trending-post-slides owl-carousel">
-                
+        
+                    {{#each articlemostviews}}
                     <div class="single-trending-post">
-                        <img src="img/bg-img/19.jpg" alt="">
-                        <div class="post-content">
-                            <a href="danhsachbaiviet.html" class="post-cata">Video</a>
-                            <a href="video-post.html" class="post-title">Big Savings On Gas While You Travel</a>
-
+                        <a href=""><img src="{{image}}" alt=""></a> 
+                        {{!-- <div class="post-content">
+                            <a href="danhsachbaiviet.html" class="post-cata">TV Show</a>
+                            <a href="video-post.html" class="post-title">A Guide To Rocky Mountain Vacations</a>
+                        </div> --}}
+                       
+                        <div class="post-content ">
                             
-
+                        
+                            <a href="/guest/detailcategories/{{idCategory}}" class="post-cata">{{datePostFormated}} | {{catName}}</a> 
+                                                        
+                             <a href="#" class="post-title">{{title}}</a>                                
                         </div>
-                    </div>
 
+                    </div>
+                    {{/each}}
                    
-                    <div class="single-trending-post">
-                        <img src="img/bg-img/20.jpg" alt="">
-                        <div class="post-content">
-                            <a href="danhsachbaiviet.html" class="post-cata">TV Show</a>
-                            <a href="video-post.html" class="post-title">A Guide To Rocky Mountain Vacations</a>
-                        </div>
-                    </div>
-
-                   
-                    <div class="single-trending-post">
-                        <img src="img/bg-img/21.jpg" alt="">
-                        <div class="post-content">
-                            <a href="danhsachbaiviet.html" class="post-cata">Sports</a>
-                            <a href="video-post.html" class="post-title">The Health Benefits Of Sunglasses</a>
-                        </div>
-                    </div>
-
-                   
-                    <div class="single-trending-post">
-                        <img src="img/bg-img/19.jpg" alt="">
-                        <div class="post-content">
-                            <a href="danhsachbaiviet.html" class="post-cata">Video</a>
-                            <a href="video-post.html" class="post-title">Big Savings On Gas While You Travel</a>
-                        </div>
-                    </div>
-
-                  
-                    <div class="single-trending-post">
-                        <img src="img/bg-img/20.jpg" alt="">
-                        <div class="post-content">
-                            <a href="danhsachbaiviet.html" class="post-cata">TV Show</a>
-                            <a href="video-post.html" class="post-title">A Guide To Rocky Mountain Vacations</a>
-                        </div>
-                    </div>
-
-                   
-                    <div class="single-trending-post">
-                        <img src="img/bg-img/21.jpg" alt="">
-                        <div class="post-content">
-                            <a href="danhsachbaiviet.html" class="post-cata">Sports</a>
-                            <a href="video-post.html" class="post-title">The Health Benefits Of Sunglasses</a>
-                        </div>
-                    </div>
+                    
                 </div>
-            </div> -->
-            <!-- End Trending Now Posts Area -->
+            </div> 
+            <!-- END Bài viết nổi bật -->
 
-            <!-- Most Viewed Videos - Video nổi bật -->
-            <div class="most-viewed-videos mb-30">
-                <!-- Section Title -->
-                <div class="section-heading">
-                    <h5>Video nổi bật</h5>
-                </div>  
+            
 
-                <div class="most-viewed-videos-slide owl-carousel">
-
-                    <!-- Single Blog Post -->
-                    <div class="single-blog-post style-4">
-                        <div class="post-thumbnail video-thumb">
-                            <img src="../img/bg-img/SK2.jpg" alt="">
-                            <a href="baiviet.html" class="video-play"><i class="fa fa-play"></i></a>
-                            <span class="video-duration">09:27</span>
-                        </div>
-                        <div class="post-content">
-                            <a href="single-post.html" class="post-title">Bộ Y tế lên tiếng về vụ 18.000 chai tương ớt Chinsu bị thu hồi ở Nhật</a>
-                            <div class="post-meta d-flex">   
-                                <a href="danhsachbaiviet.html">10/04/2019 |</a>
-                                <a href="danhsachbaiviet.html">SỨC KHỎE</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Single Blog Post -->
-                    <div class="single-blog-post style-4">
-                        <div class="post-thumbnail video-thumb">
-                            <img src="../img/bg-img/SK4.png" alt="">
-                            <a href="baiviet.html" class="video-play"><i class="fa fa-play"></i></a>
-                            <span class="video-duration">10:38</span>
-                        </div>
-                        <div class="post-content">
-                            <a href="single-post.html" class="post-title">Xử trí khi trẻ bị sốc nhiệt do nắng nóng</a>
-                            <div class="post-meta d-flex">   
-                                <a href="danhsachbaiviet.html">10/04/2019 |</a>
-                                <a href="danhsachbaiviet.html">SỨC KHỎE</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Single Blog Post -->
-                    <div class="single-blog-post style-4">
-                        <div class="post-thumbnail video-thumb">
-                            <img src="../img/bg-img/AT4.jpg" alt="">
-                            <a href="baiviet.html" class="video-play"><i class="fa fa-play"></i></a>
-                            <span class="video-duration">05:25</span>
-                        </div>
-                        <div class="post-content">
-                            <a href="single-post.html" class="post-title">'Đột nhập' nhà hàng hải sản mới toanh siêu hút khách ở Sầm Sơn</a>
-                            <div class="post-meta d-flex">   
-                                <a href="danhsachbaiviet.html">10/04/2019 |</a>
-                                <a href="danhsachbaiviet.html">ẨM THỰC</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Single Blog Post -->
-                    <div class="single-blog-post style-4">
-                        <div class="post-thumbnail video-thumb">
-                            <img src="../img/bg-img/TT2.jpg" alt="">
-                            <a href="baiviet.html" class="video-play"><i class="fa fa-play"></i></a>
-                            <span class="video-duration">8:25</span>
-                        </div>
-                        <div class="post-content">
-                            <a href="single-post.html" class="post-title">Ngọc Hân trình diễn áo dài tại New York</a>
-                            <div class="post-meta d-flex">   
-                                <a href="danhsachbaiviet.html">5/04/2019 |</a>
-                                <a href="danhsachbaiviet.html">THỜI TRANG</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Single Blog Post -->
-                    <div class="single-blog-post style-4">
-                        <div class="post-thumbnail video-thumb">
-                            <img src="../img/bg-img/DL5.jpg" alt="">
-                            <a href="baiviet.html" class="video-play"><i class="fa fa-play"></i></a>
-                            <span class="video-duration">04:36</span>
-                        </div>
-                        <div class="post-content">
-                            <a href="single-post.html" class="post-title">Top những thiên đường vẫy gọi mùa hè rực nắng 2019</a>
-                            <div class="post-meta d-flex">   
-                                <a href="danhsachbaiviet.html">9/04/2019 |</a>
-                                <a href="danhsachbaiviet.html">DU LỊCH</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Single Blog Post -->
-                    <div class="single-blog-post style-4">
-                        <div class="post-thumbnail video-thumb">
-                            <img src="../img/bg-img/KH1.jpg" alt="">
-                            <a href="baiviet.html" class="video-play"><i class="fa fa-play"></i></a>
-                            <span class="video-duration">3:25</span>
-                        </div>
-                        <div class="post-content">
-                            <a href="single-post.html" class="post-title">Loại trứng đen kỳ lạ của người Nhật, ai cũng ao ước được ăn 1 lần</a>
-                            <div class="post-meta d-flex">   
-                                <a href="danhsachbaiviet.html">5/04/2019 |</a>
-                                <a href="danhsachbaiviet.html">KHOA HỌC</a>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-            <!-- End Most Viewed Videos - Video nổi bật -->
 
             <!--CHUYÊN MỤC POST -->
-            {{#each allcategory}}
+            {{#each top1eachcate}}
             <div class="every-news-area sports-videos-area">
                 <!-- Section Title -->
                 <div class="section-heading">
-                    <h5>{{name}}</h5>
+                    <h5>{{catName}}</h5>
                 </div>
                 
                 <div class="every-news-post">
@@ -711,969 +481,34 @@
                              <div class="single-featured-post">
                                 <!-- Thumbnail -->
                                 <div class="post-thumbnail mb-50">
-                                    <img src="../img/bg-img/TS1.jpg" alt="" >
-                                    <a href="baiviet.html" ></a>
+                                    <a href="#" ><img src="{{image}}" alt="" ></a>                                 
                                 </div>
                             </div>
                         </div>
                         
                         <div class="col-12 col-lg-5">
                              <!-- Post Contetnt -->
+                            <div class="single-blog-post style-4">
                                 <div class="post-content">
-                                    <div class="post-meta">
-                                        <a href="danhsachbaiviet.html">08/04/2019</a>
-                                        <a href="danhsachbaiviet.html">thời sự</a>
+                                    <div class="post-meta d-flex">
+                                        <a href="#">{{datePostFormated}}</a> &nbsp|&nbsp
+                                        <a href="/guest/detailcategories/{{idCategory}}">{{catName}}</a>
                                     </div>
-                                    <a href="video-post.html" class="post-title">Mad&Women hợp tác với UNESCO để thúc đẩy bình đẳng giới <span class="badge badge-primary">Mới</span> </a>
-                                    <p> Nhằm đem đến nhiều hơn các sáng kiến  thúc đẩy bình đẳng giới và trao quyền cho nữ giới, UNESCO đã bắt tay hợp tác với công ty quảng cáo Mad&Women thông qua việc ký thỏa thuận về quan hệ đối tác chiến lược.</p>
+                                    </br>
+                                    <a href="#" class="post-title">{{title}}&nbsp<span class="badge badge-primary">New</span> </a>
+                                    <p> {{summary}}</p>
                                 </div>
+                            </div>    
                         </div>
                     </div>
-                </div>
-                
-
-        
-
-                <div class="row">
-
-                    {{#each articlebycat}}        
-                    <!-- Single Blog Post -->
-                    <div class="col-12 col-lg-6">
-                        <div class="single-blog-post d-flex style-3 mb-30">
-                            <div class="post-thumbnail">
-                                 <a href="#" ><img src="{{image}}" alt=""></a>
-                            </div>
-                            <div class="post-content">
-                                <a href="#" class="post-title">{{title}}</a>
-                                <div class="post-meta d-flex">
-                                        <a href="#">{{datePostFormated}} |</a>
-                                        <a href="/guest/detailcategories/{{idCategory}}">{{catName}}</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>                
-                    {{/each}}
-                </div>
-
+                </div>   
             </div>
             {{/each}}
             <!--End CHUYÊN MỤC POST -->
-
-            <!--CHUYÊN MỤC POST -->
-            <div class="every-news-area sports-videos-area">
-                <!-- Section Title -->
-                <div class="section-heading">
-                    <h5>Kinh tế</h5>
-                </div>
-                
-                <div class="every-news-post">
-                    <div class="row">
-                        <div class="col-12 col-lg-6">
-                             <div class="single-featured-post">
-                                <!-- Thumbnail -->
-                                <div class="post-thumbnail mb-50">
-                                    <img src="../img/bg-img/TS1.jpg" alt="" >
-                                    <a href="baiviet.html" ></a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-12 col-lg-5">
-                             <!-- Post Contetnt -->
-                                <div class="post-content">
-                                    <div class="post-meta">
-                                        <a href="danhsachbaiviet.html">08/04/2019</a>
-                                        <a href="danhsachbaiviet.html">thời sự</a>
-                                    </div>
-                                    <a href="video-post.html" class="post-title">Mad&Women hợp tác với UNESCO để thúc đẩy bình đẳng giới <span class="badge badge-primary">Mới</span> </a>
-                                    <p> Nhằm đem đến nhiều hơn các sáng kiến  thúc đẩy bình đẳng giới và trao quyền cho nữ giới, UNESCO đã bắt tay hợp tác với công ty quảng cáo Mad&Women thông qua việc ký thỏa thuận về quan hệ đối tác chiến lược.</p>
-                                </div>
-                        </div>
-                    </div>
-                </div>   
-
-                <div class="row">
-                    <!-- Single Blog Post -->
-                    <div class="col-12 col-lg-6">
-                        <div class="single-blog-post d-flex style-3 mb-30">
-                            <div class="post-thumbnail">
-                                 <a href="baiviet.html" data-toggle="modal" data-target="#lockModal"><img src="../img/bg-img/TS3.jpg" alt=""></a>
-                            </div>
-                            <div class="post-content">
-                                <a href="baiviet.html" class="post-title"data-toggle="modal" data-target="#lockModal">Chiến sự Lybia: Các phiến quân dự định tấn công mỏ dầu phía đông<span class="badge badge-warning">Premium</span></a>
-                                <div class="post-meta d-flex">
-                                        <a href="danhsachbaiviet.html">10/04/2019 |</a>
-                                        <a href="danhsachbaiviet.html">HẢI SẢN</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Single Blog Post -->
-                    <div class="col-12 col-lg-6">
-                        <div class="single-blog-post d-flex style-3 mb-30">
-                            <div class="post-thumbnail">
-                                 <a href="baiviet.html" ><img src="../img/bg-img/TS3.jpg" alt=""></a>
-                            </div>
-                            <div class="post-content">
-                                <a href="baiviet.html" class="post-title">Chiến sự Lybia: Các phiến quân dự định tấn công mỏ dầu phía đông</a>
-                                <div class="post-meta d-flex">
-                                        <a href="danhsachbaiviet.html">10/04/2019 |</a>
-                                        <a href="danhsachbaiviet.html">HẢI SẢN</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Single Blog Post -->
-                    <div class="col-12 col-lg-6">
-                        <div class="single-blog-post d-flex style-3 mb-30">
-                            <div class="post-thumbnail">
-                                 <a href="baiviet.html" ><img src="../img/bg-img/TS3.jpg" alt=""></a>
-                            </div>
-                            <div class="post-content">
-                                <a href="baiviet.html" class="post-title">Chiến sự Lybia: Các phiến quân dự định tấn công mỏ dầu phía đông</a>
-                                <div class="post-meta d-flex">
-                                        <a href="danhsachbaiviet.html">10/04/2019 |</a>
-                                        <a href="danhsachbaiviet.html">HẢI SẢN</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Single Blog Post -->
-                    <div class="col-12 col-lg-6">
-                        <div class="single-blog-post d-flex style-3 mb-30">
-                            <div class="post-thumbnail">
-                                 <a href="baiviet.html" ><img src="../img/bg-img/TS3.jpg" alt=""></a>
-                            </div>
-                            <div class="post-content">
-                                <a href="baiviet.html" class="post-title">Chiến sự Lybia: Các phiến quân dự định tấn công mỏ dầu phía đông</a>
-                                <div class="post-meta d-flex">
-                                        <a href="danhsachbaiviet.html">10/04/2019 |</a>
-                                        <a href="danhsachbaiviet.html">HẢI SẢN</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                </div>
-            </div>
-            <!--End CHUYÊN MỤC POST -->
-
-            <!--CHUYÊN MỤC POST -->
-            <div class="every-news-area sports-videos-area">
-                <!-- Section Title -->
-                <div class="section-heading">
-                    <h5>Văn hóa</h5>
-                </div>
-                
-                <div class="every-news-post">
-                    <div class="row">
-                        <div class="col-12 col-lg-6">
-                             <div class="single-featured-post">
-                                <!-- Thumbnail -->
-                                <div class="post-thumbnail mb-50">
-                                    <img src="../img/bg-img/TS1.jpg" alt="" >
-                                    <a href="baiviet.html" ></a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-12 col-lg-5">
-                             <!-- Post Contetnt -->
-                                <div class="post-content">
-                                    <div class="post-meta">
-                                        <a href="danhsachbaiviet.html">08/04/2019</a>
-                                        <a href="danhsachbaiviet.html">thời sự</a>
-                                    </div>
-                                    <a href="video-post.html" class="post-title">Mad&Women hợp tác với UNESCO để thúc đẩy bình đẳng giới <span class="badge badge-primary">Mới</span> </a>
-                                    <p> Nhằm đem đến nhiều hơn các sáng kiến  thúc đẩy bình đẳng giới và trao quyền cho nữ giới, UNESCO đã bắt tay hợp tác với công ty quảng cáo Mad&Women thông qua việc ký thỏa thuận về quan hệ đối tác chiến lược.</p>
-                                </div>
-                        </div>
-                    </div>
-                </div>   
-
-                <div class="row">
-                    <!-- Single Blog Post -->
-                    <div class="col-12 col-lg-6">
-                        <div class="single-blog-post d-flex style-3 mb-30">
-                            <div class="post-thumbnail">
-                                 <a href="baiviet.html" ><img src="../img/bg-img/TS3.jpg" alt=""></a>
-                            </div>
-                            <div class="post-content">
-                                <a href="baiviet.html" class="post-title">Chiến sự Lybia: Các phiến quân dự định tấn công mỏ dầu phía đông</a>
-                                <div class="post-meta d-flex">
-                                        <a href="danhsachbaiviet.html">10/04/2019 |</a>
-                                        <a href="danhsachbaiviet.html">HẢI SẢN</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Single Blog Post -->
-                    <div class="col-12 col-lg-6">
-                        <div class="single-blog-post d-flex style-3 mb-30">
-                            <div class="post-thumbnail">
-                                 <a href="baiviet.html" ><img src="../img/bg-img/TS3.jpg" alt=""></a>
-                            </div>
-                            <div class="post-content">
-                                <a href="baiviet.html" class="post-title">Chiến sự Lybia: Các phiến quân dự định tấn công mỏ dầu phía đông</a>
-                                <div class="post-meta d-flex">
-                                        <a href="danhsachbaiviet.html">10/04/2019 |</a>
-                                        <a href="danhsachbaiviet.html">HẢI SẢN</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Single Blog Post -->
-                    <div class="col-12 col-lg-6">
-                        <div class="single-blog-post d-flex style-3 mb-30">
-                            <div class="post-thumbnail">
-                                 <a href="baiviet.html" ><img src="../img/bg-img/TS3.jpg" alt=""></a>
-                            </div>
-                            <div class="post-content">
-                                <a href="baiviet.html" class="post-title">Chiến sự Lybia: Các phiến quân dự định tấn công mỏ dầu phía đông</a>
-                                <div class="post-meta d-flex">
-                                        <a href="danhsachbaiviet.html">10/04/2019 |</a>
-                                        <a href="danhsachbaiviet.html">HẢI SẢN</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Single Blog Post -->
-                    <div class="col-12 col-lg-6">
-                        <div class="single-blog-post d-flex style-3 mb-30">
-                            <div class="post-thumbnail">
-                                 <a href="baiviet.html" ><img src="../img/bg-img/TS3.jpg" alt=""></a>
-                            </div>
-                            <div class="post-content">
-                                <a href="baiviet.html" class="post-title">Chiến sự Lybia: Các phiến quân dự định tấn công mỏ dầu phía đông</a>
-                                <div class="post-meta d-flex">
-                                        <a href="danhsachbaiviet.html">10/04/2019 |</a>
-                                        <a href="danhsachbaiviet.html">HẢI SẢN</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                </div>
-            </div>
-            <!--End CHUYÊN MỤC POST -->
-
-            <!--CHUYÊN MỤC POST -->
-            <div class="every-news-area sports-videos-area">
-                <!-- Section Title -->
-                <div class="section-heading">
-                    <h5>Nông sản</h5>
-                </div>
-                
-                <div class="every-news-post">
-                    <div class="row">
-                        <div class="col-12 col-lg-6">
-                             <div class="single-featured-post">
-                                <!-- Thumbnail -->
-                                <div class="post-thumbnail mb-50">
-                                    <img src="../img/bg-img/TS1.jpg" alt="" >
-                                    <a href="baiviet.html" ></a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-12 col-lg-5">
-                             <!-- Post Contetnt -->
-                                <div class="post-content">
-                                    <div class="post-meta">
-                                        <a href="danhsachbaiviet.html">08/04/2019</a>
-                                        <a href="danhsachbaiviet.html">thời sự</a>
-                                    </div>
-                                    <a href="video-post.html" class="post-title">Mad&Women hợp tác với UNESCO để thúc đẩy bình đẳng giới <span class="badge badge-primary">Mới</span> </a>
-                                    <p> Nhằm đem đến nhiều hơn các sáng kiến  thúc đẩy bình đẳng giới và trao quyền cho nữ giới, UNESCO đã bắt tay hợp tác với công ty quảng cáo Mad&Women thông qua việc ký thỏa thuận về quan hệ đối tác chiến lược.</p>
-                                </div>
-                        </div>
-                    </div>
-                </div>   
-
-                <div class="row">
-                    <!-- Single Blog Post -->
-                    <div class="col-12 col-lg-6">
-                        <div class="single-blog-post d-flex style-3 mb-30">
-                            <div class="post-thumbnail">
-                                 <a href="baiviet.html" ><img src="../img/bg-img/TS3.jpg" alt=""></a>
-                            </div>
-                            <div class="post-content">
-                                <a href="baiviet.html" class="post-title">Chiến sự Lybia: Các phiến quân dự định tấn công mỏ dầu phía đông</a>
-                                <div class="post-meta d-flex">
-                                        <a href="danhsachbaiviet.html">10/04/2019 |</a>
-                                        <a href="danhsachbaiviet.html">HẢI SẢN</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Single Blog Post -->
-                    <div class="col-12 col-lg-6">
-                        <div class="single-blog-post d-flex style-3 mb-30">
-                            <div class="post-thumbnail">
-                                 <a href="baiviet.html" ><img src="../img/bg-img/TS3.jpg" alt=""></a>
-                            </div>
-                            <div class="post-content">
-                                <a href="baiviet.html" class="post-title">Chiến sự Lybia: Các phiến quân dự định tấn công mỏ dầu phía đông</a>
-                                <div class="post-meta d-flex">
-                                        <a href="danhsachbaiviet.html">10/04/2019 |</a>
-                                        <a href="danhsachbaiviet.html">HẢI SẢN</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Single Blog Post -->
-                    <div class="col-12 col-lg-6">
-                        <div class="single-blog-post d-flex style-3 mb-30">
-                            <div class="post-thumbnail">
-                                 <a href="baiviet.html" ><img src="../img/bg-img/TS3.jpg" alt=""></a>
-                            </div>
-                            <div class="post-content">
-                                <a href="baiviet.html" class="post-title">Chiến sự Lybia: Các phiến quân dự định tấn công mỏ dầu phía đông</a>
-                                <div class="post-meta d-flex">
-                                        <a href="danhsachbaiviet.html">10/04/2019 |</a>
-                                        <a href="danhsachbaiviet.html">HẢI SẢN</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Single Blog Post -->
-                    <div class="col-12 col-lg-6">
-                        <div class="single-blog-post d-flex style-3 mb-30">
-                            <div class="post-thumbnail">
-                                 <a href="baiviet.html" ><img src="../img/bg-img/TS3.jpg" alt=""></a>
-                            </div>
-                            <div class="post-content">
-                                <a href="baiviet.html" class="post-title">Chiến sự Lybia: Các phiến quân dự định tấn công mỏ dầu phía đông</a>
-                                <div class="post-meta d-flex">
-                                        <a href="danhsachbaiviet.html">10/04/2019 |</a>
-                                        <a href="danhsachbaiviet.html">HẢI SẢN</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                </div>
-            </div>
-            <!--End CHUYÊN MỤC POST -->
-
-            <!--CHUYÊN MỤC POST -->
-            <div class="every-news-area sports-videos-area">
-                <!-- Section Title -->
-                <div class="section-heading">
-                    <h5>Hải sản</h5>
-                </div>
-                
-                <div class="every-news-post">
-                    <div class="row">
-                        <div class="col-12 col-lg-6">
-                             <div class="single-featured-post">
-                                <!-- Thumbnail -->
-                                <div class="post-thumbnail mb-50">
-                                    <img src="../img/bg-img/TS1.jpg" alt="" >
-                                    <a href="baiviet.html" ></a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-12 col-lg-5">
-                             <!-- Post Contetnt -->
-                                <div class="post-content">
-                                    <div class="post-meta">
-                                        <a href="danhsachbaiviet.html">08/04/2019</a>
-                                        <a href="danhsachbaiviet.html">thời sự</a>
-                                    </div>
-                                    <a href="video-post.html" class="post-title">Mad&Women hợp tác với UNESCO để thúc đẩy bình đẳng giới <span class="badge badge-primary">Mới</span> </a>
-                                    <p> Nhằm đem đến nhiều hơn các sáng kiến  thúc đẩy bình đẳng giới và trao quyền cho nữ giới, UNESCO đã bắt tay hợp tác với công ty quảng cáo Mad&Women thông qua việc ký thỏa thuận về quan hệ đối tác chiến lược.</p>
-                                </div>
-                        </div>
-                    </div>
-                </div>   
-
-                <div class="row">
-                    <!-- Single Blog Post -->
-                    <div class="col-12 col-lg-6">
-                        <div class="single-blog-post d-flex style-3 mb-30">
-                            <div class="post-thumbnail">
-                                 <a href="baiviet.html" ><img src="../img/bg-img/TS3.jpg" alt=""></a>
-                            </div>
-                            <div class="post-content">
-                                <a href="baiviet.html" class="post-title">Chiến sự Lybia: Các phiến quân dự định tấn công mỏ dầu phía đông</a>
-                                <div class="post-meta d-flex">
-                                        <a href="danhsachbaiviet.html">10/04/2019 |</a>
-                                        <a href="danhsachbaiviet.html">HẢI SẢN</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Single Blog Post -->
-                    <div class="col-12 col-lg-6">
-                        <div class="single-blog-post d-flex style-3 mb-30">
-                            <div class="post-thumbnail">
-                                 <a href="baiviet.html" ><img src="../img/bg-img/TS3.jpg" alt=""></a>
-                            </div>
-                            <div class="post-content">
-                                <a href="baiviet.html" class="post-title">Chiến sự Lybia: Các phiến quân dự định tấn công mỏ dầu phía đông</a>
-                                <div class="post-meta d-flex">
-                                        <a href="danhsachbaiviet.html">10/04/2019 |</a>
-                                        <a href="danhsachbaiviet.html">HẢI SẢN</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Single Blog Post -->
-                    <div class="col-12 col-lg-6">
-                        <div class="single-blog-post d-flex style-3 mb-30">
-                            <div class="post-thumbnail">
-                                 <a href="baiviet.html" ><img src="../img/bg-img/TS3.jpg" alt=""></a>
-                            </div>
-                            <div class="post-content">
-                                <a href="baiviet.html" class="post-title">Chiến sự Lybia: Các phiến quân dự định tấn công mỏ dầu phía đông</a>
-                                <div class="post-meta d-flex">
-                                        <a href="danhsachbaiviet.html">10/04/2019 |</a>
-                                        <a href="danhsachbaiviet.html">HẢI SẢN</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Single Blog Post -->
-                    <div class="col-12 col-lg-6">
-                        <div class="single-blog-post d-flex style-3 mb-30">
-                            <div class="post-thumbnail">
-                                 <a href="baiviet.html" ><img src="../img/bg-img/TS3.jpg" alt=""></a>
-                            </div>
-                            <div class="post-content">
-                                <a href="baiviet.html" class="post-title">Chiến sự Lybia: Các phiến quân dự định tấn công mỏ dầu phía đông</a>
-                                <div class="post-meta d-flex">
-                                        <a href="danhsachbaiviet.html">10/04/2019 |</a>
-                                        <a href="danhsachbaiviet.html">HẢI SẢN</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                </div>
-            </div>
-            <!--End CHUYÊN MỤC POST -->
-
-            <!--CHUYÊN MỤC POST -->
-            <div class="every-news-area sports-videos-area">
-                <!-- Section Title -->
-                <div class="section-heading">
-                    <h5>Điện ảnh</h5>
-                </div>
-                
-                <div class="every-news-post">
-                    <div class="row">
-                        <div class="col-12 col-lg-6">
-                             <div class="single-featured-post">
-                                <!-- Thumbnail -->
-                                <div class="post-thumbnail mb-50">
-                                    <img src="../img/bg-img/TS1.jpg" alt="" >
-                                    <a href="baiviet.html" ></a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-12 col-lg-5">
-                             <!-- Post Contetnt -->
-                                <div class="post-content">
-                                    <div class="post-meta">
-                                        <a href="danhsachbaiviet.html">08/04/2019</a>
-                                        <a href="danhsachbaiviet.html">thời sự</a>
-                                    </div>
-                                    <a href="video-post.html" class="post-title">Mad&Women hợp tác với UNESCO để thúc đẩy bình đẳng giới <span class="badge badge-primary">Mới</span> </a>
-                                    <p> Nhằm đem đến nhiều hơn các sáng kiến  thúc đẩy bình đẳng giới và trao quyền cho nữ giới, UNESCO đã bắt tay hợp tác với công ty quảng cáo Mad&Women thông qua việc ký thỏa thuận về quan hệ đối tác chiến lược.</p>
-                                </div>
-                        </div>
-                    </div>
-                </div>   
-
-                <div class="row">
-                    <!-- Single Blog Post -->
-                    <div class="col-12 col-lg-6">
-                        <div class="single-blog-post d-flex style-3 mb-30">
-                            <div class="post-thumbnail">
-                                 <a href="baiviet.html" data-toggle="modal" data-target="#lockModal"><img src="../img/bg-img/TS3.jpg" alt=""></a>
-                            </div>
-                            <div class="post-content">
-                                <a href="baiviet.html" class="post-title"data-toggle="modal" data-target="#lockModal">Chiến sự Lybia: Các phiến quân dự định tấn công mỏ dầu phía đông<span class="badge badge-warning">Premium</span></a>
-                                <div class="post-meta d-flex">
-                                        <a href="danhsachbaiviet.html">10/04/2019 |</a>
-                                        <a href="danhsachbaiviet.html">HẢI SẢN</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Single Blog Post -->
-                    <div class="col-12 col-lg-6">
-                        <div class="single-blog-post d-flex style-3 mb-30">
-                            <div class="post-thumbnail">
-                                 <a href="baiviet.html" ><img src="../img/bg-img/TS3.jpg" alt=""></a>
-                            </div>
-                            <div class="post-content">
-                                <a href="baiviet.html" class="post-title">Chiến sự Lybia: Các phiến quân dự định tấn công mỏ dầu phía đông</a>
-                                <div class="post-meta d-flex">
-                                        <a href="danhsachbaiviet.html">10/04/2019 |</a>
-                                        <a href="danhsachbaiviet.html">HẢI SẢN</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Single Blog Post -->
-                    <div class="col-12 col-lg-6">
-                        <div class="single-blog-post d-flex style-3 mb-30">
-                            <div class="post-thumbnail">
-                                 <a href="baiviet.html" ><img src="../img/bg-img/TS3.jpg" alt=""></a>
-                            </div>
-                            <div class="post-content">
-                                <a href="baiviet.html" class="post-title">Chiến sự Lybia: Các phiến quân dự định tấn công mỏ dầu phía đông</a>
-                                <div class="post-meta d-flex">
-                                        <a href="danhsachbaiviet.html">10/04/2019 |</a>
-                                        <a href="danhsachbaiviet.html">HẢI SẢN</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Single Blog Post -->
-                    <div class="col-12 col-lg-6">
-                        <div class="single-blog-post d-flex style-3 mb-30">
-                            <div class="post-thumbnail">
-                                 <a href="baiviet.html" ><img src="../img/bg-img/TS3.jpg" alt=""></a>
-                            </div>
-                            <div class="post-content">
-                                <a href="baiviet.html" class="post-title">Chiến sự Lybia: Các phiến quân dự định tấn công mỏ dầu phía đông</a>
-                                <div class="post-meta d-flex">
-                                        <a href="danhsachbaiviet.html">10/04/2019 |</a>
-                                        <a href="danhsachbaiviet.html">HẢI SẢN</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                </div>
-            </div>
-            <!--End CHUYÊN MỤC POST -->
-
-            <!--CHUYÊN MỤC POST -->
-            <div class="every-news-area sports-videos-area">
-                <!-- Section Title -->
-                <div class="section-heading">
-                    <h5>Du lịch</h5>
-                </div>
-                
-                <div class="every-news-post">
-                    <div class="row">
-                        <div class="col-12 col-lg-6">
-                             <div class="single-featured-post">
-                                <!-- Thumbnail -->
-                                <div class="post-thumbnail mb-50">
-                                    <img src="../img/bg-img/TS1.jpg" alt="" >
-                                    <a href="baiviet.html" ></a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-12 col-lg-5">
-                             <!-- Post Contetnt -->
-                                <div class="post-content">
-                                    <div class="post-meta">
-                                        <a href="danhsachbaiviet.html">08/04/2019</a>
-                                        <a href="danhsachbaiviet.html">thời sự</a>
-                                    </div>
-                                    <a href="video-post.html" class="post-title">Mad&Women hợp tác với UNESCO để thúc đẩy bình đẳng giới <span class="badge badge-primary">Mới</span> </a>
-                                    <p> Nhằm đem đến nhiều hơn các sáng kiến  thúc đẩy bình đẳng giới và trao quyền cho nữ giới, UNESCO đã bắt tay hợp tác với công ty quảng cáo Mad&Women thông qua việc ký thỏa thuận về quan hệ đối tác chiến lược.</p>
-                                </div>
-                        </div>
-                    </div>
-                </div>   
-
-                <div class="row">
-                    <!-- Single Blog Post -->
-                    <div class="col-12 col-lg-6">
-                        <div class="single-blog-post d-flex style-3 mb-30">
-                            <div class="post-thumbnail">
-                                 <a href="baiviet.html" ><img src="../img/bg-img/TS3.jpg" alt=""></a>
-                            </div>
-                            <div class="post-content">
-                                <a href="baiviet.html" class="post-title">Chiến sự Lybia: Các phiến quân dự định tấn công mỏ dầu phía đông</a>
-                                <div class="post-meta d-flex">
-                                        <a href="danhsachbaiviet.html">10/04/2019 |</a>
-                                        <a href="danhsachbaiviet.html">HẢI SẢN</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Single Blog Post -->
-                    <div class="col-12 col-lg-6">
-                        <div class="single-blog-post d-flex style-3 mb-30">
-                            <div class="post-thumbnail">
-                                 <a href="baiviet.html" ><img src="../img/bg-img/TS3.jpg" alt=""></a>
-                            </div>
-                            <div class="post-content">
-                                <a href="baiviet.html" class="post-title">Chiến sự Lybia: Các phiến quân dự định tấn công mỏ dầu phía đông</a>
-                                <div class="post-meta d-flex">
-                                        <a href="danhsachbaiviet.html">10/04/2019 |</a>
-                                        <a href="danhsachbaiviet.html">HẢI SẢN</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Single Blog Post -->
-                    <div class="col-12 col-lg-6">
-                        <div class="single-blog-post d-flex style-3 mb-30">
-                            <div class="post-thumbnail">
-                                 <a href="baiviet.html" ><img src="../img/bg-img/TS3.jpg" alt=""></a>
-                            </div>
-                            <div class="post-content">
-                                <a href="baiviet.html" class="post-title">Chiến sự Lybia: Các phiến quân dự định tấn công mỏ dầu phía đông</a>
-                                <div class="post-meta d-flex">
-                                        <a href="danhsachbaiviet.html">10/04/2019 |</a>
-                                        <a href="danhsachbaiviet.html">HẢI SẢN</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Single Blog Post -->
-                    <div class="col-12 col-lg-6">
-                        <div class="single-blog-post d-flex style-3 mb-30">
-                            <div class="post-thumbnail">
-                                 <a href="baiviet.html" ><img src="../img/bg-img/TS3.jpg" alt=""></a>
-                            </div>
-                            <div class="post-content">
-                                <a href="baiviet.html" class="post-title">Chiến sự Lybia: Các phiến quân dự định tấn công mỏ dầu phía đông</a>
-                                <div class="post-meta d-flex">
-                                        <a href="danhsachbaiviet.html">10/04/2019 |</a>
-                                        <a href="danhsachbaiviet.html">HẢI SẢN</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                </div>
-            </div>
-            <!--End CHUYÊN MỤC POST -->
-
-            <!--CHUYÊN MỤC POST -->
-            <div class="every-news-area sports-videos-area">
-                <!-- Section Title -->
-                <div class="section-heading">
-                    <h5>Thời trang</h5>
-                </div>
-                
-                <div class="every-news-post">
-                    <div class="row">
-                        <div class="col-12 col-lg-6">
-                             <div class="single-featured-post">
-                                <!-- Thumbnail -->
-                                <div class="post-thumbnail mb-50">
-                                    <img src="../img/bg-img/TS1.jpg" alt="" >
-                                    <a href="baiviet.html" ></a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-12 col-lg-5">
-                             <!-- Post Contetnt -->
-                                <div class="post-content">
-                                    <div class="post-meta">
-                                        <a href="danhsachbaiviet.html">08/04/2019</a>
-                                        <a href="danhsachbaiviet.html">thời sự</a>
-                                    </div>
-                                    <a href="video-post.html" class="post-title">Mad&Women hợp tác với UNESCO để thúc đẩy bình đẳng giới <span class="badge badge-primary">Mới</span> </a>
-                                    <p> Nhằm đem đến nhiều hơn các sáng kiến  thúc đẩy bình đẳng giới và trao quyền cho nữ giới, UNESCO đã bắt tay hợp tác với công ty quảng cáo Mad&Women thông qua việc ký thỏa thuận về quan hệ đối tác chiến lược.</p>
-                                </div>
-                        </div>
-                    </div>
-                </div>   
-
-                <div class="row">
-                    <!-- Single Blog Post -->
-                    <div class="col-12 col-lg-6">
-                        <div class="single-blog-post d-flex style-3 mb-30">
-                            <div class="post-thumbnail">
-                                 <a href="baiviet.html" ><img src="../img/bg-img/TS3.jpg" alt=""></a>
-                            </div>
-                            <div class="post-content">
-                                <a href="baiviet.html" class="post-title">Chiến sự Lybia: Các phiến quân dự định tấn công mỏ dầu phía đông</a>
-                                <div class="post-meta d-flex">
-                                        <a href="danhsachbaiviet.html">10/04/2019 |</a>
-                                        <a href="danhsachbaiviet.html">HẢI SẢN</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Single Blog Post -->
-                    <div class="col-12 col-lg-6">
-                        <div class="single-blog-post d-flex style-3 mb-30">
-                            <div class="post-thumbnail">
-                                 <a href="baiviet.html" ><img src="../img/bg-img/TS3.jpg" alt=""></a>
-                            </div>
-                            <div class="post-content">
-                                <a href="baiviet.html" class="post-title">Chiến sự Lybia: Các phiến quân dự định tấn công mỏ dầu phía đông</a>
-                                <div class="post-meta d-flex">
-                                        <a href="danhsachbaiviet.html">10/04/2019 |</a>
-                                        <a href="danhsachbaiviet.html">HẢI SẢN</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Single Blog Post -->
-                    <div class="col-12 col-lg-6">
-                        <div class="single-blog-post d-flex style-3 mb-30">
-                            <div class="post-thumbnail">
-                                 <a href="baiviet.html" ><img src="../img/bg-img/TS3.jpg" alt=""></a>
-                            </div>
-                            <div class="post-content">
-                                <a href="baiviet.html" class="post-title">Chiến sự Lybia: Các phiến quân dự định tấn công mỏ dầu phía đông</a>
-                                <div class="post-meta d-flex">
-                                        <a href="danhsachbaiviet.html">10/04/2019 |</a>
-                                        <a href="danhsachbaiviet.html">HẢI SẢN</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Single Blog Post -->
-                    <div class="col-12 col-lg-6">
-                        <div class="single-blog-post d-flex style-3 mb-30">
-                            <div class="post-thumbnail">
-                                 <a href="baiviet.html" ><img src="../img/bg-img/TS3.jpg" alt=""></a>
-                            </div>
-                            <div class="post-content">
-                                <a href="baiviet.html" class="post-title">Chiến sự Lybia: Các phiến quân dự định tấn công mỏ dầu phía đông</a>
-                                <div class="post-meta d-flex">
-                                        <a href="danhsachbaiviet.html">10/04/2019 |</a>
-                                        <a href="danhsachbaiviet.html">HẢI SẢN</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                </div>
-            </div>
-            <!--End CHUYÊN MỤC POST -->
-
-            <!--CHUYÊN MỤC POST -->
-            <div class="every-news-area sports-videos-area">
-                <!-- Section Title -->
-                <div class="section-heading">
-                    <h5>Sức khỏe</h5>
-                </div>
-                
-                <div class="every-news-post">
-                    <div class="row">
-                        <div class="col-12 col-lg-6">
-                             <div class="single-featured-post">
-                                <!-- Thumbnail -->
-                                <div class="post-thumbnail mb-50">
-                                    <img src="../img/bg-img/TS1.jpg" alt="" >
-                                    <a href="baiviet.html" ></a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-12 col-lg-5">
-                             <!-- Post Contetnt -->
-                                <div class="post-content">
-                                    <div class="post-meta">
-                                        <a href="danhsachbaiviet.html">08/04/2019</a>
-                                        <a href="danhsachbaiviet.html">thời sự</a>
-                                    </div>
-                                    <a href="video-post.html" class="post-title">Mad&Women hợp tác với UNESCO để thúc đẩy bình đẳng giới <span class="badge badge-primary">Mới</span> </a>
-                                    <p> Nhằm đem đến nhiều hơn các sáng kiến  thúc đẩy bình đẳng giới và trao quyền cho nữ giới, UNESCO đã bắt tay hợp tác với công ty quảng cáo Mad&Women thông qua việc ký thỏa thuận về quan hệ đối tác chiến lược.</p>
-                                </div>
-                        </div>
-                    </div>
-                </div>   
-
-                <div class="row">
-                    <!-- Single Blog Post -->
-                    <div class="col-12 col-lg-6">
-                        <div class="single-blog-post d-flex style-3 mb-30">
-                            <div class="post-thumbnail">
-                                 <a href="baiviet.html" ><img src="../img/bg-img/TS3.jpg" alt=""></a>
-                            </div>
-                            <div class="post-content">
-                                <a href="baiviet.html" class="post-title">Chiến sự Lybia: Các phiến quân dự định tấn công mỏ dầu phía đông</a>
-                                <div class="post-meta d-flex">
-                                        <a href="danhsachbaiviet.html">10/04/2019 |</a>
-                                        <a href="danhsachbaiviet.html">HẢI SẢN</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Single Blog Post -->
-                    <div class="col-12 col-lg-6">
-                        <div class="single-blog-post d-flex style-3 mb-30">
-                            <div class="post-thumbnail">
-                                 <a href="baiviet.html" ><img src="../img/bg-img/TS3.jpg" alt=""></a>
-                            </div>
-                            <div class="post-content">
-                                <a href="baiviet.html" class="post-title">Chiến sự Lybia: Các phiến quân dự định tấn công mỏ dầu phía đông</a>
-                                <div class="post-meta d-flex">
-                                        <a href="danhsachbaiviet.html">10/04/2019 |</a>
-                                        <a href="danhsachbaiviet.html">HẢI SẢN</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Single Blog Post -->
-                    <div class="col-12 col-lg-6">
-                        <div class="single-blog-post d-flex style-3 mb-30">
-                            <div class="post-thumbnail">
-                                 <a href="baiviet.html" ><img src="../img/bg-img/TS3.jpg" alt=""></a>
-                            </div>
-                            <div class="post-content">
-                                <a href="baiviet.html" class="post-title">Chiến sự Lybia: Các phiến quân dự định tấn công mỏ dầu phía đông</a>
-                                <div class="post-meta d-flex">
-                                        <a href="danhsachbaiviet.html">10/04/2019 |</a>
-                                        <a href="danhsachbaiviet.html">HẢI SẢN</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Single Blog Post -->
-                    <div class="col-12 col-lg-6">
-                        <div class="single-blog-post d-flex style-3 mb-30">
-                            <div class="post-thumbnail">
-                                 <a href="baiviet.html" ><img src="../img/bg-img/TS3.jpg" alt=""></a>
-                            </div>
-                            <div class="post-content">
-                                <a href="baiviet.html" class="post-title">Chiến sự Lybia: Các phiến quân dự định tấn công mỏ dầu phía đông</a>
-                                <div class="post-meta d-flex">
-                                        <a href="danhsachbaiviet.html">10/04/2019 |</a>
-                                        <a href="danhsachbaiviet.html">HẢI SẢN</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                </div>
-            </div>
-            <!--End CHUYÊN MỤC POST -->
-
-            <!--CHUYÊN MỤC POST -->
-            <div class="every-news-area sports-videos-area">
-                <!-- Section Title -->
-                <div class="section-heading">
-                    <h5>Phát minh</h5>
-                </div>
-                
-                <div class="every-news-post">
-                    <div class="row">
-                        <div class="col-12 col-lg-6">
-                             <div class="single-featured-post">
-                                <!-- Thumbnail -->
-                                <div class="post-thumbnail mb-50">
-                                    <img src="../img/bg-img/TS1.jpg" alt="" >
-                                    <a href="baiviet.html" ></a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-12 col-lg-5">
-                             <!-- Post Contetnt -->
-                                <div class="post-content">
-                                    <div class="post-meta">
-                                        <a href="danhsachbaiviet.html">08/04/2019</a>
-                                        <a href="danhsachbaiviet.html">thời sự</a>
-                                    </div>
-                                    <a href="video-post.html" class="post-title">Mad&Women hợp tác với UNESCO để thúc đẩy bình đẳng giới <span class="badge badge-primary">Mới</span> </a>
-                                    <p> Nhằm đem đến nhiều hơn các sáng kiến  thúc đẩy bình đẳng giới và trao quyền cho nữ giới, UNESCO đã bắt tay hợp tác với công ty quảng cáo Mad&Women thông qua việc ký thỏa thuận về quan hệ đối tác chiến lược.</p>
-                                </div>
-                        </div>
-                    </div>
-                </div>   
-
-                <div class="row">
-                    <!-- Single Blog Post -->
-                    <div class="col-12 col-lg-6">
-                        <div class="single-blog-post d-flex style-3 mb-30">
-                            <div class="post-thumbnail">
-                                 <a href="baiviet.html" ><img src="../img/bg-img/TS3.jpg" alt=""></a>
-                            </div>
-                            <div class="post-content">
-                                <a href="baiviet.html" class="post-title">Chiến sự Lybia: Các phiến quân dự định tấn công mỏ dầu phía đông</a>
-                                <div class="post-meta d-flex">
-                                        <a href="danhsachbaiviet.html">10/04/2019 |</a>
-                                        <a href="danhsachbaiviet.html">HẢI SẢN</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Single Blog Post -->
-                    <div class="col-12 col-lg-6">
-                        <div class="single-blog-post d-flex style-3 mb-30">
-                            <div class="post-thumbnail">
-                                 <a href="baiviet.html" ><img src="../img/bg-img/TS3.jpg" alt=""></a>
-                            </div>
-                            <div class="post-content">
-                                <a href="baiviet.html" class="post-title">Chiến sự Lybia: Các phiến quân dự định tấn công mỏ dầu phía đông</a>
-                                <div class="post-meta d-flex">
-                                        <a href="danhsachbaiviet.html">10/04/2019 |</a>
-                                        <a href="danhsachbaiviet.html">HẢI SẢN</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Single Blog Post -->
-                    <div class="col-12 col-lg-6">
-                        <div class="single-blog-post d-flex style-3 mb-30">
-                            <div class="post-thumbnail">
-                                 <a href="baiviet.html" ><img src="../img/bg-img/TS3.jpg" alt=""></a>
-                            </div>
-                            <div class="post-content">
-                                <a href="baiviet.html" class="post-title">Chiến sự Lybia: Các phiến quân dự định tấn công mỏ dầu phía đông</a>
-                                <div class="post-meta d-flex">
-                                        <a href="danhsachbaiviet.html">10/04/2019 |</a>
-                                        <a href="danhsachbaiviet.html">HẢI SẢN</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Single Blog Post -->
-                    <div class="col-12 col-lg-6">
-                        <div class="single-blog-post d-flex style-3 mb-30">
-                            <div class="post-thumbnail">
-                                 <a href="baiviet.html" ><img src="../img/bg-img/TS3.jpg" alt=""></a>
-                            </div>
-                            <div class="post-content">
-                                <a href="baiviet.html" class="post-title">Chiến sự Lybia: Các phiến quân dự định tấn công mỏ dầu phía đông</a>
-                                <div class="post-meta d-flex">
-                                        <a href="danhsachbaiviet.html">10/04/2019 |</a>
-                                        <a href="danhsachbaiviet.html">HẢI SẢN</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                </div>
-            </div>
-            <!--End CHUYÊN MỤC POST -->
-
         </div>
       
         {{!-- End main area --}}
             
-
-
 
         <!-- >>>>>>>>>>>>>>>>>>>>
          Post Right Sidebar Area
@@ -1685,187 +520,27 @@
             <div class="single-sidebar-widget p-30">
                 <!-- Section Title -->
                 <div class="section-heading">
-                    <h5>Xem Nhiều</h5>
-                </div>
-                <!-- Single Blog Post -->
-                <div class="single-blog-post d-flex">
-                    <div class="post-thumbnail">
-                        <a href="baiviet.html"> <img src="../img/bg-img/AI.jpg" alt=""></a>
-                    </div>
-                    <div class="post-content">
-                        <a href="baiviet.html" class="post-title">Giọng nói AI không giới tính đầu tiên trên thế giới <span class="badge badge-primary">Mới</span></a>
-                        
-                         <div class="post-meta d-flex">   
-                            <a href="danhsachbaiviet.html">10/04/2019|</a>
-                            <a href="danhsachbaiviet.html">PHÁT MINH</a>
-                        </div>
-                    </div>
+                    <h5>Most views</h5>
                 </div>
 
+                {{#each articlemostviews}}
                 <!-- Single Blog Post -->
-                <div class="single-blog-post d-flex">
+                <div class="single-blog-post d-flex limiteachmostviews ">
                     <div class="post-thumbnail">
-                        <a href="baiviet.html"> <img src="../img/bg-img/AI.jpg" alt=""></a>
+                        <a href="#"> <img src="{{image}}" alt=""></a>
                     </div>
                     <div class="post-content">
-                        <a href="single-post.html" class="post-title">Giọng nói AI không giới tính đầu tiên trên thế giới <span class="badge badge-primary">Mới</span></a>
+                        <a href="#" class="post-title">{{title}} <span class="badge badge-danger">Hot</span></a>
                         
                          <div class="post-meta d-flex">   
-                            <a href="danhsachbaiviet.html">10/04/2019|</a>
-                            <a href="danhsachbaiviet.html">PHÁT MINH</a>
+                            <a href="#">{{datePostFormated}} |</a>
+                            <a href="/guest/detailcategories/{{idCategory}}">{{catName}}</a>
                         </div>
                     </div>
-                </div>
+                </div> 
+                {{/each}}
 
-                <!-- Single Blog Post -->
-                <div class="single-blog-post d-flex">
-                    <div class="post-thumbnail">
-                        <a href="baiviet.html"> <img src="../img/bg-img/AI.jpg" alt=""></a>
-                    </div>
-                    <div class="post-content">
-                        <a href="single-post.html" class="post-title">Giọng nói AI không giới tính đầu tiên trên thế giới <span class="badge badge-primary">Mới</span></a>
-                        
-                         <div class="post-meta d-flex">   
-                            <a href="danhsachbaiviet.html">10/04/2019|</a>
-                            <a href="danhsachbaiviet.html">PHÁT MINH</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Blog Post -->
-                <div class="single-blog-post d-flex">
-                    <div class="post-thumbnail">
-                        <a href="baiviet.html"> <img src="../img/bg-img/AI.jpg" alt=""></a>
-                    </div>
-                    <div class="post-content">
-                        <a href="single-post.html" class="post-title">Giọng nói AI không giới tính đầu tiên trên thế giới <span class="badge badge-primary">Mới</span></a>
-                        
-                         <div class="post-meta d-flex">   
-                            <a href="danhsachbaiviet.html">10/04/2019|</a>
-                            <a href="danhsachbaiviet.html">PHÁT MINH</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Blog Post -->
-                <div class="single-blog-post d-flex">
-                    <div class="post-thumbnail">
-                        <a href="baiviet.html"> <img src="../img/bg-img/AI.jpg" alt=""></a>
-                    </div>
-                    <div class="post-content">
-                        <a href="single-post.html" class="post-title">Giọng nói AI không giới tính đầu tiên trên thế giới <span class="badge badge-primary">Mới</span></a>
-                        
-                         <div class="post-meta d-flex">   
-                            <a href="danhsachbaiviet.html">10/04/2019|</a>
-                            <a href="danhsachbaiviet.html">PHÁT MINH</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Blog Post -->
-                <div class="single-blog-post d-flex">
-                    <div class="post-thumbnail">
-                        <a href="baiviet.html"> <img src="../img/bg-img/AI.jpg" alt=""></a>
-                    </div>
-                    <div class="post-content">
-                        <a href="single-post.html" class="post-title">Giọng nói AI không giới tính đầu tiên trên thế giới <span class="badge badge-primary">Mới</span></a>
-                        
-                         <div class="post-meta d-flex">   
-                            <a href="danhsachbaiviet.html">10/04/2019|</a>
-                            <a href="danhsachbaiviet.html">PHÁT MINH</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Blog Post -->
-                <div class="single-blog-post d-flex">
-                    <div class="post-thumbnail">
-                        <a href="baiviet.html"> <img src="../img/bg-img/AI.jpg" alt=""></a>
-                    </div>
-                    <div class="post-content">
-                        <a href="single-post.html" class="post-title">Giọng nói AI không giới tính đầu tiên trên thế giới <span class="badge badge-primary">Mới</span></a>
-                        
-                         <div class="post-meta d-flex">   
-                            <a href="danhsachbaiviet.html">10/04/2019|</a>
-                            <a href="danhsachbaiviet.html">PHÁT MINH</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Blog Post -->
-                <div class="single-blog-post d-flex">
-                    <div class="post-thumbnail">
-                        <a href="baiviet.html"> <img src="../img/bg-img/AI.jpg" alt=""></a>
-                    </div>
-                    <div class="post-content">
-                        <a href="single-post.html" class="post-title">Giọng nói AI không giới tính đầu tiên trên thế giới <span class="badge badge-primary">Mới</span></a>
-                        
-                         <div class="post-meta d-flex">   
-                            <a href="danhsachbaiviet.html">10/04/2019|</a>
-                            <a href="danhsachbaiviet.html">PHÁT MINH</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Blog Post -->
-                <div class="single-blog-post d-flex">
-                    <div class="post-thumbnail">
-                        <a href="baiviet.html"> <img src="../img/bg-img/AI.jpg" alt=""></a>
-                    </div>
-                    <div class="post-content">
-                        <a href="single-post.html" class="post-title">Giọng nói AI không giới tính đầu tiên trên thế giới <span class="badge badge-primary">Mới</span></a>
-                        
-                         <div class="post-meta d-flex">   
-                            <a href="danhsachbaiviet.html">10/04/2019|</a>
-                            <a href="danhsachbaiviet.html">PHÁT MINH</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Blog Post -->
-                <div class="single-blog-post d-flex">
-                    <div class="post-thumbnail">
-                        <a href="baiviet.html"> <img src="../img/bg-img/AI.jpg" alt=""></a>
-                    </div>
-                    <div class="post-content">
-                        <a href="single-post.html" class="post-title">Giọng nói AI không giới tính đầu tiên trên thế giới <span class="badge badge-primary">Mới</span></a>
-                        
-                         <div class="post-meta d-flex">   
-                            <a href="danhsachbaiviet.html">10/04/2019|</a>
-                            <a href="danhsachbaiviet.html">PHÁT MINH</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Blog Post -->
-                <div class="single-blog-post d-flex">
-                    <div class="post-thumbnail">
-                        <a href="baiviet.html"> <img src="../img/bg-img/AI.jpg" alt=""></a>
-                    </div>
-                    <div class="post-content">
-                        <a href="single-post.html" class="post-title">Giọng nói AI không giới tính đầu tiên trên thế giới <span class="badge badge-primary">Mới</span></a>
-                        
-                         <div class="post-meta d-flex">   
-                            <a href="danhsachbaiviet.html">10/04/2019|</a>
-                            <a href="danhsachbaiviet.html">PHÁT MINH</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Blog Post -->
-                <div class="single-blog-post d-flex">
-                    <div class="post-thumbnail">
-                        <a href="baiviet.html"> <img src="../img/bg-img/AI.jpg" alt=""></a>
-                    </div>
-                    <div class="post-content">
-                        <a href="single-post.html" class="post-title">Giọng nói AI không giới tính đầu tiên trên thế giới <span class="badge badge-primary">Mới</span></a>
-                        
-                         <div class="post-meta d-flex">   
-                            <a href="danhsachbaiviet.html">10/04/2019|</a>
-                            <a href="danhsachbaiviet.html">PHÁT MINH</a>
-                        </div>
-                    </div>
-                </div>
+                
                  
             </div>
             <!-- End Sidebar Widget Right1 - Xem nhiều-->
@@ -1876,22 +551,23 @@
             </div> -->
             
             <!-- Sidebar Widget Right2- Categories-->
-            <div class="single-sidebar-widget p-30">
-                <!-- Section Title -->
-                <div class="section-heading">
-                    <h5>Categories</h5>
+                <div class="single-sidebar-widget p-30" >
+                    <!-- Section Title -->
+                    <div class="section-heading">
+                        <h5>Categories</h5>
+                    </div>
+                    <div class="list-group list-group-flush " >
+                        {{#each lcCategories}}
+                        <a href="/guest/detailcategories/{{id}}" class="list-group-item list-group-item-action {{#if isActive}}active{{/if}}">
+                        {{name}}
+                        {{#if num_of_articles}}
+                        <span class="badge badge-danger float-right">{{num_of_articles}}</span>
+                        {{/if}}
+                        </a>
+                        {{/each}}
+                    </div>
                 </div>
-                <div class="list-group list-group-flush">
-                    {{#each lcCategories}}
-                    <a href="/guest/detailcategories/{{id}}" class="list-group-item list-group-item-action {{#if isActive}}active{{/if}}">
-                    {{name}}
-                    {{#if num_of_articles}}
-                    <span class="badge badge-danger float-right">{{num_of_articles}}</span>
-                    {{/if}}
-                    </a>
-                    {{/each}}
-                </div>
-            </div>
+              
              <!--End Sidebar Widget Right2- Categories-->
 
                 
@@ -1899,55 +575,13 @@
             <div class="single-sidebar-widget p-30" >
                 <!-- Section Title -->
                 <div class="section-heading">
-                    <h5>Xu hướng</h5>
+                    <h5>Tags</h5>
                 </div>
-
-                <!-- Catagory Widget -->
-               
-               <div class="tagname" >
-                <a class ="tagname1"href="danhsachbaiviet.html">Thor</a>
-                <a class ="tagname2"href="danhsachbaiviet.html">Spiderman</a>
-                <a class ="tagname4"href="danhsachbaiviet.html">Endgame</a>
-                <a class ="tagname7"href="danhsachbaiviet.html">Nguyễn Bá Cảnh</a>
-                <a class ="tagname2"href="danhsachbaiviet.html">gây án</a>
-                <a class ="tagname5"href="danhsachbaiviet.html">khởi tố</a>
-                <a class ="tagname3"href="danhsachbaiviet.html">sơn tùng</a>
-                <a class ="tagname7"href="danhsachbaiviet.html">Mỹ Tâm</a>
-                <a class ="tagname8"href="danhsachbaiviet.html">Marvel</a>
-                <a class ="tagname1"href="danhsachbaiviet.html">Blackpink</a>
-                <a class ="tagname3"href="danhsachbaiviet.html">tử vong</a>
-                <a class ="tagname2"href="danhsachbaiviet.html">thời trang</a>
-                <a class ="tagname7"href="danhsachbaiviet.html">món ăn</a>
-                <a class ="tagname2"href="danhsachbaiviet.html">vợ giết chồng</a>
-                <a class ="tagname4"href="danhsachbaiviet.html">nhậu say</a>
-                <a class ="tagname2"href="danhsachbaiviet.html">Kim Jong-Un</a>
-                <a class ="tagname1"href="danhsachbaiviet.html">Primary</a>
-                <a class ="tagname8"href="danhsachbaiviet.html">ngoại hạng anh</a>
-                <a class ="tagname5"href="danhsachbaiviet.html">vui nhộn</a>
-                <a class ="tagname3"href="danhsachbaiviet.html">bóng đá</a>
-                <a class ="tagname2"href="danhsachbaiviet.html">obama</a>
-                <a class ="tagname6"href="danhsachbaiviet.html">giáo dục</a>
-                <a class ="tagname3"href="danhsachbaiviet.html">dâm ô</a>
-                <a class ="tagname2"href="danhsachbaiviet.html">giết người</a>
-                <a class ="tagname1"href="danhsachbaiviet.html">blackpink</a>
-                <a class ="tagname4"href="danhsachbaiviet.html">bỏ chạy</a>
-                <a class ="tagname1"href="danhsachbaiviet.html">đâm xe</a>
-                <a class ="tagname7"href="danhsachbaiviet.html">khởi tố</a>
-                <a class ="tagname8"href="danhsachbaiviet.html">Captain</a>
-                <a class ="tagname6"href="danhsachbaiviet.html">truyền hình</a>
-                <a class ="tagname4"href="danhsachbaiviet.html">Ấu dâm</a>
-                <a class ="tagname5"href="danhsachbaiviet.html">Trung Quốc</a>
-                <a class ="tagname2"href="danhsachbaiviet.html">ma túy</a>
-                <a class ="tagname4"href="danhsachbaiviet.html">người nổi tiếng</a>
-                <a class ="tagname8"href="danhsachbaiviet.html">Trấn Thành</a>
-                <a class ="tagname1"href="danhsachbaiviet.html">li dị</a>
-                <a class ="tagname7"href="danhsachbaiviet.html">thủ tục</a>
-                <a class ="tagname5"href="danhsachbaiviet.html">pháp luật</a>
-                <a class ="tagname6"href="danhsachbaiviet.html">hot</a>
-                <a class ="tagname3"href="danhsachbaiviet.html">ô tô</a>
-
+               <div class="tagname" id="tagformat">
+                {{#each articlemostviews}}   
+                <a  href="/guest/detailcategories/{{idCategory}}">{{tag}}</a>
+                {{/each}} 
                 </div>
-                <!--end catagory widget-->
             </div>
              <!--End Sidebar Widget Right2- Xu hướng-->
 
@@ -1992,36 +626,10 @@
                 <div class="col-12 col-sm-6 col-lg-6">
                       <div class="footer-widget">
                         <h6 class="widget-title">TAG</h6>
-                        <ul class="footer-tags">
-                            <li><a href="danhsachbaiviet.html">endgame</a></li>
-                            <li><a href="danhsachbaiviet.html">film</a></li>
-                
-                            <li><a href="danhsachbaiviet.html">action</a></li>
-                            <li><a href="danhsachbaiviet.html">mtp</a></li>
-                            <li><a href="danhsachbaiviet.html">marvel</a></li>
-                            <li><a href="danhsachbaiviet.html">idol</a></li>
-                            <li><a href="danhsachbaiviet.html">scandal</a></li>
-                            <li><a href="danhsachbaiviet.html">President</a></li>
-                            <li><a href="danhsachbaiviet.html">kim jong-un</a></li>
-                            <li><a href="danhsachbaiviet.html">Rule</a></li>
-                            <li><a href="danhsachbaiviet.html">Dangerous</a></li>
-                            <li><a href="danhsachbaiviet.html">Cars</a></li>
-                            <li><a href="danhsachbaiviet.html">Terrorism</a></li>
-                            <li><a href="danhsachbaiviet.html">Fananci</a></li>
-                             <li><a href="danhsachbaiviet.html">War</a></li>
-                            <li><a href="danhsachbaiviet.html">watch out</a></li>
-                            <li><a href="danhsachbaiviet.html">fun</a></li>
-                            <li><a href="danhsachbaiviet.html">Fashion</a></li>
-                            <li><a href="danhsachbaiviet.html">food</a></li>
-                            <li><a href="danhsachbaiviet.html">kill husband</a></li>
-                            
-                            <li><a href="danhsachbaiviet.html">soccer</a></li>
-                            <li><a href="danhsachbaiviet.html">laliga champion cup</a></li>
-                            <li><a href="danhsachbaiviet.html">fun video</a></li>
-                            <li><a href="danhsachbaiviet.html">obama</a></li>
-                            <li><a href="danhsachbaiviet.html">Education</a></li>
-                            
-
+                        <ul class="footer-tags">                            
+                            {{#each articlemostviews}}   
+                                <li><a  href="/guest/detailcategories/{{idCategory}}">{{tag}}</a></li>
+                            {{/each}} 
                         </ul>
                     </div>
                 </div>
@@ -2052,3 +660,58 @@
             </div>
           </div>
         </div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>  
+<script src="/js/jquery/jquery-2.2.4.min.js"></script>
+{{!-- random tag format --}}
+<script>    
+    $(document).ready(function(){
+    var classes = ["tagname1", "tagname2", "tagname3", "tagname4", "tagname5", "tagname6", "tagname7", "tagname8"];
+
+    $("#tagformat a").each(function(){
+        $(this).addClass(classes[~~(Math.random()*classes.length)]);
+    });
+});
+</script>
+
+{{!-- random div newest post area --}}
+<script>
+    $(function() {
+  // Grab the template script
+  var theTemplateScript = $("#myTemplate").html();
+
+  // Compile the template
+  var theTemplate = Handlebars.compile(theTemplateScript);
+
+  // Define our data object
+  var context = {};
+
+  var getData = function() {
+    $.ajax({
+      url: "https://randomuser.me/api/?results=20",
+      dataType: "json",
+      success: function(data) {
+        context.people = data.results;
+        // Pass our data to the template
+        var theCompiledHtml = theTemplate(context);
+        // Add the compiled html to the page
+        $(".people").html(theCompiledHtml);
+      }
+    });
+  };
+
+  $(".getlistbtn").on("click", getData);
+
+  $(".clearbtn").on("click", function() {
+    context = {};
+
+    // Add the compiled html to the page
+    $(".people").html(
+      '<div class="col-xs-12">Click "Get People" to load the Dataset.</div>'
+    );
+  });
+
+  getData();
+});
+
+</script>
