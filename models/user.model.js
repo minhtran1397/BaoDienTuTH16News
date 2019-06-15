@@ -9,6 +9,10 @@ module.exports = {
     return db.load('select * from category');
   },
 
+  getAcc: id => {
+    return db.load(`select * from user where id = ${id}`);
+  },
+
   single: id => {
     return db.load(`select * from user where id = ${id}`);
   },

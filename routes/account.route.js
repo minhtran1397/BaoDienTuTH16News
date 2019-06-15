@@ -25,6 +25,10 @@ router.get('/is-available', (req, res, next) => {
   var user = req.query.username;
   userModel.singleByUserName(user).then(rows => {
     if (rows.length > 0) {
+      if(req.user && req.user.id == rows[0].id){
+        return res.json(true);
+      }
+      else
       return res.json(false);
     }
 
@@ -50,7 +54,8 @@ router.post('/registeradd', (req, res, next) => {
     dob: dob,
     role: req.body.role,
     duration: datetime,
-    idCategory: req.body.idCategory
+    idCategory: req.body.idCategory,
+    nickname: req.body.nickname
   }
 
   userModel.add(entity).then(id => {
@@ -71,6 +76,9 @@ router.get('/login3', (req, res, next) => {
   res.render('Req 3 - Writer/Login', { layout: false });
 })
 
+router.get('/login4', (req, res, next) => {
+  res.render('Req 3 - Writer/Login', { layout: false });
+})
 
 router.post('/login', (req, res, next) => {
   passport.authenticate('local', (err, user, info) => {
@@ -137,9 +145,48 @@ router.post('/login3', (req, res, next) => {
 })
 
 
-router.get('/profile', auth, (req, res, next) => {
-  res.end('profile');
+router.post('/login4', (req, res, next) => {
+  passport.authenticate('local', (err, user, info) => {
+    if (err)
+      return next(err);
+
+    if (!user) {
+      return res.render('Req 3 - Writer/Login', {
+        layout: false,
+        err_message: info.message
+      })
+    }
+
+    req.logIn(user, err => {
+      if (err)
+        return next(err);
+
+      return res.redirect('/admin');
+    });
+  })(req, res, next);
 })
+
+router.get('/prolife', auth, (req, res, next) => {
+  userModel.getAcc(req.user.id)
+  .then(rows => {
+    res.render('Req 3 - Writer/Prolife', {
+      account: rows[0]
+    });
+  }).catch(err => {
+    console.log(err);
+    res.end('error occured.')
+  });
+})
+
+router.post('/updateProlife', auth, (req, res, next) => {
+  userModel.update(req.body).then(id => {
+    res.redirect('/');
+  }).catch(err => {
+    console.log(err);
+    res.end('error occured.')
+  });
+})
+
 
 router.post('/logout', auth, (req, res, next) => {
   req.logOut();

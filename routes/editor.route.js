@@ -1,6 +1,5 @@
 var express = require('express');
 var articleModel = require('../models/editor.model');
-var auth = require('../middlewares/auth');
 var auth = require('../middlewares/auth-Editor');
 
 var router = express.Router();

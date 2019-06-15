@@ -41,7 +41,7 @@
         },
         dob: {
           required: true
-        }, 
+        },
         nickname: {
           required: true
         },
@@ -69,7 +69,7 @@
         dob: {
           required: 'Valid date of birth is required.',
         },
-        nickname: {
+         nickname: {
           required: 'Valid nickname is required.',
         },
       },
@@ -93,7 +93,7 @@
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="breadcrumb-content">
-                        <h2>REGISTER</h2>
+                        <h2>PROLIFE</h2>
                     </div>
                 </div>
             </div>
@@ -114,7 +114,7 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Register</li>
+                            <li class="breadcrumb-item active" aria-current="page">Prolife</li>
                         </ol>
                     </nav>
                 </div>
@@ -135,70 +135,63 @@
                             <div class="bg-white p-30 box-shadow">
                                 <!-- Section Title -->
                                 <div class="section-heading">
-                                    <h5>REGISTER!</h5>
+                                    <h5>INFORMATION!</h5>
                                 </div>
         
-                                <form novalidate action="/account/registeradd" method="POST" id="registerForm">
+                                <form novalidate action="/account/updateProlife" method="POST" id="registerForm">
                                     <div class="card shadow">
-                                       
+                                      
+
+
+
                                         <div class="card-body">
                                         <h5 class="mb-3">Account</h5>
+                                         <div class="form-group">
+                                            <label for="txtCatID">#ID</label>
+                                            <input readonly type="text" class="form-control" id="txtCatID" name="id" value="{{account.id}}">
+                                        </div>
+
                                         <div class="form-group">
                                             <label for="txtUsername">Username</label>
-                                            <input type="text" class="form-control" id="txtUsername" name="username">
-                                        </div>
-                                       
-                                        <div class="form-group">
-                                            <label for="txtPassword">Password</label>
-                                            <input type="password" class="form-control" id="txtPassword" name="password">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="txtConfirm">Confirm</label>
-                                            <input type="password" class="form-control" id="txtConfirm" name="confirm">
+                                            <input type="text" class="form-control" id="txtUsername" name="username" value="{{account.username}}">
                                         </div>
 
                                         <hr class="mb-4">
-                                        <h5 class="mb-3">Information</h5>
+                        
                                         <div class="form-group">
                                             <label for="txtName">Name</label>
-                                            <input type="text" class="form-control" id="txtName" name="name">
+                                            <input type="text" class="form-control" id="txtName" name="name" value="{{account.name}}">
                                         </div>
                                         <div class="form-group">
                                             <label for="txtEmail">Email</label>
-                                            <input type="text" class="form-control" id="txtEmail" name="email">
+                                            <input type="text" class="form-control" id="txtEmail" name="email" value="{{account.email}}">
                                         </div>
-                                        <div class="form-group">
+                                        {{!-- <div class="form-group">
                                             <label for="txtDOB">Date of birth</label>
-                                            <input type="text" class="form-control" id="txtDOB" name="dob">
-                                        </div>
+                                            <input type="date" class="form-control" id="DOB" name="dob" value="{{account.dob}}">
+                                        </div> --}}
                                         <div class="form-group">
                                             <label for="role">Role</label>
-                                            <select name="role" class="form-control" id="role">
-                                                <option value="subcriber">Subcriber</option>
-                                                <option value="writer">Writer</option>
-                                                <option value="editor">Editor</option>
-                                            </select>
+                                            <input type="text" class="form-control" id="role" name="role" value="{{account.role}}">
                                         </div>
 
                                         <div class="form-group">
                                             <label for="catagory">Catagory (for Editor)</label>
-                                            <select name="idCategory" class="form-control" id="catagory">
-                                                {{#each this.cate2}}
-                                                <option value="{{id}}">{{name}}</option>     
-                                              {{/each}}
+                                              <input type="text" class="form-control" id="category" name="idCategory" value="{{account.idCategory}}">
                                             </select>
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="txtNickname">NickName (for Writer)</label>
-                                            <input type="text" class="form-control" id="txtNickname" name="nickname">
+                                            <label for="catagory">NickName (for Writer)</label>
+                                              <input type="text" class="form-control" id="nickname" name="nickname" value="{{account.nickname}}">
+                                            </select>
                                         </div>
 
                                         </div>
                                         <div class="card-footer text-right">
                                         <button type="submit" class="btn btn-lg btn-success btn-block">
                                             <i class="fa fa-check" aria-hidden="true"></i>
-                                            Register
+                                            Change Your Prolife
                                         </button>
                                         </div>
                                     </div>
