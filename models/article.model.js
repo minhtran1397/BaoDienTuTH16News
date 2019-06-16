@@ -48,7 +48,7 @@ module.exports = {
   },
   top15MostViews:  () => {
     return db.load(`
-    SELECT a.id, title, views, c.name as catName,DATE_FORMAT(datePost,'%d/%m/%Y') AS datePostFormated,tag,image
+    SELECT a.id, idCategory, title, views, c.name as catName,DATE_FORMAT(datePost,'%d/%m/%Y') AS datePostFormated,tag,image,premium
     FROM article a, category c
     WHERE idCategory=c.id and a.allow='Allowed'   and datePost <= DATE(NOW())
     ORDER BY a.views desc 
@@ -57,7 +57,7 @@ module.exports = {
   },
   top10Newest:()=>{
     return db.load(`
-    SELECT a.id, title, views, c.name as catName,DATE_FORMAT(datePost,'%d/%m/%Y') AS datePostFormated,tag, image
+    SELECT a.id, idCategory, title, views, c.name as catName,DATE_FORMAT(datePost,'%d/%m/%Y') AS datePostFormated,tag, image, premium
     FROM article a, category c
     WHERE idCategory=c.id and a.allow='Allowed'  and datePost <= DATE(NOW())
     ORDER BY a.datePost desc 
@@ -67,7 +67,7 @@ module.exports = {
 
   top1Newest:()=>{
     return db.load(`
-    SELECT a.id, title, views, c.name as catName,DATE_FORMAT(datePost,'%d/%m/%Y') AS datePostFormated,tag, image
+    SELECT a.id, title, views, c.name as catName,DATE_FORMAT(datePost,'%d/%m/%Y') AS datePostFormated,tag, image,premium,idCategory
     FROM article a, category c
     WHERE idCategory=c.id and a.allow='Allowed'  and datePost <= DATE(NOW())
     ORDER BY a.datePost desc 
@@ -77,7 +77,7 @@ module.exports = {
 
   top5Newest:()=>{
     return db.load(`
-    SELECT a.id, title, views, c.name as catName,DATE_FORMAT(datePost,'%d/%m/%Y') AS datePostFormated,tag, image
+    SELECT a.id, title, views, c.name as catName,DATE_FORMAT(datePost,'%d/%m/%Y') AS datePostFormated,tag, image,premium,idCategory
     FROM article a, category c
     WHERE idCategory=c.id and a.allow='Allowed'  and datePost <= DATE(NOW())
     ORDER BY a.datePost desc 
@@ -86,7 +86,7 @@ module.exports = {
   },
   top5to10Newest:()=>{
     return db.load(`
-    SELECT a.id, title, views, c.name as catName,DATE_FORMAT(datePost,'%d/%m/%Y') AS datePostFormated,tag, image
+    SELECT a.id, title, views, c.name as catName,DATE_FORMAT(datePost,'%d/%m/%Y') AS datePostFormated,tag, image,premium,idCategory
     FROM article a, category c
     WHERE idCategory=c.id and a.allow='Allowed'  and datePost <= DATE(NOW())
     ORDER BY a.datePost desc 
@@ -105,7 +105,7 @@ module.exports = {
 
   top1NewestEachCate:()=>{
     return db.load(`
-    SELECT a.id, a.idCategory, a.title,DATE_FORMAT(a.datePost,'%d/%m/%Y') AS datePostFormated, c.name as catName, c.id as catID, a.image, a.summary    FROM((article a INNER JOIN (SELECT MAX(ar.datePost) AS maxdate,idCategory FROM article ar GROUP BY idCategory) maxDateByCatTable 
+    SELECT a.id, a.idCategory, a.title,DATE_FORMAT(a.datePost,'%d/%m/%Y') AS datePostFormated, c.name as catName, c.id as catID, a.image, a.summary,premium    FROM((article a INNER JOIN (SELECT MAX(ar.datePost) AS maxdate,idCategory FROM article ar GROUP BY idCategory) maxDateByCatTable 
                     ON a.idCategory = maxDateByCatTable.idCategory AND a.datePost = maxDateByCatTable.maxdate)
           INNER JOIN category c	
           ON a.idCategory=c.id)

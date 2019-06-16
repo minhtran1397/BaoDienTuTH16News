@@ -1,117 +1,3 @@
-    <!-- Preloader -->
-    <div class="preloader d-flex align-items-center justify-content-center">
-        <div class="spinner">
-            <div class="double-bounce1"></div>
-            <div class="double-bounce2"></div>
-        </div>
-    </div>
-
-     <!-- ##### Header Area Start ##### -->
-    <header class="header-area">
-
-        <!-- Navbar Area -->
-        <div class="mag-main-menu" id="sticker">
-            <div class="classy-nav-container breakpoint-off">
-                <!-- Menu -->
-                <nav class="classy-navbar justify-content-between" id="magNav">
-
-                    <!-- Nav brand -->
-                    <a href="/" class="nav-brand"><img src="../../img/core-img/logo.png" alt=""></a>
-
-                    <!-- Navbar Toggler -->
-                    <div class="classy-navbar-toggler">
-                        <span class="navbarToggler"><span></span><span></span><span></span></span>
-                    </div>
-
-                    <!-- Nav Content -->
-                    <div class="nav-content d-flex align-items-center">
-                        <div class="classy-menu">
-
-                            <!-- Close Button -->
-                            <div class="classycloseIcon">
-                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
-                            </div>
-
-                            <!-- Nav Start -->
-                            <div class="classynav">
-                                <ul>
-                                    <li class="active"><a href="/">Home</a></li>
-                                    <li><a href="/guest/detailcategories/1">News</a></li>
-                                    <li><a href="#">Bussiness</a>
-                                        <ul class="dropdown">                                            
-                                            <li><a href="/guest/detailcategories/2">Agricultural</a></li>
-                                            <li><a href="/guest/detailcategories/3">Seafood</a></li>                                            
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">Life style</a>
-                                        <ul class="dropdown">                                            
-                                            <li><a href="/guest/detailcategories/4">Cutural</a></li>
-                                            <li><a href="/guest/detailcategories/5">Films</a></li>
-                                            <li><a href="/guest/detailcategories/6">Travel</a></li>
-                                            <li><a href="/guest/detailcategories/7">Fashion</a></li>
-                                             <li><a href="/guest/detailcategories/8">Health</a></li>
-                                            <li><a href="/guest/detailcategories/9">Food</a></li>
-                                        </ul>
-                                    </li>
-                                   <li><a href="#">Sciencse</a>
-                                        <ul class="dropdown">                                            
-                                            <li><a href="/guest/detailcategories/10">Invention</a></li>
-                                            <li><a href="/guest/detailcategories/11">Technology</a></li>                                            
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">Synthetic</a>
-                                        <div class="megamenu">                                            
-                                            <ul class="single-mega cn-col-3">
-                                                <li><a href="/">Home</a></li>
-                                                <li><a href="/guest/detailcategories/1">News</a></li>
-                                                <li><a href="#">Bussiness</a></li>
-                                                <li><a href="/guest/detailcategories/2">Agricultural</a></li>
-                                                <li><a href="/guest/detailcategories/3">Seafood</a></li>
-                                            </ul>
-                                            <ul class="single-mega cn-col-3">
-                                                <li><a href="#">Life style</a></li>
-                                                <li><a href="/guest/detailcategories/4">Cutural</a></li>
-                                                <li><a href="/guest/detailcategories/5">Films</a></li>
-                                                <li><a href="/guest/detailcategories/6">Travel</a></li>
-                                                <li><a href="/guest/detailcategories/7">Fashion</a></li>                                                
-                                            </ul>
-                                            <ul class="single-mega cn-col-3">
-                                                <li><a href="/guest/detailcategories/8">Health</a></li>
-                                                <li><a href="/guest/detailcategories/9">Food</a></li>
-                                                <li><a href="#">Secience</a></li>
-                                                <li><a href="/guest/detailcategories/10">Invention</a></li>
-                                                <li><a href="/guest/detailcategories/11">Technology</a></li>  
-                                            </ul>
-                                        </div>
-                                    </li>
-                                     <li><a href="#">Search</a> </li>
-                                     
-                                    <li><a href="login.html" class="login-btn"><i class="fa fa-user" aria-hidden="true"></i></a></li>
-                                    
-                                    <li>
-                                        <div class="top-meta-data d-flex align-items-center" class="classynav">
-                                           <a href="#" class="submit-video">
-                                            <i class="fas fa-align-justify" ></i></a>
-                                        </div>
-                                        <ul class="dropdown" style="left:-100%" >
-                                            <button class="dropdown-item" type="button">Function 1</button>
-                                            <button class="dropdown-item" type="button">Function 2</button>
-                                            <button class="dropdown-item" type="button">Function 3</button>
-                                            <button class="dropdown-item" type="button">Function 4</button>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
-                            <!-- Nav End -->
-                        </div>   
-                    </div>
-                </nav>
-            </div>
-        </div>
-    </header>
-    <!-- ##### End Header Area End##### -->
-    
-
 <!-- grid-slider-view -->
 
 <div class="container" >
@@ -346,24 +232,44 @@
                         
                         <div class="col-12 col-lg-7 ">
                             {{#each top1newest}}
-                            <!-- Single Featured Post -->
-                            <div class="single-featured-post">
-                                <!-- Thumbnail -->
-                                <div class="post-thumbnail mb-50">
-                                    
-                                    <a href="baiviet.html" ><img src="{{image}}" alt="" ></a>
-                                </div>
-                                <!-- Post Contetnt -->
-                                <div class="post-content">
-                                    <div class="post-meta">
-                                        <a href="/guest/detailcategories/{{idCategory}}">{{datePostFormated}}</a>|
-                                        <a href="/guest/detailcategories/{{idCategory}}">{{catName}}</a>
+                                {{#if premium}}
+                                    <!-- Single Premium Post -->
+                                    <div class="single-featured-post">
+                                        <!-- Thumbnail -->
+                                        <div class="post-thumbnail mb-50">
+                                            
+                                            <a href="baiviet.html"data-toggle="modal" data-target="#lockModal" ><img src="{{image}}" alt="" ></a>
+                                        </div>
+                                        <!-- Post Contetnt -->
+                                        <div class="post-content">
+                                            <div class="post-meta">
+                                                <a href="/guest/detailcategories/{{idCategory}}">{{datePostFormated}}</a>|
+                                                <a href="/guest/detailcategories/{{idCategory}}">{{catName}}</a>
+                                            </div>
+                                            <a href="baiviet.html" class="post-title"data-toggle="modal" data-target="#lockModal">{{title}} <span class="badge badge-warning">Premium</span></a>
+                                            <p>{{summary}}</p>
+                                        </div>
                                     </div>
-                                    <a href="baiviet.html" class="post-title">{{title}} <span class="badge badge-primary">New</span></a>
-                                    <p>{{summary}}</p>
-                                </div>
-                            </div>
-                             {{/each}}
+                                {{else}}
+                                    <!-- Single  Post -->
+                                    <div class="single-featured-post">
+                                        <!-- Thumbnail -->
+                                        <div class="post-thumbnail mb-50">
+                                            
+                                            <a href="baiviet.html" ><img src="{{image}}" alt="" ></a>
+                                        </div>
+                                        <!-- Post Contetnt -->
+                                        <div class="post-content">
+                                            <div class="post-meta">
+                                                <a href="/guest/detailcategories/{{idCategory}}">{{datePostFormated}}</a>|
+                                                <a href="/guest/detailcategories/{{idCategory}}">{{catName}}</a>
+                                            </div>
+                                            <a href="baiviet.html" class="post-title">{{title}} <span class="badge badge-primary">New</span></a>
+                                            <p>{{summary}}</p>
+                                        </div>
+                                    </div>
+                                {{/if}}
+                            {{/each}}
                         </div>
                        
 
@@ -374,37 +280,73 @@
 
                                 <div class="single--slide">
                                     {{#each top5newest}}
-                                     <!-- Single Blog Post -->
-                                    <div class="single-blog-post d-flex style-3">
-                                        <div class="post-thumbnail">
-                                             <a href="baiviet.html" ><img src="{{image}}" alt=""></a>
-                                        </div>
-                                        <div class="post-content">
-                                            <a href="baiviet.html" class="post-title">{{title}}<span class="badge badge-primary">New</span></a>
-                                            <div class="post-meta d-flex">   
-                                                <a href="#">{{datePostFormated}} |</a>
-                                                <a href="/guest/detailcategories/{{idCategory}}">{{catName}}</a>
+                                        {{#if premium}}
+                                        <!-- Single Premium Post -->
+                                        <div class="single-blog-post d-flex style-3">
+                                            <div class="post-thumbnail">
+                                                <a href="baiviet.html" data-toggle="modal" data-target="#lockModal"><img src="{{image}}" alt=""></a>
+                                            </div>
+                                            <div class="post-content">
+                                                <a href="baiviet.html" class="post-title"data-toggle="modal" data-target="#lockModal">
+                                                    {{title}}<span class="badge badge-warning">Premium</span>
+                                                </a>
+                                                <div class="post-meta d-flex">   
+                                                    <a href="#">{{datePostFormated}} |</a>
+                                                    <a href="/guest/detailcategories/{{idCategory}}">{{catName}}</a>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                        {{else}}
+                                        <!-- Single Blog Post -->
+                                        <div class="single-blog-post d-flex style-3">
+                                            <div class="post-thumbnail">
+                                                <a href="baiviet.html" ><img src="{{image}}" alt=""></a>
+                                            </div>
+                                            <div class="post-content">
+                                                <a href="baiviet.html" class="post-title">{{title}}<span class="badge badge-primary">New</span></a>
+                                                <div class="post-meta d-flex">   
+                                                    <a href="#">{{datePostFormated}} |</a>
+                                                    <a href="/guest/detailcategories/{{idCategory}}">{{catName}}</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {{/if}}
                                     {{/each}}
                                 </div>
 
                                 <div class="single--slide">
                                     {{#each top5to10newest}}
-                                    <!-- Single Blog Post -->
-                                    <div class="single-blog-post d-flex style-3">
-                                        <div class="post-thumbnail">
-                                             <a href="baiviet.html" ><img src="{{image}}" alt=""></a>
-                                        </div>
-                                        <div class="post-content">
-                                            <a href="baiviet.html" class="post-title">{{title}}<span class="badge badge-primary">New</span></a>
-                                            <div class="post-meta d-flex">   
-                                                <a href="#">{{datePostFormated}} |</a>
-                                                <a href="/guest/detailcategories/{{idCategory}}">{{catName}}</a>
+                                   {{#if premium}}
+                                        <!-- Single Premium Post -->
+                                        <div class="single-blog-post d-flex style-3">
+                                            <div class="post-thumbnail">
+                                                <a href="baiviet.html" data-toggle="modal" data-target="#lockModal"><img src="{{image}}" alt=""></a>
+                                            </div>
+                                            <div class="post-content">
+                                                <a href="baiviet.html" class="post-title"data-toggle="modal" data-target="#lockModal">
+                                                    {{title}}<span class="badge badge-warning">Premium</span>
+                                                </a>
+                                                <div class="post-meta d-flex">   
+                                                    <a href="#">{{datePostFormated}} |</a>
+                                                    <a href="/guest/detailcategories/{{idCategory}}">{{catName}}</a>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                        {{else}}
+                                         <!-- Single Blog Post -->
+                                        <div class="single-blog-post d-flex style-3">
+                                            <div class="post-thumbnail">
+                                                <a href="baiviet.html" ><img src="{{image}}" alt=""></a>
+                                            </div>
+                                            <div class="post-content">
+                                                <a href="baiviet.html" class="post-title">{{title}}<span class="badge badge-primary">New</span></a>
+                                                <div class="post-meta d-flex">   
+                                                    <a href="#">{{datePostFormated}} |</a>
+                                                    <a href="/guest/detailcategories/{{idCategory}}">{{catName}}</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {{/if}}
                                     {{/each}}
 
                                     {{!-- <!-- Single Blog Post -->
@@ -441,22 +383,23 @@
                 <div class="trending-post-slides owl-carousel">
         
                     {{#each articlemostviews}}
-                    <div class="single-trending-post">
-                        <a href=""><img src="{{image}}" alt=""></a> 
-                        {{!-- <div class="post-content">
-                            <a href="danhsachbaiviet.html" class="post-cata">TV Show</a>
-                            <a href="video-post.html" class="post-title">A Guide To Rocky Mountain Vacations</a>
-                        </div> --}}
-                       
-                        <div class="post-content ">
-                            
-                        
-                            <a href="/guest/detailcategories/{{idCategory}}" class="post-cata">{{datePostFormated}} | {{catName}}</a> 
-                                                        
-                             <a href="#" class="post-title">{{title}}</a>                                
-                        </div>
-
-                    </div>
+                        {{#if premium}}
+                            <div class="single-trending-post">
+                                <a href=""data-toggle="modal" data-target="#lockModal"><img src="{{image}}" alt=""></a>                                           
+                                <div class="post-content ">                
+                                    <a href="/guest/detailcategories/{{idCategory}}" class="post-cata">{{datePostFormated}} | {{catName}}</a>                          
+                                    <a href="#" class="post-title"data-toggle="modal" data-target="#lockModal">{{title}}&nbsp<span class="badge badge-warning">Premium</span></a>                                
+                                </div>
+                            </div>
+                        {{else}}
+                            <div class="single-trending-post">
+                                <a href=""><img src="{{image}}" alt=""></a>                                           
+                                <div class="post-content ">                
+                                    <a href="/guest/detailcategories/{{idCategory}}" class="post-cata">{{datePostFormated}} | {{catName}}</a>                          
+                                    <a href="#" class="post-title">{{title}}</a>                                
+                                </div>
+                            </div>
+                        {{/if}}
                     {{/each}}
                    
                     
@@ -474,7 +417,38 @@
                 <div class="section-heading">
                     <h5>{{catName}}</h5>
                 </div>
-                
+                {{#if premium}}
+                <div class="every-news-post">
+                    <div class="row">
+                        <div class="col-12 col-lg-6">
+                             <div class="single-featured-post">
+                                <!-- Thumbnail -->
+                                <div class="post-thumbnail mb-50">
+                                    <a href="#" data-toggle="modal" data-target="#lockModal"><img src="{{image}}" alt="" ></a>                                 
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-12 col-lg-5">
+                             <!-- Post Contetnt -->
+                            <div class="single-blog-post style-4">
+                                <div class="post-content">
+                                    <div class="post-meta d-flex">
+                                        <a href="#">{{datePostFormated}}</a> &nbsp|&nbsp
+                                        <a href="/guest/detailcategories/{{idCategory}}">{{catName}}</a>
+                                    </div>
+                                    </br>
+                                    <a href="#" class="post-title"data-toggle="modal" data-target="#lockModal">
+                                            {{title}}&nbsp<span class="badge badge-primary">New</span> 
+                                            &nbsp<span class="badge badge-warning">Premium</span> 
+                                    </a>
+                                    <p> {{summary}}</p>
+                                </div>
+                            </div>    
+                        </div>
+                    </div>
+                </div> 
+                {{else}}
                 <div class="every-news-post">
                     <div class="row">
                         <div class="col-12 col-lg-6">
@@ -501,7 +475,8 @@
                             </div>    
                         </div>
                     </div>
-                </div>   
+                </div> 
+                {{/if}}
             </div>
             {{/each}}
             <!--End CHUYÊN MỤC POST -->
@@ -524,20 +499,38 @@
                 </div>
 
                 {{#each articlemostviews}}
-                <!-- Single Blog Post -->
-                <div class="single-blog-post d-flex limiteachmostviews ">
-                    <div class="post-thumbnail">
-                        <a href="#"> <img src="{{image}}" alt=""></a>
-                    </div>
-                    <div class="post-content">
-                        <a href="#" class="post-title">{{title}} <span class="badge badge-danger">Hot</span></a>
-                        
-                         <div class="post-meta d-flex">   
-                            <a href="#">{{datePostFormated}} |</a>
-                            <a href="/guest/detailcategories/{{idCategory}}">{{catName}}</a>
+                    {{#if premium}}
+                     <!-- Single Premium Post -->
+                    <div class="single-blog-post d-flex limiteachmostviews ">
+                        <div class="post-thumbnail">
+                            <a href="#"data-toggle="modal" data-target="#lockModal"> <img src="{{image}}" alt=""></a>
                         </div>
-                    </div>
-                </div> 
+                        <div class="post-content">
+                            <a href="#" class="post-title"data-toggle="modal" data-target="#lockModal">
+                                {{title}} <span class="badge badge-danger">Hot</span>
+                                <span class="badge badge-warning">Premium</span>
+                            </a>
+                            <div class="post-meta d-flex">   
+                                <a href="#">{{datePostFormated}} |</a>
+                                <a href="/guest/detailcategories/{{idCategory}}">{{catName}}</a>
+                            </div>
+                        </div>
+                    </div> 
+                    {{else}}
+                    <!-- Single Blog Post -->
+                    <div class="single-blog-post d-flex limiteachmostviews ">
+                        <div class="post-thumbnail">
+                            <a href="#"> <img src="{{image}}" alt=""></a>
+                        </div>
+                        <div class="post-content">
+                            <a href="#" class="post-title">{{title}} <span class="badge badge-danger">Hot</span></a>
+                            <div class="post-meta d-flex">   
+                                <a href="#">{{datePostFormated}} |</a>
+                                <a href="/guest/detailcategories/{{idCategory}}">{{catName}}</a>
+                            </div>
+                        </div>
+                    </div> 
+                    {{/if}}                
                 {{/each}}
 
                 
@@ -590,76 +583,33 @@
     </section>
     <!-- #### Mag Posts Area End #### -->
 
-     <!-- ##### Footer Area Start ##### -->
-    <footer class="footer-area">
-        <div class="container">
-            <div class="row">
-                <!-- Footer Widget Area -->
-                <div class="col-12 col-sm-6 col-lg-3">
-                     <div class="footer-widget">
-                        <!-- Logo -->
-                        <a href="index.html" class="foo-logo"><img src="../../img/core-img/logo2.png" alt=""></a>
-                        <p> Project web - Team 28 </br>
-                        Teacher: Ngô Ngọc Đăng Khoa</br>            
-                        1512325 – Tran Le Nguyen Hoang Minh</br>
-                        1512281 – Đao Manh Linh</br>
-                        1612749 – Phan Bao Trung</br>
-                    </div>
-                </div>
-
-                <!-- Footer Widget Area -->
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="footer-widget">
-                        <h6 class="widget-title">CATEGORIES</h6>
-                        <nav class="footer-widget-nav">                       
-                            <ul >
-                            {{#each lcCategories}}
-                                <li><a href="/guest/detailcategories/{{id}}"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> {{name}}</span> </a></li>
-                             {{/each}}
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-
-                
-                <!-- Footer Widget Area -->
-                <div class="col-12 col-sm-6 col-lg-6">
-                      <div class="footer-widget">
-                        <h6 class="widget-title">TAG</h6>
-                        <ul class="footer-tags">                            
-                            {{#each articlemostviews}}   
-                                <li><a  href="/guest/detailcategories/{{idCategory}}">{{tag}}</a></li>
-                            {{/each}} 
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </footer>
-    <!-- ##### Footer Area END ##### -->
+   
 
 
-      <!-- Modal -->
+    <!-- #####     MODAL ##### -->-->
         <div class="modal fade" id="lockModal" tabindex="-1" role="dialog" aria-labelledby="lockModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="lockModalLabel" style="color: red;">BÀI VIẾT PREMIUM</h5>
+                <h5 class="modal-title" id="lockModalLabel" style="color: rgb(255, 166, 0);">PREMIUM ARTICLE</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="modal-body">
-                Đây là bài viết PREMIUM, độc giả vui lòng đăng kí tài khoản để được trải nghiệm tốt nhất!
+                This is PREMIUM article, please REGISTER to become a subscriber to get the best experience!
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">HỦY</button>
-                <a href="dangkidocgia.html" class="btn btn-danger">ĐĂNG KÍ NGAY</a>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-warning" href="#">LOGIN</button>
+                {{!-- <a href="#" class="btn btn-danger">REGISTER NOW</a> --}}
+                <button type="button" class="btn btn-danger" href="#">REGISTER NOW</button>
               </div>
             </div>
           </div>
         </div>
+
+    <!-- ##### END MODAL ##### -->
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>  
 <script src="/js/jquery/jquery-2.2.4.min.js"></script>
