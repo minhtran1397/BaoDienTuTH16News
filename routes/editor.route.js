@@ -1,19 +1,24 @@
 var express = require('express');
 var articleModel = require('../models/editor.model');
+var auth = require('../middlewares/auth-Editor');
 
 var router = express.Router();
 
-router.get('/', (req, res) => {
+router.get('/', auth, (req, res, next) => {
   
 Promise.all([
-  articleModel.all(),
+  articleModel.allByIdEditor(req.user.id),
   articleModel.allCate(),
-  articleModel.TongSo(),])
-    .then(([rows, rows2, rows3]) => {
+  articleModel.TongSo(),
+  articleModel.allAllowById(req.user.id),
+  articleModel.allBlockById(req.user.id)])
+    .then(([rows, rows2, rows3, rows4,rows5]) => {
       res.render('Req 4 - Editor/Editor', {
         article: rows,
         cate : rows2,
-        TongSo: rows3[0]
+        TongSo: rows3[0],
+        allow: rows4[0],
+        block: rows5[0]
       });
     }).catch(err => {
       console.log(err);
@@ -21,6 +26,53 @@ Promise.all([
     });
   
 })
+
+router.get('/plitAllowed', auth, (req, res, next) => {
+  Promise.all([
+    articleModel.allByIdEditorAllowed(req.user.id,),
+    articleModel.allCate(),
+    articleModel.TongSo(),
+    articleModel.allAllowById(req.user.id),
+    articleModel.allBlockById(req.user.id)])
+      .then(([rows, rows2, rows3, rows4,rows5]) => {
+        res.render('Req 4 - Editor/EditorAllow', {
+          article: rows,
+          cate : rows2,
+          TongSo: rows3[0],
+          allow: rows4[0],
+          block: rows5[0]
+        });
+      }).catch(err => {
+        console.log(err);
+        res.end('error occured.')
+      });
+    
+  })
+
+
+  router.get('/plitBlocked', auth, (req, res, next) => {
+    Promise.all([
+      articleModel.allByIdEditorBlocked(req.user.id),
+      articleModel.allCate(),
+      articleModel.TongSo(),
+      articleModel.allAllowById(req.user.id),
+      articleModel.allBlockById(req.user.id)])
+        .then(([rows, rows2, rows3, rows4,rows5]) => {
+          res.render('Req 4 - Editor/EditorAllow', {
+            article: rows,
+            cate : rows2,
+            TongSo: rows3[0],
+            allow: rows4[0],
+            block: rows5[0]
+          });
+        }).catch(err => {
+          console.log(err);
+          res.end('error occured.')
+        });
+      
+    })
+    
+  
 
 router.get('/edit/:id', (req, res) => {
   var id = req.params.id;
@@ -31,12 +83,16 @@ router.get('/edit/:id', (req, res) => {
   }
   Promise.all([
     articleModel.single(id),
-    articleModel.allCate(),]).then(([rows,rows2]) => {
+    articleModel.allCate(),
+    articleModel.allAllow(),
+    articleModel.allBlock()]).then(([rows,rows2,rows3,rows4]) => {
     if (rows.length > 0) {
       res.render('Req 4 - Editor/EditorEdit', {
         error: false,
         article: rows[0],
-        cate: rows2
+        cate: rows2,
+        allow: rows3,
+        block: rows4
       });
     } else {
       res.render('Req 4 - Editor/EditorEdit', {
@@ -59,12 +115,20 @@ router.get('/editTrue/:id', (req, res) => {
   }
   Promise.all([
     articleModel.single(id),
-    articleModel.allCate(),]).then(([rows,rows2]) => {
+    articleModel.allCate(),
+    articleModel.allCate2(),
+    articleModel.allTag(),
+    articleModel.allAllow(),
+    articleModel.allBlock()]).then(([rows,rows2,rows3,rows4, rows5,rows6]) => {
     if (rows.length > 0) {
       res.render('Req 4 - Editor/EditorEditTrue', {
         error: false,
         article: rows[0],
-        cate: rows2
+        cate: rows2,
+        cate2: rows3,
+        tag: rows4,
+        allow: rows5,
+        block: rows6
       });
     } else {
       res.render('Req 4 - Editor/EditorEditTrue', {
@@ -78,11 +142,11 @@ router.get('/editTrue/:id', (req, res) => {
 })
 
 
-router.get('/add', (req, res) => {
+router.get('/add',  auth, (req, res, next) => {
   res.render('Req 3 - Writer/WriterPostArticle');
 })
 
-router.post('/add', (req, res) => {
+router.post('/add', auth, (req, res, next) => {
   articleModel.add(req.body).then(id => {
     res.render('Req 3 - Writer/WriterPostArticle');
   }).catch(err => {
@@ -91,7 +155,7 @@ router.post('/add', (req, res) => {
   });
 })
 
-router.post('/success', (req, res) => {
+router.post('/success',  auth, (req, res, next) => {
   articleModel.updateTagAndCate(req.body).then(id => {
     res.render('Req 4 - Editor/Editor');
   }).catch(err => {
@@ -100,7 +164,7 @@ router.post('/success', (req, res) => {
   });
 })
 
-router.post('/update', (req, res) => {
+router.post('/update', auth, (req, res, next) => {
   articleModel.update(req.body).then(n => {
     res.redirect('/editor');
   }).catch(err => {

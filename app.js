@@ -13,6 +13,10 @@ require('./middlewares/view-engine')(app);
 require('./middlewares/session')(app);
 require('./middlewares/passport')(app);
 
+app.use(require('./middlewares/auth-locals.mdw'));
+
+
+
 app.set('view engine', 'hbs');
 
 app.use(express.static('views'));
@@ -66,8 +70,8 @@ app.use('/guest/detailcategories',require('./routes/guests/guestdetailcategory.r
 
 app.use('/writer', require('./routes/writer.route'))
 app.use('/editor', require('./routes/editor.route'))
-app.use('/register', require('./routes/register.route'))
-// app.use('/admin/categories', require('./routes/admin/category.route'))
+app.use('/account', require('./routes/account.route'))
+app.use('/admin', require('./routes/admin.route'))
 
 
 app.use((req, res, next) => {

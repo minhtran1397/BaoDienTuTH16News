@@ -5,6 +5,18 @@ module.exports = {
     return db.load('select * from user');
   },
 
+  allCate:() => {
+    return db.load('select * from category');
+  },
+
+  getCateById: id => {
+    return db.load(`select * from category where id = ${id}`);
+  },
+
+  getAcc: id => {
+    return db.load(`select * from user where id = ${id}`);
+  },
+
   single: id => {
     return db.load(`select * from user where id = ${id}`);
   },
@@ -18,12 +30,16 @@ module.exports = {
   },
 
   update: entity => {
-    var id = entity.f_ID;
-    delete entity.f_ID;
-    return db.update('users', 'id', entity, id);
+    // var id = entity.id;
+    // delete entity.id;
+    return db.update('user', 'id', entity);
+  },
+
+  changePass: entity => {
+    return db.update('user', 'id', entity);
   },
 
   delete: id => {
-    return db.delete('users', 'id', id);
+    return db.delete('user', 'id', id);
   }
 };

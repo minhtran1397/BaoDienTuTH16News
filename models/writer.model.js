@@ -8,12 +8,28 @@ module.exports = {
     return db.load('select * from category c join article a on a.idCategory = c.id');
   },
 
+  allCate2:() => {
+    return db.load('select * from category');
+  },
+
+  allTag: () => {
+    return db.load('select * from  tag');
+  },
+
+  allCateByIdWriter: id => {
+    return db.load(`select * from category c join article a on a.idCategory = c.id where a.idWriter="${id}"`);
+  },
+
   allCategory: () => {
     return db.load('select count(*) as soCate, c.name as name from article a join category c on c.id=a.idCategory group by c.id, c.name');
   },
 
   TongSo: () => {
     return db.load('select count(*) as TongSo from article');
+  },
+
+  TongSoByIdWriter: id => {
+    return db.load(`select count(*) as TongSo from article where idWriter="${id}"`);
   },
 
   TongSoAllow: id => {
@@ -41,8 +57,14 @@ module.exports = {
     return db.load(`select * from article where id = ${id}`);
   },
 
+  single2: id => {
+    return db.load(`select a.id as id, c.id as id2, a.title, a.content, a.summary, a.idTag, a.idCategory,
+    a.dateWriter, a.datePost, a.allow, c.name as nameCate, t.name as nameTag
+     from (article a join category c on a.idCategory = c.id) join tag t on t.id = a.idTag where a.id = ${id}`);
+  },
+
   singleML: id => {
-    return db.load(`select a.title, a.content, a.summary, a.id, c.name as name from article a join category c on c.id = a.idCategory where a.id = ${id}`);
+    return db.load(`select a.title, a.content, a.summary, a.id, c.name as name,a.datePost, a.dateWriter from article a join category c on c.id = a.idCategory where a.id = ${id}`);
   },
 
   // pageByCat: ( limit, offset) => {

@@ -50,23 +50,6 @@
 </script>
 
 
-<script
-  src="https://cloud.tinymce.com/5/tinymce.min.js?apiKey=ezd73nxbzc7bu6e86g2l82jbbffke0mwevwrnyvc5q8h89j6"></script>
-<script>
-  $(function () {
-    tinymce.init({
-      selector: '#txtFullDes',
-      height: 500,
-      menubar: false,
-      plugins: 'paste image link autolink lists table media',
-      toolbar: [
-        'undo redo | bold italic underline strikethrough | numlist bullist | alignleft aligncenter alignright',
-        'forecolor backcolor',
-        'table link image media',
-      ],
-    });
-  })
-</script>
 {{/section}}
    
 
@@ -83,7 +66,25 @@
         </div>
     </section>
     <!-- ##### Breadcrumb Area End ##### -->
-
+ <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <ul class="navbar-nav">
+         <li class="nav-item">
+        <a class="nav-link disabled" href="/admin">MANAGE</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="/admin/article">Article</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link"  href="/admin/category">Category</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="/admin/tag">Tag</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="/admin/user">User</a>
+        </li>
+    </ul>
+    </nav>
     <!-- ##### Breadcrumb Area Start ##### -->
     <div class="mag-breadcrumb py-5">
         <div class="container">
@@ -122,7 +123,7 @@
                             </div>
                             
                             {{else}}
-                            <form method="POST" action="/writer/update">
+                            <form method="POST" action="/admin/articleUpdate">
                                
                                 <div class="form-group">
                                     <label for="txtCatID">#ID</label>
@@ -142,15 +143,11 @@
 
                                 </div>
 
-                                {{!-- <div class="form-group">
-                                    <label for="content">Article Content</label>
-                                     <textarea class="form-control" id="content" name="content" >{{this.article.content}}</textarea>
-                                </div> --}}
-                                
-                                <div class="form-group">
+                                 <div class="form-group">
                                   <label for="txtFullDes">Article Content</label>
                                   <textarea class="form-control" id="txtFullDes" name="content" required>{{this.article.content}}</textarea>
                                 </div>
+
   
 
                                 <div class="form-group">

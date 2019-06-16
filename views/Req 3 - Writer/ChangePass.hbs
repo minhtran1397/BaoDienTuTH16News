@@ -1,0 +1,119 @@
+{{#section 'css'}}
+<link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css">
+{{/section}}
+
+{{#section 'js'}}
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+<script>
+  $(function () {
+
+    $('#txtDOB').datetimepicker({
+      format: 'd/m/Y',
+      timepicker: false,
+      mask: true,
+    });
+
+    $('#registerForm').validate({
+      rules: {
+        passwordOld: {
+          required: true,
+          remote: {
+            url: '/account/passIs-available'
+          }
+        },
+        passwordNew: {
+          required: true,
+          minlength: 6
+        },
+        confirm: {
+          required: true,
+          equalTo: $('[name="passwordNew"]')
+        },
+
+      },
+      messages: {
+        passwordOld: {
+          required: 'Your username is required.',
+          remote: 'Your username has been taken, please take another.'
+        },
+        passwordNew: {
+          required: 'Your password is required.',
+          minlength: 'Your password must have at least 6 characters.'
+        },
+        confirm: {
+          required: 'Your password does not match.',
+          equalTo: 'Your password does not match.'
+        },
+      },
+      errorElement: 'small',
+      errorClass: 'help-block text-danger',
+      highlight: function (e) {
+        $(e).removeClass('is-valid').addClass('is-invalid');
+      },
+      unhighlight: function (e) {
+        $(e).removeClass('is-invalid').addClass('is-valid');
+      }
+    });
+  })
+</script>
+{{/section}}
+
+    <!-- ##### Header Area End ##### -->
+
+    <!-- ##### Breadcrumb Area Start ##### -->
+    <section class="breadcrumb-area bg-img bg-overlay" style="background-image: url(../img/bg-img/40.jpg);">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="breadcrumb-content">
+                        <h2>Change Password</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### Breadcrumb Area End ##### -->
+
+    <!-- ##### Login Area Start ##### -->
+    <div class="mag-login-area py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-6">
+                    <div class="login-content bg-white p-30 box-shadow">
+                        <!-- Section Title -->
+                        <div class="section-heading">
+                            <h5>Change Password!</h5>
+                        </div>
+                              {{#if err_message}}
+                                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                {{err_message}}
+                                </div>
+                                {{/if}}
+                        <form method="post" action="/account/changePass">
+                            <div class="form-group">
+                                <label for="passwordOld">Old password:</label>
+                                <input type="password" class="form-control" id="passwordOld" name="passwordOld" placeholder="Password old">
+                            </div>
+                            <div class="form-group">
+                                <label for="passwordNew">New password old:</label>
+                                <input type="password" class="form-control" id="passwordNew" name="passwordNew" placeholder="Password new">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="confirm">Confirm password:</label>
+                                <input type="password" class="form-control" id="confirm" name="confirm" placeholder="Confirm password">
+                            </div>
+
+                            <button type="submit" class="btn mag-btn mt-30">Save Change</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
