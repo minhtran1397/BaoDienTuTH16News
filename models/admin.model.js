@@ -126,4 +126,22 @@ module.exports = {
   allRole: name=>{
     return db.load("select * from user where role='"+name+"'");
   },
+
+  tongAllow:()=>{
+    return db.load("select count(*) as TongSo from article where allow='Allowed'");
+  },
+  tongBlock:()=>{
+    return db.load("select count(*) as TongSo from article where allow='Blocked'");
+  },
+  tongWaitA:()=>{
+    return db.load("select count(*) as TongSo from article where allow='WaitForAd'");
+  },
+  tongWaitP:()=>{
+    return db.load("select count(*) as TongSo from article where allow='WaitForPost'");
+  },
+
+  tongRole: name=>{
+    return db.load("select count(*) as TongSo from user where role='"+name+"'");
+  },
+
 };

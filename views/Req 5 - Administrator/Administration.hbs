@@ -1,6 +1,13 @@
 
     <!-- ##### Header Area End ##### -->
+    <input type="hidden" class="form-control" id="total1" name="total1" value="{{TongSo1.TongSo}}" required/>
+    <input type="hidden" class="form-control" id="total2" name="total2" value="{{TongSo2.TongSo}}" required/>
+    <input type="hidden" class="form-control" id="total3" name="total3" value="{{TongSo3.TongSo}}" required/>
+    <input type="hidden" class="form-control" id="total4" name="total4" value="{{TongSo4.TongSo}}" required/>
 
+    <input type="hidden" class="form-control" id="total5" name="total4" value="{{TongSo5.TongSo}}" required/>
+    <input type="hidden" class="form-control" id="total6" name="total4" value="{{TongSo6.TongSo}}" required/>
+    <input type="hidden" class="form-control" id="total7" name="total4" value="{{TongSo7.TongSo}}" required/>
     <!-- ##### Breadcrumb Area Start ##### -->
     <section class="breadcrumb-area bg-img bg-overlay" style="background-image: url(../img/bg-img/40.jpg);">
         <div class="container h-100">
@@ -17,7 +24,7 @@
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <ul class="navbar-nav">
          <li class="nav-item">
-        <a class="nav-link disabled" href="/admin/user">MANAGE</a>
+        <a class="nav-link disabled" href="/admin">MANAGE</a>
         </li>
         <li class="nav-item">
         <a class="nav-link" href="/admin/article">Article</a>
@@ -58,16 +65,70 @@
                     <!-- About Us Content -->
                     <div class="about-us-content bg-white mb-30 p-30 box-shadow">
                         <!-- Team Member Area -->
-                    
+                               <h3 class="text-center">CHART VIEW</h3>
+                            <div class="row">
+                                <div class="col-md-6" id="piechart"></div>
+                                <div class="col-md-6" id="piechart2"></div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                    
+<script src="/js/jquery/jquery-2.2.4.min.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+    // Load google charts
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
 
+    var totalallow = Number($("#total1").val());
+    var totalblock = Number($("#total2").val());
+    var totalwaitad = Number($("#total3").val());
+    var totalwaitpost = Number($("#total4").val());
+    // Draw the chart and set the chart values
+    function drawChart() {
+    var data = google.visualization.arrayToDataTable([
+    ['Task', 'Status'],
+    ['Allow',totalallow],
+    ['Lock', totalblock],
+    ['WaitPost',totalwaitad],
+    ['WaitAd',totalwaitpost]
+    ]);
 
+    // Optional; add a title and set the width and height of the chart
+    var options = {'title':'Status of Article', 'width':550, 'height':400};
 
+    // Display the chart inside the <div> element with id="piechart"
+    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+    chart.draw(data, options);
+    }
+</script>
 
-                        
-</div>
-</div>
-</div>
-</div>
-</section>
+<script type="text/javascript">
+    // Load google charts
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+
+    var total5 = Number($("#total5").val());
+    var total6 = Number($("#total6").val());
+    var total7 = Number($("#total7").val());
+    console.log('sadasdasdd'+totalallow)
+    // Draw the chart and set the chart values
+    function drawChart() {
+    var data = google.visualization.arrayToDataTable([
+    ['Task', 'Role'],
+    ['subcriber',total5],
+    ['writer', total6],
+    ['editor',total7]
+    ]);
+
+    // Optional; add a title and set the width and height of the chart
+    var options = {'title':'Role of user', 'width':550, 'height':400};
+
+    // Display the chart inside the <div> element with id="piechart"
+    var chart = new google.visualization.PieChart(document.getElementById('piechart2'));
+    chart.draw(data, options);
+    }
+</script>

@@ -10,11 +10,23 @@ router.get('/', auth, (req, res, next) => {
   
 Promise.all([
   adminModel.all(),
-  adminModel.allCate()])
-    .then(([rows, rows2]) => {
+  adminModel.tongAllow(),
+  adminModel.tongBlock(),
+  adminModel.tongWaitA(),
+  adminModel.tongWaitP(),
+  adminModel.tongRole('subcriber'),
+  adminModel.tongRole('writer'),
+  adminModel.tongRole('editor')])
+    .then(([rows, rows2, rows3, rows4, rows5,rows6,rows7,rows8]) => {
       res.render('Req 5 - Administrator/Administration', {
         article: rows,
-        cate : rows2
+        TongSo1 : rows2[0],
+        TongSo2 : rows3[0],
+        TongSo3 : rows4[0],
+        TongSo4 : rows5[0],
+        TongSo5 : rows6[0],
+        TongSo6 : rows7[0],
+        TongSo7 : rows8[0]
       });
     }).catch(err => {
       console.log(err);

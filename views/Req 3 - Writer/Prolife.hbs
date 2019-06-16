@@ -42,9 +42,6 @@
         dob: {
           required: true
         },
-        nickname: {
-          required: true
-        },
       },
       messages: {
         username: {
@@ -69,9 +66,7 @@
         dob: {
           required: 'Valid date of birth is required.',
         },
-         nickname: {
-          required: 'Valid nickname is required.',
-        },
+ 
       },
       errorElement: 'small',
       errorClass: 'help-block text-danger',
@@ -124,19 +119,18 @@
     <!-- ##### Breadcrumb Area End ##### -->
 
     <!-- ##### About Us Area Start ##### -->
-    <section class="about-us-area">
+   <div class="video-submit-area">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-md-12">
-                    <!-- About Us Content -->
-                    
-                        <!-- Team Member Area -->
-                        
-                            <div class="bg-white p-30 box-shadow">
-                                <!-- Section Title -->
-                                <div class="section-heading">
-                                    <h5>INFORMATION!</h5>
-                                </div>
+                <div class="col-12 col-lg-8">
+                    <!-- Video Submit Content -->
+                    <div class="video-submit-content mb-50 p-30 bg-white box-shadow">
+                        <!-- Section Title -->
+                        <div class="section-heading">
+                            <h5>Your Prolife</h5>
+                        </div>
+
+                        <div class="video-info mt-30">
         
                                 <form novalidate action="/account/updateProlife" method="POST" id="registerForm">
                                     <div class="card shadow">
@@ -175,9 +169,15 @@
                                             <input type="text" class="form-control" id="role" name="role" value="{{account.role}}">
                                         </div>
 
+          
+
                                         <div class="form-group">
+                                            <div><label for="catagory">Catagory curently: {{namecate.name}}</label></div>
                                             <label for="catagory">Catagory (for Editor)</label>
-                                              <input type="text" class="form-control" id="category" name="idCategory" value="{{account.idCategory}}">
+                                            <select name="idCategory" class="form-control" id="catagory">
+                                                {{#each this.cate}}
+                                                <option value="{{id}}">{{name}}</option>     
+                                              {{/each}}
                                             </select>
                                         </div>
 
@@ -201,6 +201,9 @@
                             </div>
                         
                         
+                    </div>
+                    </div>
+                    </div>
                     
                     </div>
                     </div>

@@ -21,6 +21,34 @@ router.get('/register', (req, res) => {
 
 })
 
+
+router.get('/changePass', (req, res) => {
+
+  userModel.allCate()
+    .then(rows => {
+      res.render('Req 3 - Writer/ChangePass', {
+        cate2: rows
+      });
+    }).catch(err => {
+      console.log(err);
+      res.end('error occured.')
+    });
+
+})
+
+router.post('/changePass', auth, (req, res, next) => {
+  var saltRounds = 10;
+  var hash = bcrypt.hashSync(req.body.passwordNew, saltRounds);
+  var entity = {
+    id: req.user.id,
+    password: hash,
+  }
+
+  userModel.changePass(entity).then(id => {
+    res.redirect('/');
+  })
+})
+
 router.get('/is-available', (req, res, next) => {
   var user = req.query.username;
   userModel.singleByUserName(user).then(rows => {
@@ -35,6 +63,19 @@ router.get('/is-available', (req, res, next) => {
     return res.json(true);
   })
 })
+
+router.get('passIs-available', (req, res, next) => {
+  var passwordOld = req.query.passwordOld;
+  userModel.singleByUserName(req.user.username).then(rows => {
+    var ret = bcrypt.compareSync(passwordOld, rows[0].password);
+    if (ret) {
+        return res.json(true);
+    }
+
+    return res.json(false);
+  })
+})
+
 
 router.post('/registeradd', (req, res, next) => {
   var saltRounds = 10;
@@ -167,10 +208,16 @@ router.post('/login4', (req, res, next) => {
 })
 
 router.get('/prolife', auth, (req, res, next) => {
-  userModel.getAcc(req.user.id)
-  .then(rows => {
+  
+  Promise.all([
+    userModel.getAcc(req.user.id),
+    userModel.allCate(),
+    userModel.getCateById(req.user.idCategory)])
+  .then(([rows,rows2, rows3]) => {
     res.render('Req 3 - Writer/Prolife', {
-      account: rows[0]
+      account: rows[0],
+      cate: rows2,
+      namecate: rows3[0]
     });
   }).catch(err => {
     console.log(err);
