@@ -41,9 +41,9 @@
                     <div class="about-us-content bg-white mb-30 p-30 box-shadow">
                         <!-- Team Member Area -->
                         <div class="section-heading mt-30">
-                            <h5>List of articles need to be allowed</h5>
+                            <h5>List of articles</h5>
                         </div>
-                        <h7>The article has not been approved: <strong>{{this.article.length}}</strong></h7>
+                        <h7>Total: <strong>{{this.article.length}}</strong></h7>
                         <hr>
                         <!-- Single Team Member -->
                         {{!-- {{#each this.cate}}
@@ -60,9 +60,9 @@
                             </div>
                             <div class="team-member-content">
                                 <h6>Mrs. Susan Monroe
-                                <a class="mlfalse mlfalsebut" href="/editor/edit/{{id}}"><i class="fas fa-lock"></i></a>
+                                {{!-- <a class="mlfalse mlfalsebut" href="/editor/edit/{{id}}"><i class="fas fa-lock"></i></a>
 
-                                <a class="mltrue mltruebut" href="/editor/editTrue/{{id}}"><i class="fas fa-check"></i></a>
+                                <a class="mltrue mltruebut" href="/editor/editTrue/{{id}}"><i class="fas fa-check"></i></a> --}}
                                  {{!-- <button class="mltrue mltruebut" data-toggle="modal" data-target="#exampleModaltrue"><i class="fas fa-check"></i></button> --}}
                              </h6>
                              <span>Reporter</span>
@@ -79,7 +79,7 @@
                      
                     {{/each}}
 
-                    <div style="width: 400px; margin:auto;">
+                    <div style="width: 500px !important; margin:auto;">
                         <ul id="pagination2"></ul>
                     </div>
                     <br>
@@ -159,9 +159,9 @@ $(function () {
     
     var totalRows = $("#total2").val();
     if(totalRows%8 !=0)
-    	var btnPage = totalRows/8+1;
+    	var btnPage = totalRows/4+1;
     else 
-    	var btnPage = totalRows/8;
+    	var btnPage = totalRows/4;
     var iTotalPages = Math.ceil(totalRows / pageSize);
 
     var obj = $('#pagination2').twbsPagination({

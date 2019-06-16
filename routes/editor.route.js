@@ -10,8 +10,8 @@ Promise.all([
   articleModel.allByIdEditor(req.user.id),
   articleModel.allCate(),
   articleModel.TongSo(),
-  articleModel.allAllow(),
-  articleModel.allBlock()])
+  articleModel.allAllowById(req.user.id),
+  articleModel.allBlockById(req.user.id)])
     .then(([rows, rows2, rows3, rows4,rows5]) => {
       res.render('Req 4 - Editor/Editor', {
         article: rows,
@@ -26,6 +26,53 @@ Promise.all([
     });
   
 })
+
+router.get('/plitAllowed', auth, (req, res, next) => {
+  Promise.all([
+    articleModel.allByIdEditorAllowed(req.user.id,),
+    articleModel.allCate(),
+    articleModel.TongSo(),
+    articleModel.allAllowById(req.user.id),
+    articleModel.allBlockById(req.user.id)])
+      .then(([rows, rows2, rows3, rows4,rows5]) => {
+        res.render('Req 4 - Editor/EditorAllow', {
+          article: rows,
+          cate : rows2,
+          TongSo: rows3[0],
+          allow: rows4[0],
+          block: rows5[0]
+        });
+      }).catch(err => {
+        console.log(err);
+        res.end('error occured.')
+      });
+    
+  })
+
+
+  router.get('/plitBlocked', auth, (req, res, next) => {
+    Promise.all([
+      articleModel.allByIdEditorBlocked(req.user.id),
+      articleModel.allCate(),
+      articleModel.TongSo(),
+      articleModel.allAllowById(req.user.id),
+      articleModel.allBlockById(req.user.id)])
+        .then(([rows, rows2, rows3, rows4,rows5]) => {
+          res.render('Req 4 - Editor/EditorAllow', {
+            article: rows,
+            cate : rows2,
+            TongSo: rows3[0],
+            allow: rows4[0],
+            block: rows5[0]
+          });
+        }).catch(err => {
+          console.log(err);
+          res.end('error occured.')
+        });
+      
+    })
+    
+  
 
 router.get('/edit/:id', (req, res) => {
   var id = req.params.id;

@@ -1,6 +1,9 @@
 var express = require('express');
 var adminModel = require('../models/admin.model');
 var auth = require('../middlewares/auth-Admin');
+var bcrypt = require('bcrypt');
+var moment = require('moment');
+var passport = require('passport');
 var router = express.Router();
 
 router.get('/', auth, (req, res, next) => {
@@ -55,7 +58,45 @@ router.get('/category', auth, (req, res, next) => {
       
     })
 
-router.get('/category/edit/:id', (req, res) => {
+    
+  router.get('/user', auth, (req, res, next) => {
+  
+    Promise.all([
+      adminModel.allUser(),
+      adminModel.all()])
+        .then(([rows, rows2]) => {
+          
+          res.render('Req 5 - Administrator/User', {
+            user: rows,
+            cate2sad : rows2
+          });
+        }).catch(err => {
+          console.log(err);
+          res.end('error occured.')
+        });
+      
+    })
+
+
+router.get('/article', auth, (req, res, next) => {
+
+  Promise.all([
+    adminModel.all(),
+    adminModel.allCate()])
+      .then(([rows, rows2]) => {
+        
+        res.render('Req 5 - Administrator/Article', {
+          article: rows,
+          cate : rows2
+        });
+      }).catch(err => {
+        console.log(err);
+        res.end('error occured.')
+      });
+    
+  })
+
+router.get('/category/edit/:id',auth, (req, res) => {
   var id = req.params.id;
   if (isNaN(id)) {
     res.render('Req 5 - Administrator/Category', {
@@ -84,7 +125,7 @@ router.get('/category/edit/:id', (req, res) => {
 })
 
 
-router.get('/tag/edit/:id', (req, res) => {
+router.get('/tag/edit/:id',auth, (req, res) => {
   var id = req.params.id;
   if (isNaN(id)) {
     res.render('Req 5 - Administrator/Tag', {
@@ -111,6 +152,71 @@ router.get('/tag/edit/:id', (req, res) => {
     res.end('error occured.')
   });
 })
+
+
+router.get('/user/edit/:id',auth, (req, res, next) => {
+  var id = req.params.id;
+  if (isNaN(id)) {
+    res.render('Req 5 - Administrator/User', {
+      error: true
+    });
+  }
+
+
+  Promise.all([
+    adminModel.singleIdUser2(id),
+    adminModel.singleIdUser3(id),
+    adminModel.allTag(),
+    adminModel.allCate()]).then(([rows, rowall,rows2,rows3]) => {
+    if (rows.length > 0) {
+      res.render('Req 5 - Administrator/UserEdit', {
+        error: false,
+        user: rowall[0],
+        tagall: rows2,
+        cate: rows3,
+        user2: rows[0]
+      });
+    } else {
+      res.render('Req 5 - Administrator/UserEdit', {
+        error: true
+      });
+    }
+  }).catch(err => {
+    console.log(err);
+    res.end('error occured.')
+  });
+})
+
+router.get('/articleEdit/:id',auth, (req, res) => {
+  var id = req.params.id;
+  if (isNaN(id)) {
+    res.render('Req 5 - Administrator/Article', {
+      error: true
+    });
+  }
+
+  Promise.all([
+    adminModel.single2(id),
+    adminModel.allTag(),
+    adminModel.allCate()]).then(([rows,rows2,rows3]) => {
+    if (rows.length > 0) {
+      res.render('Req 5 - Administrator/ArticleEdit', {
+        error: false,
+        article: rows[0],
+        tag: rows2,
+        cate2: rows3
+      });
+    } else {
+      res.render('Req 5 - Administrator/ArticleEdit', {
+        error: true
+      });
+    }
+  }).catch(err => {
+    console.log(err);
+    res.end('error occured.')
+  });
+})
+
 
 router.post('/category/update', auth, (req, res, next) => {
   adminModel.updateCate(req.body).then(id => {
@@ -149,6 +255,66 @@ router.post('/tag/add', auth, (req, res, next) => {
   });
 })
 
+router.post('/user/add', auth, (req, res, next) => {
+  
+  var saltRounds = 10;
+  var hash = bcrypt.hashSync(req.body.password, saltRounds);
+  var dob = moment(req.body.dob, 'DD/MM/YYYY').format('YYYY-MM-DD');
+
+  var datetime = new Date();
+  var numberOfDaysToAdd = 7;
+  datetime.setDate(datetime.getDate() + numberOfDaysToAdd);
+
+
+  var entity = {
+    username: req.body.username,
+    password: hash,
+    name: req.body.name,
+    email: req.body.email,
+    dob: dob,
+    role: req.body.role,
+    duration: datetime,
+    idCategory: req.body.idCategory,
+    nickname: req.body.nickname
+  }
+
+  adminModel.addUser(entity).then(id => {
+    res.redirect('/admin/user');
+  })
+})
+
+  router.post('/userUpdate', auth, (req, res, next) => {
+    adminModel.updateUser(req.body).then(id => {
+      res.redirect('/admin/user');
+    }).catch(err => {
+      console.log(err);
+      res.end('error occured.')
+    });
+  })
+
+
+router.post('/articleUpdate', auth, (req, res, next)=> {
+  adminModel.updateArticle(req.body).then(n => {
+    res.redirect('/admin/article');
+  }).catch(err => {
+    console.log(err);
+    res.end('error occured.')
+  });
+})
+
+
+router.post('/articleAdd', auth, (req, res, next) => {
+  var datetime = new Date();
+  req.body.dateWriter = datetime;
+  adminModel.addArticle(req.body).then(id => {
+    res.redirect('/admin/article');
+  }).catch(err => {
+    console.log(err);
+    res.end('error occured.')
+  });
+})
+
+
 router.get('/category/add', auth, (req, res) => {
   adminModel.all()
     .then(rows => {
@@ -166,6 +332,36 @@ router.get('/tag/add', auth, (req, res) => {
     .then(rows => {
       res.render('Req 5 - Administrator/TagAdd', {
         categories: rows
+      });
+    }).catch(err => {
+      console.log(err);
+      res.end('error occured.')
+    });
+})
+
+router.get('/user/add', auth, (req, res) => {
+  Promise.all([
+    adminModel.all(),
+    adminModel.allCate()])
+    .then(([rows, rows2]) => {
+      res.render('Req 5 - Administrator/UserAdd', {
+        categories: rows,
+        cate: rows2
+      });
+    }).catch(err => {
+      console.log(err);
+      res.end('error occured.')
+    });
+})
+
+router.get('/articleAdd', auth, (req, res) => {
+  Promise.all([
+    adminModel.allTag(),
+    adminModel.allCate()])
+    .then(([rows, rows2]) => {
+      res.render('Req 5 - Administrator/ArticleAdd', {
+        tag: rows,
+        cate: rows2
       });
     }).catch(err => {
       console.log(err);
@@ -195,6 +391,42 @@ router.get('/tag/delete/:id', auth, (req, res) => {
   });
 })
 
+router.get('/user/delete/:id', auth, (req, res) => {
+  var id = req.params.id;
+  adminModel.deleteUser(id).then(n => {
+    res.redirect('/admin/user');
+  }).catch(err => {
+    console.log(err);
+    res.end('error occured.')
+  });
+})
+
+router.get('/articleDelete/:id', auth, (req, res) => {
+  var id = req.params.id;
+  adminModel.deleteArticle(id).then(n => {
+    res.redirect('/admin/article');
+  }).catch(err => {
+    console.log(err);
+    res.end('error occured.')
+  });
+})
+
+
+router.get('/articlePub/:id', auth, (req, res) => {
+  var id = req.params.id;
+  var datetime = new Date();
+  var entity = {
+    id: id,
+    allow: 'Allowed',
+    datePost: datetime
+  }
+  adminModel.updateArticle(entity).then(n => {
+    res.redirect('/admin/article');
+  }).catch(err => {
+    console.log(err);
+    res.end('error occured.')
+  });
+})
 
 router.get('/category/is-available', (req, res, next) => {
   var user = req.query.name;
@@ -216,6 +448,55 @@ router.get('/tag/is-available', (req, res, next) => {
 
     return res.json(true);
   })
+})
+
+
+router.get('/userUpDur/:id', auth, (req, res) => {
+  var id = req.params.id;
+  adminModel.findUser(id).then(n => {
+    if(n[0].role != 'subcriber'){
+      res.render('Req 5 - Administrator/UserUpDuration', {
+        error: true
+      });
+    }else{
+      res.render('Req 5 - Administrator/UserUpDuration', {
+        error: false,
+        user: n[0]
+      });
+    }
+  }).catch(err => {
+    console.log(err);
+    res.end('error occured.')
+  });
+})
+
+
+router.post('/userSplit', auth, (req, res, next) => {
+  if(req.body.role == 'all'){
+    Promise.all([
+      adminModel.all(),
+      adminModel.allUser(),]).then(([rows,rows2]) => {
+    res.render('Req 5 - Administrator/User', {
+      article: rows,
+      user: rows2
+    });
+  }).catch(err => {
+    console.log(err);
+    res.end('error occured.')
+  });
+  }
+  else{
+    Promise.all([
+      adminModel.all(),
+      adminModel.allRole(req.body.role),]).then(([rows,rows2]) => {
+    res.render('Req 5 - Administrator/User', {
+      article: rows,
+      user: rows2
+    });
+  }).catch(err => {
+    console.log(err);
+    res.end('error occured.')
+  });}
 })
 
 module.exports = router;

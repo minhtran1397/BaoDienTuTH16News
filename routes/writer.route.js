@@ -31,7 +31,7 @@ router.get('/edit/:id', (req, res) => {
   }
 
   Promise.all([
-    writerModel.single(id),
+    writerModel.single2(id),
     writerModel.allTag(),
     writerModel.allCate2()]).then(([rows,rows2,rows3]) => {
     if (rows.length > 0 && rows[0].allow !='Allowed' &&rows[0].allow !='WaitForPost') {

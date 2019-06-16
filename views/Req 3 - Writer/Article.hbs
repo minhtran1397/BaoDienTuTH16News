@@ -44,19 +44,18 @@
                 <div class="col-12 col-xl-8">
                     <div class="post-details-content bg-white mb-30 p-30 box-shadow">
                         <div class="blog-content">
-                            <div class="post-meta">
-                                <a href="#">{{article.datePost}}</a>
-                                <a href="archive.html">{{article.name}}</a>
+                            <div>
+                                <div><input readonly type="date"  class="form-control" data-date="" data-date-format="DD MMMM YYYY" value="{{this.article.datePost}}"></div>
+                                <div style="color:#dc3545; font-size: 15px; margin-bottom: 13px;">Category: {{article.name}}</div>
                             </div>
-                            <h4 class="post-title">{{article.title}}</h4>
+                    
+                            <h4 class="post-title" style="font-size: 20px; ">Title: {{article.title}}</h4>
                             <!-- Post Meta -->
                             
-                            <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{article.content}}</p>
-                            
-
-                            <blockquote>
+                            <textarea id="txtFullDes1">{{article.content}}</textarea>
+                            <div style="color:#dc3545; font-size: 15px; margin-bottom: 13px;">Summary:</div>
+                            <blockquote style="margin-bottom:10px;">
                                 <h6 class="quote-text">{{article.summary}}</h6>
-
                             </blockquote>
 
             
@@ -92,8 +91,7 @@
                                         <a href="single-post.html" class="post-title">Dentists Are Smiling Over Painless Veneer</a>
                                         <div class="post-meta d-flex">
                                             <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 1034</a>
-                                            <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 834</a>
-                                            <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 234</a>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -111,8 +109,7 @@
                                         <a href="single-post.html" class="post-title">Will The Democrats Be Able To Reverse</a>
                                         <div class="post-meta d-flex">
                                             <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 1034</a>
-                                            <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 834</a>
-                                            <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 234</a>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -128,8 +125,7 @@
                                         <a href="single-post.html" class="post-title">A Guide To Rocky Mountain Vacations</a>
                                         <div class="post-meta d-flex">
                                             <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 1034</a>
-                                            <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 834</a>
-                                            <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 234</a>
+                                           
                                         </div>
                                     </div>
                                 </div>

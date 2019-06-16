@@ -22,9 +22,26 @@ module.exports = {
   },
 
 
-  allByIdEditor: id => {
-    return db.load(`select * from article where idCategory = ${id}`);
+  allAllowById: id => {
+    return db.load(`select count(*) as tongso from article where idEditor = ${id} and allow="Allowed"`);
   },
+
+  allBlockById: id => {
+    return db.load(`select count(*) as tongso from article where idEditor = ${id} and allow="Blocked"`);
+  },
+
+  allByIdEditor: id => {
+    return db.load(`select * from article where idCategory = ${id} and allow="WaitForAd"`);
+  },
+
+  allByIdEditorAllowed: idEditor => {
+    return db.load(`select * from article where allow="Allowed" and idEditor=${idEditor}`);
+  },
+
+  allByIdEditorBlocked: idEditor  => {
+    return db.load(`select * from article where allow="Blocked" and idEditor=${idEditor}`);
+  },
+
 
   allByCate: () => {
     return db.load('select count(*) as soCate, c.name as name from article a join category c on c.id=a.idCategory group by c.id, c.name');

@@ -29,7 +29,7 @@ router.get('/is-available', (req, res, next) => {
         return res.json(true);
       }
       else
-      return res.json(false);
+        return res.json(false);
     }
 
     return res.json(true);

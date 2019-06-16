@@ -5,14 +5,14 @@
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="breadcrumb-content">
-                        <h2>TAG MANAGERMENT</h2>
+                        <h2>ARTICLE</h2>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     <!-- ##### Breadcrumb Area End ##### -->
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+ <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <ul class="navbar-nav">
          <li class="nav-item">
         <a class="nav-link disabled" href="/admin/user">MANAGE</a>
@@ -40,7 +40,7 @@
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Administration</li>
-                            <li class="breadcrumb-item active" aria-current="page">Tag</li>
+                            <li class="breadcrumb-item active" aria-current="page">Article</li>
                         </ol>
                     </nav>
                 </div>
@@ -58,34 +58,54 @@
                     <div class="about-us-content bg-white mb-30 p-30 box-shadow">
                         <!-- Team Member Area -->
                         <div class="section-heading mt-30">
-                            <h5>Tag Managerment</h5>
+                            <h5>Article Managerment</h5>
                         </div>
 
-                        <a class="btn btn btn-success btnfilter" href="/admin/tag/add" role="button">
+                        <a class="btn btn btn-success btnfilter" href="/admin/articleAdd" role="button">
                             <i class="fas fa-plus" style="font-size:25px; color: white"></i>
                         </a>
                         <br>
                         <br>
-                        <table class="table  table-striped">
+                        <table class="table table-striped" >
                             <thead class="thead-dark text-center">
                               <tr>
                                 <th scope="col">#id</th>
-                                <th scope="col">name</th>
+                                <th scope="col">dateWrite</th>
+                                <th scope="col">datePost</th>
+                                <th scope="col">status</th>
+                                <th scope="col">idCategory</th>
+                                <th scope="col">idW</th>
+                                <th scope="col">idE</th>
+                                <th scope="col">see detail</th>
                                 <th scope="col">update</th>
                                 <th scope="col">delete</th>
+                                <th scope="col">publish</th>
                               </tr>
                             </thead>
                             <tbody>
-                                {{#each this.tag}}
-                                    <tr>
+                                {{#each this.article}}
+                                    <tr class="text-center">
                                         <td>{{id}}</td>
-                                        <td>{{name}}</td>
-                                        <td><a class="btn btn-warning btnfilter"  href="/admin/tag/edit/{{id}}"  role="button">
+                                        <td>{{dateWriter}}</td>
+                                        <td>{{datePost}}</td>
+                                        <td>{{allow}}</td>
+                                        <td>{{idCategory}}</td>
+                                        <td>{{idWriter}}</td>
+                                        <td>{{idEditor}}</td>
+                                        <td><a class="btn btn-success btnfilter"  href="/writer/view/{{id}}"  role="button">
+                                                <i class="fas fa-eye" style="font-size:15px; color: white"></i>
+                                            </a>
+                                        </td>
+                                        <td><a class="btn btn-warning btnfilter"  href="/admin/articleEdit/{{id}}"  role="button">
                                                 <i class="fas fa-edit" style="font-size:15px; color: white"></i>
                                             </a>
                                         </td>
-                                        <td><a class="btn btn-danger btnfilter" href="/admin/tag/delete/{{id}}" role="button">
+                                        <td><a class="btn btn-danger btnfilter" href="/admin/articleDelete/{{id}}" role="button">
                                                  <i class="fas fa-trash-alt" style="font-size:15px; color: white"></i>
+                                            </a>
+                                        </td>
+                                        <td><a class="btn btn-primary btnfilter" href="/admin/articlePub/{{id}}" role="button">
+                                                 <i class="fas fa-upload" style="font-size:15px; color: white"></i>
                                             </a>
                                         </td>
                                     </tr>

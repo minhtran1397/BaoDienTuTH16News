@@ -22,6 +22,9 @@
         idCategory: {
           required: true
         },
+        txtFullDes: {
+          required: true
+        },
       },
       messages: {
         title: {
@@ -35,6 +38,9 @@
         },
         tag: {
           required: 'Your tag is required.'
+        },
+        txtFullDes: {
+          required: 'Your content is required.'
         },
       },
       errorElement: 'small',
@@ -84,7 +90,25 @@
         </div>
     </section>
     <!-- ##### Breadcrumb Area End ##### -->
-
+ <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <ul class="navbar-nav">
+         <li class="nav-item">
+        <a class="nav-link disabled" href="/admin/user">MANAGE</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="/admin/article">Article</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link"  href="/admin/category">Category</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="/admin/tag">Tag</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="/admin/user">User</a>
+        </li>
+    </ul>
+    </nav>
     <!-- ##### Breadcrumb Area Start ##### -->
     <div class="mag-breadcrumb py-5">
         <div class="container">
@@ -117,7 +141,7 @@
                         </div>
 
                         <div class="video-info mt-30">
-                            <form method="POST" id="articleForm">
+                            <form action="/admin/articleAdd" method="POST" id="articleForm">
                                 <!-- <div class="form-group">
                                     <label for="upload-file">Upload Your File</label>
                                     <input type="file" class="form-control-file" id="upload-file">
@@ -130,21 +154,18 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="summary">Article Summary</label>
-                                  
                                     <input type="text" class="form-control" id="summary" name="summary" required/>
-
                                 </div>
 
-            
-
-                                <div class="form-group">
+                                 <div class="form-group">
                                   <label for="txtFullDes">Article Content</label>
                                   <textarea class="form-control" id="txtFullDes" name="content" required></textarea>
                                 </div>
 
                                 <input type="hidden" id="allow" name="allow" value="WaitForAd" required/>
-                                <input type="hidden" id="idWriter" name="idWriter" value="{{authUser.id}}" required/>
-
+                                {{!-- <input type="hidden" id="idWriter" name="idWriter" value="{{authUser.id}}" required/> --}}
+                                <input type="hidden" id="idWriter" name="dateWriter" required/>
+                              
                                 <div class="form-group">
                                     <label for="catagory">Tag</label>
                                     <select name="idTag" class="form-control" id="tag">
@@ -157,7 +178,7 @@
                                 <div class="form-group">
                                     <label for="catagory">Catagory</label>
                                     <select name="idCategory" class="form-control" id="catagory">
-                                        {{#each this.cate2}}
+                                        {{#each this.cate}}
                                         <option value="{{id}}">{{name}}</option>     
                                       {{/each}}
                                     </select>
@@ -174,5 +195,4 @@
         </div>
     </div>
     <!-- ##### Video Submit Area End ##### -->
-
 

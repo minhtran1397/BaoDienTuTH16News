@@ -48,6 +48,25 @@
     });
   })
 </script>
+
+
+<script
+  src="https://cloud.tinymce.com/5/tinymce.min.js?apiKey=ezd73nxbzc7bu6e86g2l82jbbffke0mwevwrnyvc5q8h89j6"></script>
+<script>
+  $(function () {
+    tinymce.init({
+      selector: '#txtFullDes',
+      height: 500,
+      menubar: false,
+      plugins: 'paste image link autolink lists table media',
+      toolbar: [
+        'undo redo | bold italic underline strikethrough | numlist bullist | alignleft aligncenter alignright',
+        'forecolor backcolor',
+        'table link image media',
+      ],
+    });
+  })
+</script>
 {{/section}}
    
 
@@ -123,19 +142,20 @@
 
                                 </div>
 
-                                <div class="form-group">
+                                {{!-- <div class="form-group">
                                     <label for="content">Article Content</label>
-                                    {{!-- <div id="toolbar"></div>
-                                    <div id="content" tabindex="0"></div> --}}
-                                    
                                      <textarea class="form-control" id="content" name="content" >{{this.article.content}}</textarea>
-                                    <!-- <textarea name="video-description" class="form-control" cols="30" rows="10" id="content"></textarea> -->
+                                </div> --}}
+                                
+                                <div class="form-group">
+                                  <label for="txtFullDes">Article Content</label>
+                                  <textarea class="form-control" id="txtFullDes" name="content" required>{{this.article.content}}</textarea>
                                 </div>
-
   
 
                                 <div class="form-group">
-                                    <label for="catagory">Tag</label>
+                                    <div><label for="tagold">Tag old: {{this.article.nameTag}}</label></div>
+                                    <label for="tag">Tag new:</label>
                                     <select name="idTag" class="form-control" id="tag" value="{{this.article.idTag}}">
                                       {{#each this.tag}}
                                         <option value="{{id}}">{{name}}</option>     
@@ -146,7 +166,8 @@
 
 
                                 <div class="form-group">
-                                    <label for="catagory">Catagory</label>
+                                    <div><label for="catagoryold">Catagory old: {{this.article.nameCate}}</label></div>
+                                    <label for="catagory">Catagory new:</label>
                                     <select name="idCategory" class="form-control" id="catagory" value="{{this.article.idCategory}}">
                                         {{#each this.cate2}}
                                         <option value="{{id}}">{{name}}</option>     
