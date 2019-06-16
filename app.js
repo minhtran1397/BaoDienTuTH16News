@@ -29,6 +29,7 @@ app.use('/writer', require('./routes/writer.route'))
 app.use('/editor', require('./routes/editor.route'))
 app.use('/account', require('./routes/account.route'))
 app.use('/admin', require('./routes/admin.route'))
+app.use('/subcriber', require('./routes/sub.route'))
 
 
 app.use((req, res, next) => {
