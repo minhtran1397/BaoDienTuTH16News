@@ -7,7 +7,7 @@
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="breadcrumb-content">
-                        <h2>MANAGE ARTICLES</h2>
+                        <h2>LIST ARTICLE</h2>
                     </div>
                 </div>
             </div>
@@ -23,7 +23,8 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Manage Articles</li>
+                            <li class="breadcrumb-item active" aria-current="page">Subcriber</li>
+                            <li class="breadcrumb-item active" aria-current="page">Articles</li>
                         </ol>
                     </nav>
                 </div>
@@ -41,9 +42,8 @@
                     <div class="about-us-content bg-white mb-30 p-30 box-shadow">
                         <!-- Team Member Area -->
                         <div class="section-heading mt-30">
-                            <h5>List of articles need to be allowed</h5>
+                            <h5>List of articles prenium</h5>
                         </div>
-                        <h7>The article has not been approved: <strong>{{this.article.length}}</strong></h7>
                         <hr>
                         <!-- Single Team Member -->
                         {{!-- {{#each this.cate}}
@@ -70,7 +70,7 @@
                              <p><strong>Title:</strong> {{title}}</p>
                             <p><strong>Summary:</strong> {{summary}}</p>
                              {{!-- <button type="button" class="btn btn-outline-secondary"><p></p>See details</button> --}}
-                             <a class="btn btn-outline-secondary" href="/writer/view/{{id}}" role="button">
+                             <a class="btn btn-outline-secondary" href="/subcriber/view/{{id}}" role="button">
                         
                                 See Detail
                             </a>
@@ -78,6 +78,8 @@
                      </div> 
                      
                     {{/each}}
+
+                     
 
                     <div style="width: 400px; margin:auto;">
                         <ul id="pagination2"></ul>
@@ -91,16 +93,7 @@
 <div class="col-12 col-md-6 col-lg-5 col-xl-4">
     <div class="sidebar-area bg-white mb-30 box-shadow">
         <!-- Sidebar Widget -->
-        <div class="single-sidebar-widget p-30">
-            <!-- Social Followers Info -->
-            <div class="social-followers-info">
-                <!-- Facebook -->
-                <a href="/editor/plitAllowed" class="duyet"><i class="fas fa-check"></i> {{allow.tongso}} <span>Allow</span></a>
-                <!-- Twitter -->
-                <a href="/editor/plitBlocked" class="khongduyet"><i class="fas fa-lock"></i>&nbsp {{block.tongso}} <span>Locked</span></a>
-                <!-- YouTube -->
-            </div>
-        </div>
+       
 
         <!-- Sidebar Widget -->
         <div class="single-sidebar-widget p-30">
@@ -158,7 +151,8 @@ $(function () {
     showPage(1);
     
     var totalRows = $("#total2").val();
-    if(totalRows%8 !=0)
+    console.log(totalRows+'aaaaaaaaaaaa');
+    if(totalRows%4 !=0)
     	var btnPage = totalRows/4+1;
     else 
     	var btnPage = totalRows/4;
