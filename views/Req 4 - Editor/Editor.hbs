@@ -59,13 +59,13 @@
                                 </div>
                             </div>
                             <div class="team-member-content">
-                                <h6>Mrs. Susan Monroe
+                                <h6>{{username}}
                                 <a class="mlfalse mlfalsebut" href="/editor/edit/{{id}}"><i class="fas fa-lock"></i></a>
 
                                 <a class="mltrue mltruebut" href="/editor/editTrue/{{id}}"><i class="fas fa-check"></i></a>
                                  {{!-- <button class="mltrue mltruebut" data-toggle="modal" data-target="#exampleModaltrue"><i class="fas fa-check"></i></button> --}}
                              </h6>
-                             <span>Reporter</span>
+                             <span>{{catename}}</span>
                              
                              <p><strong>Title:</strong> {{title}}</p>
                             <p><strong>Summary:</strong> {{summary}}</p>
@@ -112,10 +112,8 @@
             <!-- Catagory Widget -->
          
             <ul class="catagory-widgets">
-            {{#each this.cate}}
-               
-                    <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> {{name}}</span> <span>{{tongSo}}</span></a></li>
-                
+            {{#each this.cate}}   
+                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> {{name}}</span> <span>{{tongSo}}</span></a></li>
             {{/each}}
             </ul>
         </div>

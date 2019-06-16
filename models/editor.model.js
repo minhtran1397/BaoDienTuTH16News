@@ -31,7 +31,7 @@ module.exports = {
   },
 
   allByIdEditor: id => {
-    return db.load(`select * from article where idCategory = ${id} and allow="WaitForAd"`);
+    return db.load(`select a.id, a.title,a.summary,u.name as username, c.name as catename from (article a join user u on a.idWriter = u.id) join category c on c.id=a.idCategory where a.idCategory = ${id} and a.allow="WaitForAd"`);
   },
 
   allByIdEditorAllowed: idEditor => {
@@ -45,6 +45,10 @@ module.exports = {
 
   allByCate: () => {
     return db.load('select count(*) as soCate, c.name as name from article a join category c on c.id=a.idCategory group by c.id, c.name');
+  },
+
+  getWriter: id => {
+    return db.load(`select * from user u join article a on a.idWriter = u.id where a.id=${id}`);
   },
 
   TongSo: () =>{
