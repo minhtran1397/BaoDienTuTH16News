@@ -13,13 +13,18 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <!-- Favicon -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
-    <link rel="icon" href="img/core-img/favicon.ico">
+
+    <link rel="icon" href="../../img/core-img/favicon.ico">
+    
+    <script src="http://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script src="http://cdn.quilljs.com/1.3.6/quill.min.js"></script>
     <link href="http://cdn.quilljs.com/1.3.6/quill.bubble.css" rel="stylesheet">
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="/css/quillSnow.css">    
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="stylesheet" type="text/css" href="/css/manhlinh.css">
+    <link rel="stylesheet" type="text/css" href="/css/minhMinh.css">
     <link rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css">
     <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js"></script>
@@ -55,7 +60,7 @@
                 <nav class="classy-navbar justify-content-between" id="magNav">
 
                     <!-- Nav brand -->
-                    <a href="index.html" class="nav-brand"><img src="../../img/core-img/logo.png" alt=""></a>
+                    <a href="/" class="nav-brand"><img src="../../img/core-img/logo.png" alt=""></a>
 
                     <!-- Navbar Toggler -->
                     <div class="classy-navbar-toggler">
@@ -74,69 +79,59 @@
                             <!-- Nav Start -->
                             <div class="classynav">
                                 <ul>
-                                    <li class="active"><a href="index.html">Home</a></li>
-                                    <li><a href="danhsachbaiviet.html">News</a></li>
-                                    <li><a href="danhsachbaiviet.html">Bussiness</a>
-                                        <ul class="dropdown">
-                                            
-                                            <li><a href="danhsachbaiviet.html">Agricultural</a></li>
-                                            <li><a href="danhsachbaiviet.html">Seafood</a></li>
-                                            
+                                     <li class="active"><a href="/">Home</a></li>
+                                    <li><a href="/guest/detailcategories/1">News</a></li>
+                                    <li><a href="#">Bussiness</a>
+                                        <ul class="dropdown">                                            
+                                            <li><a href="/guest/detailcategories/2">Agricultural</a></li>
+                                            <li><a href="/guest/detailcategories/3">Seafood</a></li>                                            
                                         </ul>
                                     </li>
-                                    <li><a href="danhsachbaiviet.html">Life style</a>
-                                        <ul class="dropdown">
-                                            
-                                            <li><a href="danhsachbaiviet.html">Cutural</a></li>
-                                            <li><a href="danhsachbaiviet.html">Films</a></li>
-                                            <li><a href="danhsachbaiviet.html">Travel</a></li>
-                                            <li><a href="danhsachbaiviet.html">Fashion</a></li>
-                                             <li><a href="danhsachbaiviet.html">Health</a></li>
-                                            <li><a href="danhsachbaiviet.html">Food</a></li>
+                                    <li><a href="#">Life style</a>
+                                        <ul class="dropdown">                                            
+                                            <li><a href="/guest/detailcategories/4">Cutural</a></li>
+                                            <li><a href="/guest/detailcategories/5">Films</a></li>
+                                            <li><a href="/guest/detailcategories/6">Travel</a></li>
+                                            <li><a href="/guest/detailcategories/7">Fashion</a></li>
+                                             <li><a href="/guest/detailcategories/8">Health</a></li>
+                                            <li><a href="/guest/detailcategories/9">Food</a></li>
                                         </ul>
                                     </li>
-
-                                   <li><a href="danhsachbaiviet.html">Sciencse</a>
-                                        <ul class="dropdown">
-                                            
-                                            <li><a href="danhsachbaiviet.html">Invention</a></li>
-                                            <li><a href="danhsachbaiviet.html">Technology</a></li>
-                                            
+                                   <li><a href="#">Sciencse</a>
+                                        <ul class="dropdown">                                            
+                                            <li><a href="/guest/detailcategories/10">Invention</a></li>
+                                            <li><a href="/guest/detailcategories/11">Technology</a></li>                                            
                                         </ul>
                                     </li>
-
-                                    <li><a href="danhsachbaiviet.html">Synthetic</a>
-                                        <div class="megamenu">
-                                            
+                                    <li><a href="#">Synthetic</a>
+                                        <div class="megamenu">                                            
                                             <ul class="single-mega cn-col-3">
-                                                <li><a href="danhsachbaiviet.html">Home</a></li>
-                                                <li><a href="danhsachbaiviet.html">News</a></li>
-                                                <li><a href="danhsachbaiviet.html">Bussiness</a></li>
-                                                <li><a href="danhsachbaiviet.html">Agricultural</a></li>
-                                                <li><a href="danhsachbaiviet.html">Seafood</a></li>
-                                            </ul>
-
-                                            <ul class="single-mega cn-col-3">
-                                                <li><a href="danhsachbaiviet.html">Life style</a></li>
-                                                <li><a href="danhsachbaiviet.html">Cutural</a></li>
-                                                <li><a href="danhsachbaiviet.html">Films</a></li>
-                                                <li><a href="danhsachbaiviet.html">Travel</a></li>
-                                                <li><a href="danhsachbaiviet.html">Fashion</a></li>
-                                                
+                                                <li><a href="/">Home</a></li>
+                                                <li><a href="/guest/detailcategories/1">News</a></li>
+                                                <li><a href="#">Bussiness</a></li>
+                                                <li><a href="/guest/detailcategories/2">Agricultural</a></li>
+                                                <li><a href="/guest/detailcategories/3">Seafood</a></li>
                                             </ul>
                                             <ul class="single-mega cn-col-3">
-                                                <li><a href="single-post.html">Health</a></li>
-                                                <li><a href="danhsachbaiviet.html">Food</a></li>
-                                                <li><a href="danhsachbaiviet.html">Secience</a></li>
-                                                <li><a href="danhsachbaiviet.html">Invention</a></li>
-                                                <li><a href="danhsachbaiviet.html">Technology</a></li>  
+                                                <li><a href="#">Life style</a></li>
+                                                <li><a href="/guest/detailcategories/4">Cutural</a></li>
+                                                <li><a href="/guest/detailcategories/5">Films</a></li>
+                                                <li><a href="/guest/detailcategories/6">Travel</a></li>
+                                                <li><a href="/guest/detailcategories/7">Fashion</a></li>                                                
+                                            </ul>
+                                            <ul class="single-mega cn-col-3">
+                                                <li><a href="/guest/detailcategories/8">Health</a></li>
+                                                <li><a href="/guest/detailcategories/9">Food</a></li>
+                                                <li><a href="#">Secience</a></li>
+                                                <li><a href="/guest/detailcategories/10">Invention</a></li>
+                                                <li><a href="/guest/detailcategories/11">Technology</a></li>  
                                             </ul>
                                         </div>
                                     </li>
                                      <li><a href="timkiem.html">Search</a> </li>
                                      
                                     <li><a href="#" class="login-btn"><i class="fa fa-user" aria-hidden="true"></i></a>
-                                        <ul class="dropdown">
+                                        <ul class="dropdown" style="left:-100%">
                                             <a class="dropdown-item" href="/account/prolife" role="button">
                                                 Prolife
                                             </a>
@@ -156,7 +151,7 @@
                                            <a href="#" class="submit-video">
                                             <i class="fas fa-align-justify" ></i></a>
                                         </div>
-                                        <ul class="dropdown">
+                                        <ul class="dropdown" style="left:-160%">
                                             
                                             <a class="dropdown-item" href="/subcriber" role="button">
                                                 Subcriber
@@ -200,47 +195,32 @@
 
   
     
+     <!-- ##### Footer Area Start ##### -->
     <footer class="footer-area">
         <div class="container">
             <div class="row">
                 <!-- Footer Widget Area -->
-                <div class="col-12 col-sm-6 col-lg-3">
+                <div class="col-12 col-sm-6 col-lg-4">
                      <div class="footer-widget">
                         <!-- Logo -->
                         <a href="index.html" class="foo-logo"><img src="../../img/core-img/logo2.png" alt=""></a>
                         <p> Project web - Team 28 </br>
-                        Teacher: Ngô Ngọc Đăng Khoa</br>
-                        
+                        Teacher: Ngô Ngọc Đăng Khoa</br>            
                         1512325 – Tran Le Nguyen Hoang Minh</br>
                         1512281 – Đao Manh Linh</br>
                         1612749 – Phan Bao Trung</br>
-
                     </div>
                 </div>
 
                 <!-- Footer Widget Area -->
                 <div class="col-12 col-sm-6 col-lg-3">
                     <div class="footer-widget">
-                        <h6 class="widget-title">CATEGORYS</h6>
-                        <nav class="footer-widget-nav">
-                            
-
+                        <h6 class="widget-title">CATEGORIES</h6>
+                        <nav class="footer-widget-nav">                       
                             <ul >
-                                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i>News</span> </a></li>
-                                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i>Bussiness</span> </a></li>
-                                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i>Agricultural</span> </a></li>
-                                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i>Seafood</span> </a></li>
-                                <!-- <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> Đời sống</span> </a></li> -->
-                                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i>Cutural</span> </a></li>
-                                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i>Films </span> </a></li>
-                                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i>Travel  </span> </a></li>
-                                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i>Fashion  </span> </a></li>
-                                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i>Health </span> </a></li>
-                                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i>Food </span> </a></li>
-                                <!-- <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> Khoa học  </span></a></li> -->
-                                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> Invention  </span> </a></li>
-                                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> Technology  </span> </a></li>
-                            
+                            {{#each lcCategories}}
+                                <li><a href="/guest/detailcategories/{{id}}"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> {{name}}</span> </a></li>
+                             {{/each}}
                             </ul>
                         </nav>
                     </div>
@@ -248,39 +228,13 @@
 
                 
                 <!-- Footer Widget Area -->
-                <div class="col-12 col-sm-6 col-lg-6">
+                <div class="col-12 col-sm-6 col-lg-5">
                       <div class="footer-widget">
                         <h6 class="widget-title">TAG</h6>
-                        <ul class="footer-tags">
-                            <li><a href="danhsachbaiviet.html">endgame</a></li>
-                            <li><a href="danhsachbaiviet.html">film</a></li>
-                
-                            <li><a href="danhsachbaiviet.html">action</a></li>
-                            <li><a href="danhsachbaiviet.html">mtp</a></li>
-                            <li><a href="danhsachbaiviet.html">marvel</a></li>
-                            <li><a href="danhsachbaiviet.html">idol</a></li>
-                            <li><a href="danhsachbaiviet.html">scandal</a></li>
-                            <li><a href="danhsachbaiviet.html">President</a></li>
-                            <li><a href="danhsachbaiviet.html">kim jong-un</a></li>
-                            <li><a href="danhsachbaiviet.html">Rule</a></li>
-                            <li><a href="danhsachbaiviet.html">Dangerous</a></li>
-                            <li><a href="danhsachbaiviet.html">Cars</a></li>
-                            <li><a href="danhsachbaiviet.html">Terrorism</a></li>
-                            <li><a href="danhsachbaiviet.html">Fananci</a></li>
-                             <li><a href="danhsachbaiviet.html">War</a></li>
-                            <li><a href="danhsachbaiviet.html">watch out</a></li>
-                            <li><a href="danhsachbaiviet.html">fun</a></li>
-                            <li><a href="danhsachbaiviet.html">Fashion</a></li>
-                            <li><a href="danhsachbaiviet.html">food</a></li>
-                            <li><a href="danhsachbaiviet.html">kill husband</a></li>
-                            
-                            <li><a href="danhsachbaiviet.html">soccer</a></li>
-                            <li><a href="danhsachbaiviet.html">laliga champion cup</a></li>
-                            <li><a href="danhsachbaiviet.html">fun video</a></li>
-                            <li><a href="danhsachbaiviet.html">obama</a></li>
-                            <li><a href="danhsachbaiviet.html">Education</a></li>
-                            
-
+                        <ul class="footer-tags">                            
+                            {{#each articlemostviews}}   
+                                <li><a  href="/guest/detailcategories/{{idCategory}}">{{tag}}</a></li>
+                            {{/each}} 
                         </ul>
                     </div>
                 </div>
@@ -288,6 +242,7 @@
         </div>
 
     </footer>
+    <!-- ##### Footer Area END ##### -->
 
 
     <!-- ##### All Javascript Script ##### -->
