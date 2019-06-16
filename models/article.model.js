@@ -20,9 +20,9 @@ module.exports = {
   allByCatAllowedInfo: id => {
     return db.load(`
     SELECT a.id, title
-		,summary,content,datePost, image, premium, tag, idCategory, idWriter, views, c.name as catName, DATE_FORMAT(datePost,'%d/%m/%Y') AS datePostFormated
-    FROM article a, category c
-    WHERE a.allow='Allowed' and a.idCategory= c.id  and datePost <= DATE(NOW())
+		,summary,content,datePost, image, premium, idTag,t.name as tagName, idCategory, idWriter, views, c.name as catName, DATE_FORMAT(datePost,'%d/%m/%Y') AS datePostFormated
+    FROM article a, category c, tag t
+    WHERE a.allow='Allowed' and a.idCategory= c.id  and datePost <= DATE(NOW()) and idTag=t.id
     and idCategory=  ${id}	
     ORDER BY a.datePost desc 
     `);
@@ -32,8 +32,9 @@ module.exports = {
   allByAllCatAllowedInfo: () => {
     return db.load(`
     SELECT a.id, title
-		,summary,content,datePost, image, premium, tag, idCategory, idWriter, views, c.name as catName, DATE_FORMAT(datePost,'%d/%m/%Y') AS datePostFormated
-    FROM article a join  category c on a.idCategory=c.id  
+		,summary,content,datePost, image, premium, idTag,t.name as tagName, idCategory, idWriter, views, c.name as catName, DATE_FORMAT(datePost,'%d/%m/%Y') AS datePostFormated
+    FROM ((article a join  category c on a.idCategory=c.id)
+        join tag t  on  idTag=t.id)
     WHERE a.allow='Allowed'  and datePost <= DATE(NOW())
     `);
   },
@@ -48,18 +49,21 @@ module.exports = {
   },
   top15MostViews:  () => {
     return db.load(`
-    SELECT a.id, idCategory, title, views, c.name as catName,DATE_FORMAT(datePost,'%d/%m/%Y') AS datePostFormated,tag,image,premium
-    FROM article a, category c
-    WHERE idCategory=c.id and a.allow='Allowed'   and datePost <= DATE(NOW())
+    SELECT a.id, idCategory, title, views,idTag,t.name as tagName, c.name as catName,DATE_FORMAT(datePost,'%d/%m/%Y') AS datePostFormated,image,premium
+    FROM article a, category c, tag t
+    WHERE idCategory=c.id 
+					and a.allow='Allowed'   
+					and datePost <= DATE(NOW())
+					and idTag=t.id
     ORDER BY a.views desc 
     limit 15;
     `);
   },
   top10Newest:()=>{
     return db.load(`
-    SELECT a.id, idCategory, title, views, c.name as catName,DATE_FORMAT(datePost,'%d/%m/%Y') AS datePostFormated,tag, image, premium
-    FROM article a, category c
-    WHERE idCategory=c.id and a.allow='Allowed'  and datePost <= DATE(NOW())
+    SELECT a.id, idCategory, title, views, c.name as catName,DATE_FORMAT(datePost,'%d/%m/%Y') AS datePostFormated,idTag,t.name as tagName, image, premium
+    FROM article a, category c, tag t
+    WHERE idCategory=c.id and a.allow='Allowed'  and datePost <= DATE(NOW()) and idTag=t.id
     ORDER BY a.datePost desc 
     limit 10;
     `);
@@ -67,9 +71,9 @@ module.exports = {
 
   top1Newest:()=>{
     return db.load(`
-    SELECT a.id, title, views, c.name as catName,DATE_FORMAT(datePost,'%d/%m/%Y') AS datePostFormated,tag, image,premium,idCategory
-    FROM article a, category c
-    WHERE idCategory=c.id and a.allow='Allowed'  and datePost <= DATE(NOW())
+    SELECT a.id, idCategory, title, views, c.name as catName,DATE_FORMAT(datePost,'%d/%m/%Y') AS datePostFormated,idTag,t.name as tagName, image, premium
+    FROM article a, category c, tag t
+    WHERE idCategory=c.id and a.allow='Allowed'  and datePost <= DATE(NOW()) and idTag=t.id
     ORDER BY a.datePost desc 
     limit 1 OFFSET 0;
     `);
@@ -77,18 +81,18 @@ module.exports = {
 
   top5Newest:()=>{
     return db.load(`
-    SELECT a.id, title, views, c.name as catName,DATE_FORMAT(datePost,'%d/%m/%Y') AS datePostFormated,tag, image,premium,idCategory
-    FROM article a, category c
-    WHERE idCategory=c.id and a.allow='Allowed'  and datePost <= DATE(NOW())
+    SELECT a.id, idCategory, title, views, c.name as catName,DATE_FORMAT(datePost,'%d/%m/%Y') AS datePostFormated,idTag,t.name as tagName, image, premium
+    FROM article a, category c, tag t
+    WHERE idCategory=c.id and a.allow='Allowed'  and datePost <= DATE(NOW()) and idTag=t.id
     ORDER BY a.datePost desc 
     limit 5 OFFSET 0;
     `);
   },
   top5to10Newest:()=>{
     return db.load(`
-    SELECT a.id, title, views, c.name as catName,DATE_FORMAT(datePost,'%d/%m/%Y') AS datePostFormated,tag, image,premium,idCategory
-    FROM article a, category c
-    WHERE idCategory=c.id and a.allow='Allowed'  and datePost <= DATE(NOW())
+    SELECT a.id, idCategory, title, views, c.name as catName,DATE_FORMAT(datePost,'%d/%m/%Y') AS datePostFormated,idTag,t.name as tagName, image, premium
+    FROM article a, category c, tag t
+    WHERE idCategory=c.id and a.allow='Allowed'  and datePost <= DATE(NOW()) and idTag=t.id
     ORDER BY a.datePost desc 
     limit 5 OFFSET 5;
     `);
@@ -105,7 +109,8 @@ module.exports = {
 
   top1NewestEachCate:()=>{
     return db.load(`
-    SELECT a.id, a.idCategory, a.title,DATE_FORMAT(a.datePost,'%d/%m/%Y') AS datePostFormated, c.name as catName, c.id as catID, a.image, a.summary,premium    FROM((article a INNER JOIN (SELECT MAX(ar.datePost) AS maxdate,idCategory FROM article ar GROUP BY idCategory) maxDateByCatTable 
+    SELECT a.id, a.idCategory, a.title, DATE_FORMAT(a.datePost,'%d/%m/%Y') AS datePostFormated, c.name as catName, c.id as catID, a.image, a.summary,premium    
+    FROM((article a INNER JOIN (SELECT MAX(ar.datePost) AS maxdate,idCategory FROM article ar GROUP BY idCategory) maxDateByCatTable 
                     ON a.idCategory = maxDateByCatTable.idCategory AND a.datePost = maxDateByCatTable.maxdate)
           INNER JOIN category c	
           ON a.idCategory=c.id)

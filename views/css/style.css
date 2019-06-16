@@ -47,7 +47,8 @@ a:focus {
   outline: 0 solid transparent;
   color: #000000;
   font-weight: 500;
-  font-size: 14px;
+  /* Minh bỏ font size khi hover, check xem có ảnh hưởng mấy page  khác không chứ Tags nhiều lớp css đặt !important cũng k được */
+  /* font-size: 14px; */
   font-family: "Poppins", sans-serif; }
 
 ul,
