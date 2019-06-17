@@ -6,11 +6,11 @@ module.exports = {
   },
   
   allArticlePrenium: () => {
-    return db.load("select a.id as id, a.title,a.summary,u.name as username, c.name as catename from (article a join user u on a.idWriter = u.id) join category c on c.id = a.idCategory where premium='1'");
+    return db.load("select a.image, a.id as id, a.title,a.summary,u.name as username, c.name as catename from (article a join user u on a.idWriter = u.id) join category c on c.id = a.idCategory where premium='1'");
   },
 
   allArticlePreniumF: () => {
-    return db.load("select a.id as id, a.title,a.summary,u.name as username, c.name as catename from (article a join user u on a.idWriter = u.id) join category c on c.id = a.idCategory where premium=''");
+    return db.load("select a.image, a.id as id, a.title,a.summary,u.name as username, c.name as catename from (article a join user u on a.idWriter = u.id) join category c on c.id = a.idCategory where premium=''");
   },
 
   allCate: ()=>{
@@ -18,10 +18,14 @@ module.exports = {
   },
 
   singleML: id => {
-    return db.load(`select a.title, a.content, a.summary, a.id, c.name as name,a.datePost, a.dateWriter,a.premium from article a join category c on c.id = a.idCategory where a.id = ${id}`);
+    return db.load(`select a.image, a.title, a.content, a.summary, a.id, c.name as name,a.datePost, a.dateWriter,a.premium from article a join category c on c.id = a.idCategory where a.id = ${id}`);
   },
 
   allCategory: () => {
     return db.load('select count(*) as soCate, c.name as name from article a join category c on c.id=a.idCategory group by c.id, c.name');
+  },
+
+  allSearch: name => {
+    return db.load("select * from article where title like '%"+name+"%' or content like '%"+name+"%'");
   },
 };

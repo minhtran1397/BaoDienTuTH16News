@@ -3,7 +3,7 @@
     <!-- ##### Header Area End ##### -->
 
     <!-- ##### Breadcrumb Area Start ##### -->
-    <section class="breadcrumb-area bg-img bg-overlay" style="background-image: url(../../img/article/{{article.id}}/main_thumbs.jpg);">
+    <section class="breadcrumb-area bg-img bg-overlay" style="background-image: url({{article.image}});">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
@@ -46,7 +46,7 @@
                         <div class="blog-content">
                             {{#if this.error}}
                             <div class="alert alert-danger" role="alert">
-                            This account has expired, please renew to read the premium article <a href="/subcriber" class="alert-link">Go back</a>.
+                            This account has expired or you are not a subcriber, please renew to read the premium article <a href="/subcriber" class="alert-link">Go back</a>.
                             </div>
                             
                             {{else}}

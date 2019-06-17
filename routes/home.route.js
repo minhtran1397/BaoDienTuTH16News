@@ -1,6 +1,7 @@
 var express = require('express');
 var articleModel = require('../models/article.model.js');
 var categoryModel = require('../models/category.model.js');
+var subModel = require('../models/sub.model');
 
 var router = express.Router();
 
@@ -34,5 +35,33 @@ router.get('/', (req, res) => {
 
 
 })
+
+router.post('/search', (req, res) => {
+  var search = req.body.search;
+  Promise.all([
+    subModel.allSearch(search),
+    subModel.allCate()])
+      .then(([rows, rows2]) => {
+        if(rows.length == '0'){
+          res.render('Req 1 - Guest/ListArticle', {
+            article: rows,
+            cate : rows2,
+            error: true,
+            searchThat: search
+          });
+        } else{
+          res.render('Req 1 - Guest/ListArticle', {
+            article: rows,
+            cate : rows2,
+            error: false
+          });
+        }
+      }).catch(err => {
+        console.log(err);
+        res.end('error occured.')
+      });
+    
+  })
+
 
 module.exports = router;

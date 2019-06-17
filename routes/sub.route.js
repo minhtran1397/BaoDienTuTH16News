@@ -33,7 +33,7 @@ var router = express.Router();
       
     })
 
-router.get('/view/:id',  auth, (req, res, next) => {
+router.get('/view/:id', (req, res) => {
     var id = req.params.id;
     if (isNaN(id)) {
       res.render('Req 2 - Subcriber/SubListArticle', {
@@ -44,10 +44,12 @@ router.get('/view/:id',  auth, (req, res, next) => {
   Promise.all([
     subModel.singleML(id),
     subModel.allCategory(),]).then(([rows,rows2]) => {
-      var mydate = new Date(req.user.duration);
-      var date = new Date();
-      var diff = mydate.getTime() - date.getTime();
-
+      var diff=0;
+      if(req.user){
+        var mydate = new Date(req.user.duration);
+        var date = new Date();
+        diff = mydate.getTime() - date.getTime();
+      }
     if (rows.length > 0 && diff>0 && rows[0].premium=='1') {
       res.render('Req 2 - Subcriber/Article', {
         error: false,
@@ -62,7 +64,9 @@ router.get('/view/:id',  auth, (req, res, next) => {
       });
     } else{
       res.render('Req 2 - Subcriber/Article', {
-        error: true
+        error: true,
+        article: rows[0],
+        cate: rows2
       });
     }
   }).catch(err => {
@@ -70,5 +74,32 @@ router.get('/view/:id',  auth, (req, res, next) => {
     res.end('error occured.')
   });
 })
+
+// router.post('/search', (req, res) => {
+//   var search = req.body.search;
+//   Promise.all([
+//     subModel.allSearch(search),
+//     subModel.allCate()])
+//       .then(([rows, rows2]) => {
+//         if(rows.length == '0'){
+//           res.render('Req 1 - Guest/ListArticle', {
+//             article: rows,
+//             cate : rows2,
+//             error: true,
+//             searchThat: search
+//           });
+//         } else{
+//           res.render('Req 1 - Guest/ListArticle', {
+//             article: rows,
+//             cate : rows2,
+//             error: false
+//           });
+//         }
+//       }).catch(err => {
+//         console.log(err);
+//         res.end('error occured.')
+//       });
+    
+//   })
 
 module.exports = router;

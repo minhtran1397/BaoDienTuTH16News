@@ -7,7 +7,7 @@
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="breadcrumb-content">
-                        <h2>MANAGE ARTICLES</h2>
+                        <h2>LIST ARTICLE</h2>
                     </div>
                 </div>
             </div>
@@ -23,7 +23,8 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Manage Articles</li>
+                            <li class="breadcrumb-item active" aria-current="page">Subcriber</li>
+                            <li class="breadcrumb-item active" aria-current="page">Articles</li>
                         </ol>
                     </nav>
                 </div>
@@ -41,15 +42,21 @@
                     <div class="about-us-content bg-white mb-30 p-30 box-shadow">
                         <!-- Team Member Area -->
                         <div class="section-heading mt-30">
-                            <h5>List of articles need to be allowed</h5>
+                            <h5>List of articles prenium</h5>
                         </div>
-                        <h7>The article has not been approved: <strong>{{this.article.length}}</strong></h7>
                         <hr>
                         <!-- Single Team Member -->
                         {{!-- {{#each this.cate}}
                             
                         {{/each}} --}}
                         <input type="hidden" class="form-control" id="total2" name="total2" value="{{this.article.length}}" required/>
+                        
+                        {{#if this.error}}
+                            <div class="alert alert-warning" role="alert">
+                            Sorry, we have no results you searched for <strong>'{{searchThat}}'</strong>. Please <a href="/" class="alert-link">Go back</a>.
+                            </div>
+                            
+                        {{else}}
                         {{#each this.article}}
                          <div class="contentPagedml2 single-team-member align-items-center">
                             <div class="team-member-thumbnail">
@@ -60,9 +67,7 @@
                             </div>
                             <div class="team-member-content">
                                 <h6>{{username}}
-                                <a class="mlfalse mlfalsebut" href="/editor/edit/{{id}}"><i class="fas fa-lock"></i></a>
-
-                                <a class="mltrue mltruebut" href="/editor/editTrue/{{id}}"><i class="fas fa-check"></i></a>
+                    
                                  {{!-- <button class="mltrue mltruebut" data-toggle="modal" data-target="#exampleModaltrue"><i class="fas fa-check"></i></button> --}}
                              </h6>
                              <span>{{catename}}</span>
@@ -70,14 +75,16 @@
                              <p><strong>Title:</strong> {{title}}</p>
                             <p><strong>Summary:</strong> {{summary}}</p>
                              {{!-- <button type="button" class="btn btn-outline-secondary"><p></p>See details</button> --}}
-                             <a class="btn btn-outline-secondary" href="/writer/view/{{id}}" role="button">
+                             <a class="btn btn-outline-secondary" href="/subcriber/view/{{id}}" role="button">
                         
                                 See Detail
                             </a>
                          </div>
-                         </div> 
+                        </div> 
                      
                         {{/each}}
+                         {{/if}}
+                     
 
                     <div style="width: 400px; margin:auto;">
                         <ul id="pagination2"></ul>
@@ -91,16 +98,7 @@
 <div class="col-12 col-md-6 col-lg-5 col-xl-4">
     <div class="sidebar-area bg-white mb-30 box-shadow">
         <!-- Sidebar Widget -->
-        <div class="single-sidebar-widget p-30">
-            <!-- Social Followers Info -->
-            <div class="social-followers-info">
-                <!-- Facebook -->
-                <a href="/editor/plitAllowed" class="duyet"><i class="fas fa-check"></i> {{allow.tongso}} <span>Allow</span></a>
-                <!-- Twitter -->
-                <a href="/editor/plitBlocked" class="khongduyet"><i class="fas fa-lock"></i>&nbsp {{block.tongso}} <span>Locked</span></a>
-                <!-- YouTube -->
-            </div>
-        </div>
+       
 
         <!-- Sidebar Widget -->
         <div class="single-sidebar-widget p-30">
@@ -112,8 +110,10 @@
             <!-- Catagory Widget -->
          
             <ul class="catagory-widgets">
-            {{#each this.cate}}   
-                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> {{name}}</span> <span>{{tongSo}}</span></a></li>
+            {{#each this.cate}}
+               
+                    <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> {{name}}</span> <span>{{tongSo}}</span></a></li>
+                
             {{/each}}
             </ul>
         </div>
@@ -156,7 +156,8 @@ $(function () {
     showPage(1);
     
     var totalRows = $("#total2").val();
-    if(totalRows%8 !=0)
+    console.log(totalRows+'aaaaaaaaaaaa');
+    if(totalRows%4 !=0)
     	var btnPage = totalRows/4+1;
     else 
     	var btnPage = totalRows/4;
