@@ -129,6 +129,8 @@ router.get('/add', auth, (req, res, next) => {
 })
 
 router.post('/add',auth, (req, res, next) => {
+  var date = new Date();
+  req.body.dateWriter = date;
   writerModel.add(req.body).then(id => {
     res.redirect('/writer');
   }).catch(err => {

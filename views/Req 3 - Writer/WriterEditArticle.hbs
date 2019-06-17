@@ -22,6 +22,9 @@
         idCategory: {
           required: true
         },
+        image: {
+          required: true
+        },
       },
       messages: {
         title: {
@@ -34,6 +37,9 @@
           required: 'Your content does not match.'
         },
         tag: {
+          required: 'Your tag is required.'
+        },
+        image: {
           required: 'Your tag is required.'
         },
       },
@@ -173,6 +179,11 @@
                                         <option value="{{id}}">{{name}}</option>     
                                       {{/each}}
                                     </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="summary">Link image</label>
+                                    <input type="text" class="form-control" id="image" name="image" value="{{this.article.image}}" required/>
                                 </div>
                                 {{!-- <div>
                                     <input type="file" name="file" placeholder="chọn hình">

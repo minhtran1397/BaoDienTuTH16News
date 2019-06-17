@@ -25,6 +25,9 @@
         txtFullDes: {
           required: true
         },
+        image: {
+          required: true
+        },
       },
       messages: {
         title: {
@@ -40,6 +43,9 @@
           required: 'Your tag is required.'
         },
         txtFullDes: {
+          required: 'Your content is required.'
+        },
+        image: {
           required: 'Your content is required.'
         },
       },
@@ -183,9 +189,13 @@
                                       {{/each}}
                                     </select>
                                 </div>
-                                {{!-- <div>
-                                    <input type="file" name="file" placeholder="chọn hình">
-                                </div> --}}
+
+                                <div class="form-group">
+                                    <label for="summary">Link image</label>
+                                    <input type="text" class="form-control" id="image" name="image" required/>
+                                </div>
+                                 <input type="hidden" class="form-control" id="image" name="dateWriter" required/>
+
                                 <button type="submit" class="btn mag-btn mt-30" onclick="quillContent()"><i class="fa fa-cloud-upload"></i> Upload your article</button>
                             </form>
                         </div>

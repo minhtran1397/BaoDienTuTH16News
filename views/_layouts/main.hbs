@@ -129,7 +129,7 @@
                                         </div>
                                     </li>
                                      <li><a href="timkiem.html">Search</a> </li>
-                                     
+                                     {{#if authUser}}
                                     <li><a href="#" class="login-btn"><i class="fa fa-user" aria-hidden="true"></i></a>
                                         <ul class="dropdown" style="left:-100%">
                                             <a class="dropdown-item" href="/account/prolife" role="button">
@@ -145,6 +145,19 @@
                                         </ul>
                                     
                                     </li>
+                                    {{else}}
+                                        <li><a href="#" class="login-btn"><i class="fa fa-user" aria-hidden="true"></i></a>
+                                        <ul class="dropdown">
+                                            <a class="dropdown-item" href="/account/login" role="button">
+                                                Login
+                                            </a>
+                                            <a class="dropdown-item" href="/account/register" role="button">
+                                                Register
+                                            </a>
+                                        </ul>
+                                    
+                                    </li>
+                                    {{/if}}
                                     
                                     <li>
                                         <div class="top-meta-data d-flex align-items-center" class="classynav">
@@ -152,7 +165,6 @@
                                             <i class="fas fa-align-justify" ></i></a>
                                         </div>
                                         <ul class="dropdown" style="left:-160%">
-                                            
                                             <a class="dropdown-item" href="/subcriber" role="button">
                                                 Subcriber
                                             </a>
