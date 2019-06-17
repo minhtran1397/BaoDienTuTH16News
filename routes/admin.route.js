@@ -318,6 +318,7 @@ router.post('/articleUpdate', auth, (req, res, next)=> {
 router.post('/articleAdd', auth, (req, res, next) => {
   var datetime = new Date();
   req.body.dateWriter = datetime;
+  req.body.premium ='';
   adminModel.addArticle(req.body).then(id => {
     res.redirect('/admin/article');
   }).catch(err => {

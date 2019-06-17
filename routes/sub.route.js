@@ -48,13 +48,13 @@ router.get('/view/:id',  auth, (req, res, next) => {
       var date = new Date();
       var diff = mydate.getTime() - date.getTime();
 
-    if (rows.length > 0 && diff>0 && rows[0].premium=='true') {
+    if (rows.length > 0 && diff>0 && rows[0].premium=='1') {
       res.render('Req 2 - Subcriber/Article', {
         error: false,
         article: rows[0],
         cate: rows2
       });
-    } else if(rows.length > 0 && rows[0].premium=='false'){
+    } else if(rows.length > 0 && rows[0].premium==''){
       res.render('Req 2 - Subcriber/Article', {
         error: false,
         article: rows[0],
