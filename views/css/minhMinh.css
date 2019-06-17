@@ -42,12 +42,12 @@ a:focus {
 
 */
 
-  /*khung icon goc tren top ben phai*/
+  /* khung icon goc tren top ben phai
   .header-area .mag-main-menu .submit-video {
 	height: 70px;
   width: 70px; 
   font-size: 35px;
-}
+} */
 
 
 
@@ -234,3 +234,4 @@ transition: 0.4s;
   padding-top:10px;
   padding-right: 5px;
 }
+
