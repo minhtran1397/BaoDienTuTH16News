@@ -64,7 +64,7 @@ module.exports = {
   },
 
   singleML: id => {
-    return db.load(`select a.title, a.content, a.summary, a.id, c.name as name,a.datePost, a.dateWriter from article a join category c on c.id = a.idCategory where a.id = ${id}`);
+    return db.load(`select a.image, a.title, a.content, a.summary, a.id, c.name as name,a.datePost, a.dateWriter from article a join category c on c.id = a.idCategory where a.id = ${id}`);
   },
 
   // pageByCat: ( limit, offset) => {
