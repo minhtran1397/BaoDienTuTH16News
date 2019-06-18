@@ -1,6 +1,7 @@
 var express = require('express');
 var articleModel = require('../../models/article.model');
 var guestCatModel = require('../../models/category.model');
+var subModel = require('../../models/sub.model');
 
 var router = express.Router();
 
@@ -19,9 +20,10 @@ router.get('/:id', (req, res) => {
     articleModel.allByAllCatAllowedInfo(),
     articleModel.top15MostViews(),
     articleModel.top10Newest(),
+    subModel.allTag()
     // articleModel.allPremiumArticlesByCatAllowed(),
     // articleModel.allNonPremiumArticlesByCatAllowed(),
-    ]).then(([rows,rows2,rows3,rows4,rows5,rows6
+    ]).then(([rows,rows2,rows3,rows4,rows5,rows6, rows7
       // ,rows7,rows8
       ]) => {
       // console.log(res.locals.lcGCategories);
@@ -39,6 +41,7 @@ router.get('/:id', (req, res) => {
         allarticle: rows4,
         articlemostviews:rows5,
         topnewest:rows6,
+        tag:rows7
         // premiumarticles:rows7,
         // nonpremiumarticles:rows8
       });

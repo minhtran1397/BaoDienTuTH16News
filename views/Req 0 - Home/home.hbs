@@ -258,7 +258,7 @@
                                         <!-- Thumbnail -->
                                         <div class="post-thumbnail mb-50">
                                             
-                                            <a href="/subcriber/view/{{id}}" data-toggle="modal" data-target="#lockModal" ><img src="{{image}}" alt="" ></a>
+                                            <a href="/guest/detailcategories/{{idCategory}}" data-toggle="modal" data-target="#lockModal" ><img src="{{image}}" alt="" ></a>
                                         </div>
                                         <!-- Post Contetnt -->
                                         <div class="post-content">
@@ -276,7 +276,7 @@
                                         <!-- Thumbnail -->
                                         <div class="post-thumbnail mb-50">
                                             
-                                            <a href="/subcriber/view/{{id}}" ><img src="{{image}}" alt="" ></a>
+                                            <a href="/guest/detailcategories/{{idCategory}}" ><img src="{{image}}" alt="" ></a>
                                         </div>
                                         <!-- Post Contetnt -->
                                         <div class="post-content">
@@ -311,7 +311,7 @@
                                                     {{title}}<span class="badge badge-warning">Premium</span>
                                                 </a>
                                                 <div class="post-meta d-flex">   
-                                                    <a href="#">{{datePostFormated}} |</a>
+                                                    <a href="/subcriber/view/{{id}}">{{datePostFormated}} |</a>
                                                     <a href="/guest/detailcategories/{{idCategory}}">{{catName}}</a>
                                                 </div>
                                             </div>
@@ -325,7 +325,7 @@
                                             <div class="post-content">
                                                 <a href="baiviet.html" class="post-title">{{title}}<span class="badge badge-primary">New</span></a>
                                                 <div class="post-meta d-flex">   
-                                                    <a href="#">{{datePostFormated}} |</a>
+                                                    <a href="/subcriber/view/{{id}}">{{datePostFormated}} |</a>
                                                     <a href="/guest/detailcategories/{{idCategory}}">{{catName}}</a>
                                                 </div>
                                             </div>
@@ -347,7 +347,7 @@
                                                     {{title}}<span class="badge badge-warning">Premium</span>
                                                 </a>
                                                 <div class="post-meta d-flex">   
-                                                    <a href="#">{{datePostFormated}} |</a>
+                                                    <a href="/subcriber/view/{{id}}">{{datePostFormated}} |</a>
                                                     <a href="/guest/detailcategories/{{idCategory}}">{{catName}}</a>
                                                 </div>
                                             </div>
@@ -361,7 +361,7 @@
                                             <div class="post-content">
                                                 <a href="/subcriber/view/{{id}}" class="post-title">{{title}}<span class="badge badge-primary">New</span></a>
                                                 <div class="post-meta d-flex">   
-                                                    <a href="#">{{datePostFormated}} |</a>
+                                                    <a href="/subcriber/view/{{id}}">{{datePostFormated}} |</a>
                                                     <a href="/guest/detailcategories/{{idCategory}}">{{catName}}</a>
                                                 </div>
                                             </div>
@@ -408,7 +408,7 @@
                                 <a href=""data-toggle="modal" data-target="#lockModal"><img src="{{image}}" alt=""></a>                                           
                                 <div class="post-content ">                
                                     <a href="/guest/detailcategories/{{idCategory}}" class="post-cata">{{datePostFormated}} | {{catName}}</a>                          
-                                    <a href="#" class="post-title"data-toggle="modal" data-target="#lockModal">{{title}}&nbsp<span class="badge badge-warning">Premium</span></a>                                
+                                    <a href="/subcriber/view/{{id}}" class="post-title"data-toggle="modal" data-target="#lockModal">{{title}}&nbsp<span class="badge badge-warning">Premium</span></a>                                
                                 </div>
                             </div>
                         {{else}}
@@ -416,7 +416,7 @@
                                 <a href=""><img src="{{image}}" alt=""></a>                                           
                                 <div class="post-content ">                
                                     <a href="/guest/detailcategories/{{idCategory}}" class="post-cata">{{datePostFormated}} | {{catName}}</a>                          
-                                    <a href="#" class="post-title">{{title}}</a>                                
+                                    <a href="/subcriber/view/{{id}}" class="post-title">{{title}}</a>                                
                                 </div>
                             </div>
                         {{/if}}
@@ -444,7 +444,7 @@
                              <div class="single-featured-post">
                                 <!-- Thumbnail -->
                                 <div class="post-thumbnail mb-50">
-                                    <a href="#" data-toggle="modal" data-target="#lockModal"><img src="{{image}}" alt="" ></a>                                 
+                                    <a href="/subcriber/view/{{id}}" data-toggle="modal" data-target="#lockModal"><img src="{{image}}" alt="" ></a>                                 
                                 </div>
                             </div>
                         </div>
@@ -454,11 +454,11 @@
                             <div class="single-blog-post style-4">
                                 <div class="post-content">
                                     <div class="post-meta d-flex">
-                                        <a href="#">{{datePostFormated}}</a> &nbsp|&nbsp
+                                        <a href="/subcriber/view/{{id}}">{{datePostFormated}}</a> &nbsp|&nbsp
                                         <a href="/guest/detailcategories/{{idCategory}}">{{catName}}</a>
                                     </div>
                                     </br>
-                                    <a href="#" class="post-title"data-toggle="modal" data-target="#lockModal">
+                                    <a href="/subcriber/view/{{id}}" class="post-title"data-toggle="modal" data-target="#lockModal">
                                             {{title}}&nbsp<span class="badge badge-primary">New</span> 
                                             &nbsp<span class="badge badge-warning">Premium</span> 
                                     </a>
@@ -475,7 +475,7 @@
                              <div class="single-featured-post">
                                 <!-- Thumbnail -->
                                 <div class="post-thumbnail mb-50">
-                                    <a href="#" ><img src="{{image}}" alt="" ></a>                                 
+                                    <a href="/subcriber/view/{{id}}" ><img src="{{image}}" alt="" ></a>                                 
                                 </div>
                             </div>
                         </div>
@@ -485,11 +485,11 @@
                             <div class="single-blog-post style-4">
                                 <div class="post-content">
                                     <div class="post-meta d-flex">
-                                        <a href="#">{{datePostFormated}}</a> &nbsp|&nbsp
+                                        <a href="/subcriber/view/{{id}}">{{datePostFormated}}</a> &nbsp|&nbsp
                                         <a href="/guest/detailcategories/{{idCategory}}">{{catName}}</a>
                                     </div>
                                     </br>
-                                    <a href="#" class="post-title">{{title}}&nbsp<span class="badge badge-primary">New</span> </a>
+                                    <a href="/subcriber/view/{{id}}" class="post-title">{{title}}&nbsp<span class="badge badge-primary">New</span> </a>
                                     <p> {{summary}}</p>
                                 </div>
                             </div>    
@@ -526,12 +526,12 @@
                             <a href="/subcriber/view/{{id}}"data-toggle="modal" data-target="#lockModal"> <img src="{{image}}" alt=""></a>
                         </div>
                         <div class="post-content">
-                            <a href="#" class="post-title"data-toggle="modal" data-target="#lockModal">
+                            <a href="/subcriber/view/{{id}}" class="post-title"data-toggle="modal" data-target="#lockModal">
                                 {{title}} <span class="badge badge-danger">Hot</span>
                                 <span class="badge badge-warning">Premium</span>
                             </a>
                             <div class="post-meta d-flex">   
-                                <a href="#">{{datePostFormated}} |</a>
+                                <a href="/subcriber/view/{{id}}">{{datePostFormated}} |</a>
                                 <a href="/guest/detailcategories/{{idCategory}}">{{catName}}</a>
                             </div>
                         </div>
@@ -545,7 +545,7 @@
                         <div class="post-content">
                             <a href="/subcriber/view/{{id}}" class="post-title">{{title}} <span class="badge badge-danger">Hot</span></a>
                             <div class="post-meta d-flex">   
-                                <a href="#">{{datePostFormated}} |</a>
+                                <a href="/subcriber/view/{{id}}">{{datePostFormated}} |</a>
                                 <a href="/guest/detailcategories/{{idCategory}}">{{catName}}</a>
                             </div>
                         </div>
