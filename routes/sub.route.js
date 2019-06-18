@@ -43,7 +43,8 @@ router.get('/view/:id', (req, res) => {
       
   Promise.all([
     subModel.singleML(id),
-    subModel.allCategory(),]).then(([rows,rows2]) => {
+    subModel.allCategory(),
+    subModel.allArticleCate(id)]).then(([rows,rows2,rows3]) => {
       var diff=0;
       if(req.user){
         var mydate = new Date(req.user.duration);
@@ -54,19 +55,22 @@ router.get('/view/:id', (req, res) => {
       res.render('Req 2 - Subcriber/Article', {
         error: false,
         article: rows[0],
-        cate: rows2
+        cate: rows2,
+        related: rows3
       });
     } else if(rows.length > 0 && rows[0].premium==''){
       res.render('Req 2 - Subcriber/Article', {
         error: false,
         article: rows[0],
-        cate: rows2
+        cate: rows2,
+        related: rows3
       });
     } else{
       res.render('Req 2 - Subcriber/Article', {
         error: true,
         article: rows[0],
-        cate: rows2
+        cate: rows2,
+        related: rows3
       });
     }
   }).catch(err => {
@@ -74,32 +78,5 @@ router.get('/view/:id', (req, res) => {
     res.end('error occured.')
   });
 })
-
-// router.post('/search', (req, res) => {
-//   var search = req.body.search;
-//   Promise.all([
-//     subModel.allSearch(search),
-//     subModel.allCate()])
-//       .then(([rows, rows2]) => {
-//         if(rows.length == '0'){
-//           res.render('Req 1 - Guest/ListArticle', {
-//             article: rows,
-//             cate : rows2,
-//             error: true,
-//             searchThat: search
-//           });
-//         } else{
-//           res.render('Req 1 - Guest/ListArticle', {
-//             article: rows,
-//             cate : rows2,
-//             error: false
-//           });
-//         }
-//       }).catch(err => {
-//         console.log(err);
-//         res.end('error occured.')
-//       });
-    
-//   })
 
 module.exports = router;

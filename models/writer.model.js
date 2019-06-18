@@ -91,4 +91,8 @@ module.exports = {
   delete: id => {
     return db.delete('article', 'id', id);
   },
+
+  allArticleCate: id=>{
+    return db.load(`select * from article a where a.id!= ${id} and a.idCategory = (select a2.idCategory from article a2 where a2.id=${id}) limit 5`);
+  }
 };

@@ -1,7 +1,7 @@
 var express = require('express');
 var writerModel = require('../models/writer.model');
 var auth = require('../middlewares/auth-Writer');
-
+var auth2 = require('../middlewares/auth-Writer-Admin');
 var router = express.Router();
 
 
@@ -52,7 +52,7 @@ router.get('/edit/:id', (req, res) => {
   });
 })
 
-router.get('/view/:id', (req, res) => {
+router.get('/view/:id', auth2, (req, res,next) => {
   var id = req.params.id;
   if (isNaN(id)) {
     res.render('Req 3 - Writer/WriterListArticle', {
@@ -62,16 +62,19 @@ router.get('/view/:id', (req, res) => {
 
   Promise.all([
     writerModel.singleML(id),
-    writerModel.allCategory(),]).then(([rows,rows2]) => {
+    writerModel.allCategory(),
+    writerModel.allArticleCate(id)]).then(([rows,rows2,rows3]) => {
     if (rows.length > 0) {
       res.render('Req 3 - Writer/Article', {
         error: false,
         article: rows[0],
-        cate: rows2
+        cate: rows2,
+        related: rows3
       });
     } else {
       res.render('Req 3 - Writer/Article', {
-        error: true
+        error: true,
+        related: rows3
       });
     }
   }).catch(err => {

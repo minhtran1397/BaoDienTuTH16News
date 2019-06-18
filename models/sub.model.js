@@ -26,6 +26,18 @@ module.exports = {
   },
 
   allSearch: name => {
-    return db.load("select * from article where title like '%"+name+"%' or content like '%"+name+"%'");
+    return db.load("select * from article where title like '%"+name+"%' or content like '%"+name+"%' or summary like '%"+name+"%'");
+  },
+
+  allArticleCate: id=>{
+    return db.load(`select * from article a where a.id!= ${id} and a.idCategory = (select a2.idCategory from article a2 where a2.id=${id}) limit 5`);
+  },
+
+  allTag: ()=>{
+    return db.load("select * from tag");
+  },
+
+  allGetTag: id =>{
+    return db.load(`select * from article where idTag=${id}`);
   },
 };

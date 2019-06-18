@@ -16,7 +16,8 @@ router.get('/', (req, res) => {
         articleModel.top5Newest(),
         articleModel.top5to10Newest(),
         articleModel.top1Newest(),
-        ]).then(([rows,rows2,rows3,rows4,rows5, rows6, rows7,rows8
+        subModel.allTag()
+        ]).then(([rows,rows2,rows3,rows4,rows5, rows6, rows7,rows8,rows9
           ]) => {
           res.render('Req 0 - Home/home', {
             allcategory: rows,
@@ -27,6 +28,7 @@ router.get('/', (req, res) => {
             top5newest: rows6,
             top5to10newest: rows7,
             top1newest:rows8,
+            tag: rows9
           });
         }).catch(err => {
           console.log(err);
@@ -62,6 +64,31 @@ router.post('/search', (req, res) => {
       });
     
   })
+
+
+router.get('/tag/:id', (req, res) => {
+  var id = req.params.id;
+  if (isNaN(id)) {
+    res.render('Req 0 - Home/home', {
+      error: true
+    });
+  }
+
+  Promise.all([
+    subModel.allGetTag(id),
+    subModel.allCate(),
+    subModel.allTag()]).then(([rows,rows2,rows3]) => {
+      res.render('Req 1 - Guest/ListArticle', {
+        error: false,
+        article: rows,
+        cate: rows2,
+        tag: rows3
+      });
+  }).catch(err => {
+    console.log(err);
+    res.end('error occured.')
+  });
+})
 
 
 module.exports = router;

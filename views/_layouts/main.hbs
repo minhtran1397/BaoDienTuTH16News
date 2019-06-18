@@ -79,7 +79,7 @@
                             <!-- Nav Start -->
                             <div class="classynav">
                                 <ul>
-                                     <li class="active"><a href="/">Home</a></li>
+                                    <li class="active"><a href="/">Home</a></li>
                                     <li><a href="/guest/detailcategories/1">News</a></li>
                                     <li><a href="#">Bussiness</a>
                                         <ul class="dropdown">                                            
@@ -127,6 +127,13 @@
                                                 <li><a href="/guest/detailcategories/11">Technology</a></li>  
                                             </ul>
                                         </div>
+                                    </li>
+                                     <li><a href="#">Tag</a>
+                                        <ul class="dropdown">
+                                            {{#each this.tag}}                                            
+                                            <li><a href="/tag/{{id}}">{{name}}</a></li> 
+                                            {{/each}}                                                                                 
+                                        </ul>
                                     </li>
                                   
                                      {{#if authUser}}
@@ -193,7 +200,7 @@
         </div>
     </header>
 
-
+ 
 
 
 
