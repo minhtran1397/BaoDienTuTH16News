@@ -16,8 +16,9 @@ Promise.all([
   adminModel.tongWaitP(),
   adminModel.tongRole('subcriber'),
   adminModel.tongRole('writer'),
-  adminModel.tongRole('editor')])
-    .then(([rows, rows2, rows3, rows4, rows5,rows6,rows7,rows8]) => {
+  adminModel.tongRole('editor'),
+  adminModel.allTag()])
+    .then(([rows, rows2, rows3, rows4, rows5,rows6,rows7,rows8,rows9]) => {
       res.render('Req 5 - Administrator/Administration', {
         article: rows,
         TongSo1 : rows2[0],
@@ -26,7 +27,8 @@ Promise.all([
         TongSo4 : rows5[0],
         TongSo5 : rows6[0],
         TongSo6 : rows7[0],
-        TongSo7 : rows8[0]
+        TongSo7 : rows8[0],
+        tag: rows9
       });
     }).catch(err => {
       console.log(err);
@@ -39,11 +41,13 @@ router.get('/category', auth, (req, res, next) => {
   
   Promise.all([
     adminModel.allCate(),
-    adminModel.all()])
-      .then(([rows, rows2]) => {
+    adminModel.all(),
+    adminModel.allTag()])
+      .then(([rows, rows2,rows3]) => {
         res.render('Req 5 - Administrator/Category', {
           cate: rows,
-          cate2sad : rows2
+          cate2sad : rows2,
+          tag: rows3
         });
       }).catch(err => {
         console.log(err);
@@ -57,11 +61,13 @@ router.get('/category', auth, (req, res, next) => {
   
     Promise.all([
       adminModel.allTag(),
-      adminModel.all()])
-        .then(([rows, rows2]) => {
+      adminModel.all(),
+      adminModel.allTag()])
+        .then(([rows, rows2,rows3]) => {
           res.render('Req 5 - Administrator/Tag', {
             tag: rows,
-            cate2sad : rows2
+            cate2sad : rows2,
+            tag: rows3
           });
         }).catch(err => {
           console.log(err);
@@ -75,12 +81,14 @@ router.get('/category', auth, (req, res, next) => {
   
     Promise.all([
       adminModel.allUser(),
-      adminModel.all()])
-        .then(([rows, rows2]) => {
+      adminModel.all(),
+      adminModel.allTag()])
+        .then(([rows, rows2,rows3]) => {
           
           res.render('Req 5 - Administrator/User', {
             user: rows,
-            cate2sad : rows2
+            cate2sad : rows2,
+            tag: rows3
           });
         }).catch(err => {
           console.log(err);
@@ -94,12 +102,14 @@ router.get('/article', auth, (req, res, next) => {
 
   Promise.all([
     adminModel.all(),
-    adminModel.allCate()])
-      .then(([rows, rows2]) => {
+    adminModel.allCate(),
+    adminModel.allTag()])
+      .then(([rows, rows2,rows3]) => {
         
         res.render('Req 5 - Administrator/Article', {
           article: rows,
-          cate : rows2
+          cate : rows2,
+          tag: rows3
         });
       }).catch(err => {
         console.log(err);

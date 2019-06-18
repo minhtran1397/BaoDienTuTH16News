@@ -105,20 +105,53 @@ router.post('/registeradd', (req, res, next) => {
 })
 
 router.get('/login', (req, res, next) => {
-  res.render('Req 3 - Writer/Login', { layout: false });
+  
+  userModel.allTag().then(n => {
+    res.render('Req 3 - Writer/Login', { 
+      layout: false,
+      tag :n
+    });
+  }).catch(err => {
+    console.log(err);
+    res.end('error occured.')
+  });
 })
 
 router.get('/login2', (req, res, next) => {
-  res.render('Req 3 - Writer/Login', { layout: false });
+  userModel.allTag().then(n => {
+    res.render('Req 3 - Writer/Login', { 
+      layout: false,
+      tag :n
+    });
+  }).catch(err => {
+    console.log(err);
+    res.end('error occured.')
+  });
 })
 
 
 router.get('/login3', (req, res, next) => {
-  res.render('Req 3 - Writer/Login', { layout: false });
+  userModel.allTag().then(n => {
+    res.render('Req 3 - Writer/Login', { 
+      layout: false,
+      tag :n
+    });
+  }).catch(err => {
+    console.log(err);
+    res.end('error occured.')
+  });
 })
 
 router.get('/login4', (req, res, next) => {
-  res.render('Req 3 - Writer/Login', { layout: false });
+  userModel.allTag().then(n => {
+    res.render('Req 3 - Writer/Login', { 
+      layout: false,
+      tag :n
+    });
+  }).catch(err => {
+    console.log(err);
+    res.end('error occured.')
+  });
 })
 
 router.post('/login', (req, res, next) => {

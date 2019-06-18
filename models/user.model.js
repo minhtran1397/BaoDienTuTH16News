@@ -8,6 +8,10 @@ module.exports = {
   allCate:() => {
     return db.load('select * from category');
   },
+  
+  allTag: ()=>{
+    return db.load("select * from tag");
+  },
 
   getCateById: id => {
     return db.load(`select * from category where id = ${id}`);
