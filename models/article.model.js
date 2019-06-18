@@ -5,16 +5,6 @@ module.exports = {
     return db.load('select * from article');
   },
 
-  // allArticleAllowedInfo: () => {
-  //   return db.load(`
-  //   SELECT  a.id, a.title, summary, content,DATE_FORMAT(datePost,'%d/%m/%Y') AS datePostFormated, 
-  //           a.image,a.allow, a.status, a.idTag, idCategory,idEditor,idWriter, c.name as catName,a.premium, w.name as writerName
-  //   FROM  category c 
-	// 	join article a on a.idCategory=c.id 
-	// 	join writer w on a.idWriter=w.id
-	// 	WHERE a.allow='Allowed' 	
-  //   `);
-  // },
 
   //Tất cả thông tin bài viết của một chuyên mục
   allByCatAllowedInfo: id => {
@@ -23,7 +13,7 @@ module.exports = {
 		,summary,content,datePost, image, premium, idTag,t.name as tagName, idCategory, idWriter, views, c.name as catName, DATE_FORMAT(datePost,'%d/%m/%Y') AS datePostFormated
     FROM article a, category c, tag t
     WHERE a.allow='Allowed' and a.idCategory= c.id  and datePost <= DATE(NOW()) and idTag=t.id
-    and idCategory=  ${id}	
+    and idCategory=  ${id}
     ORDER BY a.datePost desc 
     `);
   },
@@ -97,15 +87,7 @@ module.exports = {
     limit 5 OFFSET 5;
     `);
   },
-  // top10to15:()=>{
-  //   return db.load(`
-  //   SELECT a.id, title, views, c.name as catName,DATE_FORMAT(datePost,'%d/%m/%Y') AS datePostFormated,tag, image
-  //   FROM article a, category c
-  //   WHERE idCategory=c.id and a.allow='Allowed'  and datePost <= DATE(NOW())
-  //   ORDER BY a.datePost desc 
-  //   limit 5 OFFSET 10;
-  //   `);
-  // },
+
 
   top1NewestEachCate:()=>{
     return db.load(`
@@ -114,6 +96,7 @@ module.exports = {
                     ON a.idCategory = maxDateByCatTable.idCategory AND a.datePost = maxDateByCatTable.maxdate)
           INNER JOIN category c	
           ON a.idCategory=c.id)
+    where allow='Allowed'
     ORDER BY c.id ASC;				
     `);
   },

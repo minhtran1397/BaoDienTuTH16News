@@ -1,7 +1,7 @@
 var express = require('express');
 var writerModel = require('../models/writer.model');
 var auth = require('../middlewares/auth-Writer');
-var auth2 = require('../middlewares/auth-Writer-Admin');
+var auth2 = require('../middlewares/auth-Writer-Editor-Admin');
 var router = express.Router();
 
 

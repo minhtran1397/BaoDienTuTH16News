@@ -26,7 +26,7 @@ module.exports = {
   },
 
   allSearch: name => {
-    return db.load("select * from article where title like '%"+name+"%' or content like '%"+name+"%' or summary like '%"+name+"%'");
+    return db.load("select * from article where (title like '%"+name+"%' or content like '%"+name+"%' or summary like '%"+name+"%') and allow='Allowed'");
   },
 
   allArticleCate: id=>{
@@ -38,6 +38,6 @@ module.exports = {
   },
 
   allGetTag: id =>{
-    return db.load(`select * from article where idTag=${id}`);
+    return db.load(`select * from article where idTag=${id} and allow='Allowed'`);
   },
 };
