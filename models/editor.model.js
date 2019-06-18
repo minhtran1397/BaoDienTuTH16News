@@ -31,7 +31,7 @@ module.exports = {
   },
 
   allByIdEditor: id => {
-    return db.load(`select a.image, a.id, a.title,a.summary,u.name as username, c.name as catename from (article a join user u on a.idWriter = u.id) join category c on c.id=a.idCategory where a.idCategory = ${id} and a.allow="WaitForAd"`);
+    return db.load(`select a.premium, a.image, a.id, a.title,a.summary,u.name as username, c.name as catename from (article a join user u on a.idWriter = u.id) join category c on c.id=a.idCategory where a.idCategory = ${id} and a.allow="WaitForAd"`);
   },
 
   allByIdEditorAllowed: idEditor => {
@@ -68,7 +68,7 @@ module.exports = {
 //   },
 
   single: id => {
-    return db.load(`select * from article where id = ${id}`);
+    return db.load(`select a.id as id,t.name as nameTag,c.name as nameCate from (article a join category c on c.id=a.idCategory) join tag t on t.id=a.idTag where a.id = ${id}`);
   },
 
   add: entity => {

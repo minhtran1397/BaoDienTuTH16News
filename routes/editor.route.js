@@ -7,7 +7,7 @@ var router = express.Router();
 router.get('/', auth, (req, res, next) => {
   
 Promise.all([
-  articleModel.allByIdEditor(req.user.id),
+  articleModel.allByIdEditor(req.user.idCategory),
   articleModel.allCate(),
   articleModel.TongSo(),
   articleModel.allAllowById(req.user.id),

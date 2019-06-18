@@ -121,7 +121,15 @@
                                         </div>
                                     </li>
                                      <li><a href="timkiem.html">Search</a> </li>
-                                     
+                                    
+                                    <li><a href="#">Tag</a>
+                                        <ul class="dropdown">
+                                            {{#each this.tag}}                                            
+                                            <li><a href="/tag/{{id}}">{{name}}</a></li> 
+                                            {{/each}}                                                                                 
+                                        </ul>
+                                    </li>
+
                                     <li><a href="#" class="login-btn"><i class="fa fa-user" aria-hidden="true"></i></a>
                                         <ul class="dropdown">
                                             <a class="dropdown-item" href="/account/login" role="button">

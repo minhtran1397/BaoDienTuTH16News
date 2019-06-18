@@ -65,7 +65,10 @@
                                 <a class="mltrue mltruebut" href="/editor/editTrue/{{id}}"><i class="fas fa-check"></i></a>
                                  {{!-- <button class="mltrue mltruebut" data-toggle="modal" data-target="#exampleModaltrue"><i class="fas fa-check"></i></button> --}}
                              </h6>
-                             <span>{{catename}}</span>
+                            
+                            {{#if premium}} <p style="color: rgba(255, 208, 0, 0.788); font-weight: bold;float:right;">Premium</p>{{/if}}
+                            <span>{{catename}}</span>
+                               
                              
                              <p><strong>Title:</strong> {{title}}</p>
                             <p><strong>Summary:</strong> {{summary}}</p>

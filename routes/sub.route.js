@@ -20,6 +20,7 @@ var router = express.Router();
           var i=0;
           for (i = 0; i < m; i++) { 
             rows[n + i] = rows3[i];
+      
           }
           rows.length = m +n;
           res.render('Req 2 - Subcriber/SubListArticle', {

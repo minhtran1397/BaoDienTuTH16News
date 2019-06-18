@@ -13,10 +13,8 @@
         <div class="col-md-4"></div>
     </div>
  </form>
-    <!-- ##### Header Area End ##### -->
-
-    <!-- ##### Breadcrumb Area Start ##### -->
-   <section class="breadcrumb-area bg-img bg-overlay" style="background-image: url(../../img/bg-img/DL1.jpg);">
+ 
+    <section class="breadcrumb-area bg-img bg-overlay" style="background-image: url(../../img/bg-img/DL1.jpg);">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
@@ -27,17 +25,18 @@
             </div>
         </div>
     </section>
-    <!-- ##### Breadcrumb Area End ##### -->
+    <!-- ##### End Breadcrumb Image ##### -->
 
-    <!-- ##### Breadcrumb Area Start ##### -->
-    <div class="mag-breadcrumb py-5">
+
+    <!-- ##### Breadcrumb Area Words -->
+    <div class="mag-breadcrumb py-5" style="height: 50px; margin-left: 30px;">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Subcriber</li>
+                            <li class="breadcrumb-item"><a href="/"><i class="fa fa-home" aria-hidden="true"></i>Home</a></li>
+                            <li class="breadcrumb-item"><a href="/guest/detailcategories/{{this.category.id}}">{{this.category.name}}</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Articles</li>
                         </ol>
                     </nav>
@@ -45,68 +44,103 @@
             </div>
         </div>
     </div>
-    <!-- ##### Breadcrumb Area End ##### -->
+    <!-- ##### End Breadcrumb Area Words ##### -->
 
-    <!-- ##### About Us Area Start ##### -->
-    <section class="about-us-area">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-12 col-xl-8">
-                    <!-- About Us Content -->
-                    <div class="about-us-content bg-white mb-30 p-30 box-shadow">
-                        <!-- Team Member Area -->
-                        <div class="section-heading mt-30">
-                            <h5>List of articles prenium</h5>
-                        </div>
-                        <hr>
+
+    <!-- ##### Posts Area Start ##### -->
+    <section class="mag-posts-area d-flex flex-wrap">
+
+
+        <!-- >>>>>>> Main Posts Area <<<<<<<<< -->
+
+        <div class="mag-posts-content mt-30 mb-30 p-30 box-shadow">
+            
+            <!-- Danh sách bài viết area -->
+            <div class="feature-video-posts mb-30">
+
+                <div class="featured-video-posts">
+                    
+                    <div class="row">
+                    
+                        <div class="col-12 col-lg-12"> 
+                         
+                        <div class="archive-posts-area bg-white p-30 mb-30">
                         
-                        <input type="hidden" class="form-control" id="total2" name="total2" value="{{this.article.length}}" required/>
-                        {{#each this.article}}
-                         <div class="contentPagedml2 single-team-member align-items-center">
-                            <div class="team-member-thumbnail">
-                                <img src="{{image}}" alt="">
-                                <div class="social-btn">
-                                    <a href="#"><i class="far fa-address-card"></i> Info</a>
+                        <div class="section-heading mt-30">
+                                <h5>List of articles by category</h5>
+                            </div>
+                            <hr>
+                        
+                            <input type="hidden" class="form-control" id="total2" name="total2" value="{{this.article.length}}" required/>
+                            
+                            <!-- Pagination -->
+                            <div style="width: 500px; margin:auto;">
+                                    <ul id="pagination"></ul>
+                            </div>
+                        
+                        <!-- endPagination -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- Suggested posts-->
+            <div class="most-viewed-videos mb-30">
+                <!-- Section Title -->
+                <div class="section-heading">
+                    <h5>Suggested posts</h5>
+                </div>  
+                <div class="most-viewed-videos-slide owl-carousel">
+                    <!-- Single Blog Post -->
+                    {{#each topnewest}}
+                        {{#if premium}}
+                            <div class="single-blog-post style-4">
+                                <div class="post-thumbnail">
+                                    <a href="/subcriber/view/{{id}}">
+                                        <img src="{{image}}" alt="">
+                                    </a>                           
+                                </div>
+                                <div class="post-content">
+                                    <a href="/subcriber/view/{{id}}" class="post-title">{{title}} <span class="badge badge-warning">Premium</span> </a>
+                                    <div class="post-meta d-flex">
+                                        <a href="#">{{datePostFormated}}|</a>
+                                        <a href="/guest/detailcategories/{{idCategory}}">{{catName}}</a>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="team-member-content">
-                                <h6>{{username}}
-                    
-                                 {{!-- <button class="mltrue mltruebut" data-toggle="modal" data-target="#exampleModaltrue"><i class="fas fa-check"></i></button> --}}
-                             </h6>
-                    
-                            {{#if premium}} <p style="color: white; background-color: #FF8C00; font-weight: bold;float:right;"> &nbsp Premium &nbsp </p>{{/if}}
-                             <span>{{catename}}</span>
-                             
-                             <p><strong>Title:</strong> {{title}}</p>
-                            <p><strong>Summary:</strong> {{summary}}</p>
-                             {{!-- <button type="button" class="btn btn-outline-secondary"><p></p>See details</button> --}}
-                             <a class="btn btn-outline-secondary" href="/subcriber/view/{{id}}" role="button">
-                        
-                                See Detail
-                            </a>
-                         </div>
-                        </div> 
-                     
-                        {{/each}}
+                        {{else}}
+                            <div class="single-blog-post style-4">
+                                <div class="post-thumbnail">
+                                    <a href="#">
+                                        <img src="{{image}}" alt="">
+                                    </a>                           
+                                </div>
+                                <div class="post-content">
+                                    <a href="#" class="post-title">{{title}} </a>
+                                    <div class="post-meta d-flex">
+                                        <a href="#">{{datePostFormated}}|</a>
+                                        <a href="/guest/detailcategories/{{idCategory}}">{{catName}}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        {{/if}}
+                    {{/each}}
+                </div>
+            </div>
+            <!-- Suggested posts -->
 
-                     
-
-                    <div style="width: 400px; margin:auto;">
-                        <ul id="pagination2"></ul>
-                    </div>
-                    <br>
-
-                   
-</div>
-</div>
+        </div>
+        <!-- >>>>>>> End Main Posts Area <<<<<<< -->
 
 
 
+        <!-- >>>>>>>> Right Sidebar Area<<<<<<< -->
+        <!-- Mostviews -->
 
 
-
-<div class="post-sidebar-area right-sidebar mt-30 mb-30 box-shadow">
+        
+        <div class="post-sidebar-area right-sidebar mt-30 mb-30 box-shadow">
                 <!-- Sidebar Widget Right1 - Xem nhiều -->
             <div class="single-sidebar-widget p-30">
                 <!-- Section Title -->
@@ -191,46 +225,55 @@
             </div>
             </div>
         
+    </section>
 
-
-
-
-
-
+<div class="modal fade" id="lockModal" tabindex="-1" role="dialog" aria-labelledby="lockModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="lockModalLabel" style="color: rgb(255, 166, 0);">PREMIUM ARTICLE</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div class="modal-body">
+        This is PREMIUM article, please REGISTER to become a subscriber to get the best experience!
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-warning" href="#">LOGIN</button>
+        <button type="button" class="btn btn-danger" href="#">REGISTER NOW</button>
+        </div>
+    </div>
+    </div>
 </div>
-</div>
-</section>
-<!-- ##### About Us Area End ##### -->
-
+    <!-- ##### END MODAL ##### -->
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>  
 <script src="/js/jquery/jquery-2.2.4.min.js"></script>
 <script src="http://1892.yn.lt/blogger/JQuery/Pagging/js/jquery.twbsPagination.js" type="text/javascript"></script>
-
+{{!-- Xử lí pagination --}}
 <script>
-
-$(function () {
+    $(function () {
     var pageSize = 4;
     showPage = function (page) {
-        $(".contentPagedml2").hide();
-        $(".contentPagedml2").removeClass("d-flex").addClass("d-none");
-        $(".contentPagedml2").each(function (n) {
+        $(".contentPagedml").hide();
+        $(".contentPagedml").each(function (n) {
             if (n >= pageSize * (page - 1) && n < pageSize * page){
                 $(this).show();
-                $(this).addClass("d-flex").removeClass("d-none");}
+                }
         });
     }
     showPage(1);
     
     var totalRows = $("#total2").val();
-    console.log(totalRows+'aaaaaaaaaaaa');
     if(totalRows%4 !=0)
     	var btnPage = totalRows/4+1;
     else 
     	var btnPage = totalRows/4;
     var iTotalPages = Math.ceil(totalRows / pageSize);
 
-    var obj = $('#pagination2').twbsPagination({
+    var obj = $('#pagination').twbsPagination({
         totalPages: iTotalPages,
         visiblePages: btnPage,
         onPageClick: function (event, page) {
@@ -240,4 +283,14 @@ $(function () {
     });
     console.info(obj.data());
 }); 
+</script>
+{{!-- random tag format --}}
+<script>    
+    $(document).ready(function(){
+    var classes = ["tagname1", "tagname2", "tagname3", "tagname4", "tagname5", "tagname6", "tagname7", "tagname8"];
+
+    $("#tagformat a").each(function(){
+        $(this).addClass(classes[~~(Math.random()*classes.length)]);
+    });
+});
 </script>

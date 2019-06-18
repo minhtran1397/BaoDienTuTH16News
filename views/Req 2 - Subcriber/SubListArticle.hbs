@@ -59,10 +59,7 @@
                             <h5>List of articles prenium</h5>
                         </div>
                         <hr>
-                        <!-- Single Team Member -->
-                        {{!-- {{#each this.cate}}
-                            
-                        {{/each}} --}}
+                        
                         <input type="hidden" class="form-control" id="total2" name="total2" value="{{this.article.length}}" required/>
                         {{#each this.article}}
                          <div class="contentPagedml2 single-team-member align-items-center">
@@ -77,6 +74,8 @@
                     
                                  {{!-- <button class="mltrue mltruebut" data-toggle="modal" data-target="#exampleModaltrue"><i class="fas fa-check"></i></button> --}}
                              </h6>
+                    
+                            {{#if premium}} <p style="color: white; background-color: #FF8C00; font-weight: bold;float:right;"> &nbsp Premium &nbsp </p>{{/if}}
                              <span>{{catename}}</span>
                              
                              <p><strong>Title:</strong> {{title}}</p>
