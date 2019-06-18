@@ -484,6 +484,15 @@ router.get('/userUpDur/:id', auth, (req, res) => {
 })
 
 
+router.post('/upDur', auth, (req, res, next) => {
+  adminModel.updateUser(req.body).then(id => {
+    res.redirect('/admin/user');
+  }).catch(err => {
+    console.log(err);
+    res.end('error occured.')
+  });
+})
+
 router.post('/userSplit', auth, (req, res, next) => {
   if(req.body.role == 'all'){
     Promise.all([
