@@ -22,7 +22,7 @@ module.exports = {
   },
 
   single2: id => {
-    return db.load(`select a.id as id, c.id as id2, a.title, a.content, a.summary, a.idTag, a.idCategory,
+    return db.load(`select a.image, a.id as id, c.id as id2, a.title, a.content, a.summary, a.idTag, a.idCategory,
     a.dateWriter, a.datePost, a.allow, c.name as nameCate, t.name as nameTag
      from (article a join category c on a.idCategory = c.id) join tag t on t.id = a.idTag where a.id = ${id}`);
   },
