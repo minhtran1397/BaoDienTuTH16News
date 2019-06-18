@@ -22,7 +22,7 @@
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="breadcrumb-content">
-                        <h2>Single Article</h2>
+                        <h2>Detail Article</h2>
                     </div>
                 </div>
             </div>
@@ -39,7 +39,7 @@
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
                            
-                            <li class="breadcrumb-item active" aria-current="page">Single Video</li>
+                            <li class="breadcrumb-item active" aria-current="page">Detail Article</li>
                         </ol>
                     </nav>
                 </div>
@@ -55,26 +55,27 @@
 
             <div class="row justify-content-center">
                 <!-- Post Details Content Area -->
-                <div class="col-12 col-xl-8">
+                {{!-- <div class="col-12 col-xl-8"> --}}
+                    <div class="col-10">
                     <div class="post-details-content bg-white mb-30 p-30 box-shadow">
                         <div class="blog-content">
                             <div>
                                 <div><input readonly type="date"  class="form-control" data-date="" data-date-format="DD MMMM YYYY" value="{{this.article.datePost}}"></div>
                                 <div style="color:#dc3545; font-size: 15px; margin-bottom: 13px;">Category: {{article.name}}</div>
                             </div>
+                            
                     
                             <h4 class="post-title" style="font-size: 20px; ">Title: {{article.title}}</h4>
-                            <!-- Post Meta -->
-                            
-                            <textarea id="txtFullDes1">{{article.content}}</textarea>
                             <div style="color:#dc3545; font-size: 15px; margin-bottom: 13px;">Summary:</div>
                             <blockquote style="margin-bottom:10px;">
                                 <h6 class="quote-text">{{article.summary}}</h6>
                             </blockquote>
+                            <textarea id="txtFullDes1">{{article.content}}</textarea>
+                            
 
             
 
-                            <!-- Post Author -->
+                            {{!-- <!-- Post Author -->
                             <div class="post-author d-flex align-items-center">
                                 <div class="post-author-thumb">
                                     <img src="../../img/bg-img/52.jpg" alt="">
@@ -85,10 +86,10 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
 
-                    <!-- Comment Area Start -->
+                    {{!-- <!-- Comment Area Start -->
                     <div class="comment_area clearfix bg-white mb-30 p-30 box-shadow">
                         <!-- Section Title -->
                         <div class="section-heading">
@@ -189,10 +190,10 @@
                             </form>
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
                 <!-- Sidebar Widget -->
-                <div class="col-12 col-md-6 col-lg-5 col-xl-4">
+                {{!-- <div class="col-12 col-md-6 col-lg-5 col-xl-4">
                     <div class="sidebar-area bg-white mb-30 box-shadow">
                         <!-- Sidebar Widget -->
                         <div class="single-sidebar-widget p-30">
@@ -252,7 +253,7 @@
 
                      
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </section>

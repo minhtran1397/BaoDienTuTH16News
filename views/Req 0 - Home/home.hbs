@@ -23,25 +23,45 @@
 
 
 <div class="hero-area owl-carousel">
-        <!-- Single Blog Post -->
-        <div class="hero-blog-post bg-img bg-overlay" style="background-image: url(img/bg-img/1.jpg);">
+    {{#each topnewest}}
+     <div class="hero-blog-post bg-img bg-overlay" style="background-image: url({{image}});">
             <div class="container h-100">
                 <div class="row h-100 align-items-center">
                     <div class="col-12">
-                        <!-- Post Contetnt -->
+                        <!-- Post Content -->
                         <div class="post-content text-center">
                                 <p>&nbsp</p>
-                                <a href="/guest/detailcategories/1"><p style="color:#dc3545; font-size: 25px;">DAY NEWS</p></a>
+                                <a href="/guest/detailcategories/{{idCategory}}"><p style="color:#dc3545; font-size: 25px;">{{catName}}&nbsp|&nbsp<span class="badge badge-warning">Premium</span></p></a>
                             <p>&nbsp</p>
-                            <a href="/guest/detailcategories/1" class="post-title" data-animation="fadeInUp" data-delay="300ms">Party Jokes Startling But Unnecessary</a>
-                            <p>&nbsp</p>
+                            <a href="/subcriber/view/{{id}}" class="post-title" data-animation="fadeInUp" data-delay="300ms">{{title}}</a>
+                            <p>&nbsp</p>      
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <!-- Single Blog Post -->
+        {{#if premium}}
+        {{else}}
+         <!-- Single Blog Post -->
+        <div class="hero-blog-post bg-img bg-overlay" style="background-image: url({{image}});">
+            <div class="container h-100">
+                <div class="row h-100 align-items-center">
+                    <div class="col-12">
+                        <!-- Post Content -->
+                        <div class="post-content text-center">
+                                <p>&nbsp</p>
+                                <a href="/guest/detailcategories/{{idCategory}}"><p style="color:#dc3545; font-size: 25px;">{{catName}}</p></a>
+                            <p>&nbsp</p>
+                             <a href="/subcriber/view/{{id}}" class="post-title" data-animation="fadeInUp" data-delay="300ms">{{title}}</a>
+                            <p>&nbsp</p>                             
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/if}}
+    {{/each}}
+        {{!-- <!-- Single Blog Post -->
         <div class="hero-blog-post bg-img bg-overlay" style="background-image: url(img/bg-img/2.jpg);">
             <div class="container h-100">
                 <div class="row h-100 align-items-center">
@@ -81,7 +101,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
 
 
@@ -129,7 +149,7 @@
                                         <!-- Thumbnail -->
                                         <div class="post-thumbnail mb-50">
                                             
-                                            <a href="/guest/detailcategories/{{idCategory}}"><img src="{{image}}" alt="" ></a>
+                                            <a href="/guest/detailcategories/{{idCategory}}"><img src="{{image}}" alt=""></a>
                                         </div>
                                         <!-- Post Contetnt -->
                                         <div class="post-content">
@@ -147,7 +167,7 @@
                                         <!-- Thumbnail -->
                                         <div class="post-thumbnail mb-50">
                                             
-                                            <a href="/guest/detailcategories/{{idCategory}}" ><img src="{{image}}" alt="" ></a>
+                                            <a href="/guest/detailcategories/{{idCategory}}" ><img src="{{image}}" alt=""></a>
                                         </div>
                                         <!-- Post Contetnt -->
                                         <div class="post-content">
@@ -155,7 +175,7 @@
                                                 <a href="/guest/detailcategories/{{idCategory}}">{{datePostFormated}}</a>|
                                                 <a href="/guest/detailcategories/{{idCategory}}">{{catName}}</a>
                                             </div>
-                                            <a href="baiviet.html" class="post-title">{{title}} <span class="badge badge-primary">New</span></a>
+                                            <a href="/subcriber/view/{{id}}" class="post-title">{{title}} <span class="badge badge-primary">New</span></a>
                                             <p>{{summary}}</p>
                                         </div>
                                     </div>
@@ -175,7 +195,7 @@
                                         <!-- Single Premium Post -->
                                         <div class="single-blog-post d-flex style-3">
                                             <div class="post-thumbnail">
-                                                <a href="/subcriber/view/{{id}}"><img src="{{image}}" alt=""></a>
+                                                <a href="/subcriber/view/{{id}}"><img src="{{image}}" alt="" style="height: 35px"></a>
                                             </div>
                                             <div class="post-content">
                                                 <a href="/subcriber/view/{{id}}" class="post-title">
@@ -191,7 +211,7 @@
                                         <!-- Single Blog Post -->
                                         <div class="single-blog-post d-flex style-3">
                                             <div class="post-thumbnail">
-                                                <a href="/subcriber/view/{{id}}" ><img src="{{image}}" alt=""></a>
+                                                <a href="/subcriber/view/{{id}}" ><img src="{{image}}" alt="" style="height: 35px"></a>
                                             </div>
                                             <div class="post-content">
                                                 <a href="baiviet.html" class="post-title">{{title}}<span class="badge badge-primary">New</span></a>
@@ -211,7 +231,7 @@
                                         <!-- Single Premium Post -->
                                         <div class="single-blog-post d-flex style-3">
                                             <div class="post-thumbnail">
-                                                <a href="/subcriber/view/{{id}}"><img src="{{image}}" alt=""></a>
+                                                <a href="/subcriber/view/{{id}}"><img src="{{image}}" alt="" style="height: 35px"></a>
                                             </div>
                                             <div class="post-content">
                                                 <a href="/subcriber/view/{{id}}" class="post-title">
@@ -227,7 +247,7 @@
                                          <!-- Single Blog Post -->
                                         <div class="single-blog-post d-flex style-3">
                                             <div class="post-thumbnail">
-                                                <a href="/subcriber/view/{{id}}" ><img src="{{image}}" alt=""></a>
+                                                <a href="/subcriber/view/{{id}}" ><img src="{{image}}" alt="" style="height: 35px"></a>
                                             </div>
                                             <div class="post-content">
                                                 <a href="/subcriber/view/{{id}}" class="post-title">{{title}}<span class="badge badge-primary">New</span></a>
@@ -262,7 +282,7 @@
                     {{#each articlemostviews}}
                         {{#if premium}}
                             <div class="single-trending-post">
-                                <a href="/subcriber/view/{{id}}"><img src="{{image}}" alt=""></a>                                           
+                                <a href="/subcriber/view/{{id}}"><img src="{{image}}" alt="" style="height: 250px;"></a>                                           
                                 <div class="post-content ">                
                                     <a href="/guest/detailcategories/{{idCategory}}" class="post-cata">{{datePostFormated}} | {{catName}}</a>                          
                                     <a href="/subcriber/view/{{id}}" class="post-title">{{title}}&nbsp<span class="badge badge-warning">Premium</span></a>                                
@@ -270,7 +290,7 @@
                             </div>
                         {{else}}
                             <div class="single-trending-post">
-                                <a href=""><img src="{{image}}" alt=""></a>                                           
+                                <a href="/subcriber/view/{{id}}"><img src="{{image}}" alt="" style="height: 250px;"></a>                                           
                                 <div class="post-content ">                
                                     <a href="/guest/detailcategories/{{idCategory}}" class="post-cata">{{datePostFormated}} | {{catName}}</a>                          
                                     <a href="/subcriber/view/{{id}}" class="post-title">{{title}}</a>                                
@@ -367,7 +387,7 @@
         <<<<<<<<<<<<<<<<<<<<< -->
 
         
-        <div class="post-sidebar-area right-sidebar mt-30 mb-30 box-shadow">
+            <div class="post-sidebar-area right-sidebar mt-30 mb-30 box-shadow">
                 <!-- Sidebar Widget Right1 - Xem nhiều -->
             <div class="single-sidebar-widget p-30">
                 <!-- Section Title -->
@@ -380,7 +400,7 @@
                      <!-- Single Premium Post -->
                     <div class="single-blog-post d-flex limiteachmostviews ">
                         <div class="post-thumbnail">
-                            <a href="/subcriber/view/{{id}}"> <img src="{{image}}" alt=""></a>
+                            <a href="/subcriber/view/{{id}}"> <img src="{{image}}" alt="" style="height: 50px"></a>
                         </div>
                         <div class="post-content">
                             <a href="/subcriber/view/{{id}}" class="post-title">
@@ -397,7 +417,7 @@
                     <!-- Single Blog Post -->
                     <div class="single-blog-post d-flex limiteachmostviews ">
                         <div class="post-thumbnail">
-                            <a href="/subcriber/view/{{id}}"> <img src="{{image}}" alt=""></a>
+                            <a href="/subcriber/view/{{id}}"> <img src="{{image}}" alt=""style="height: 50px"></a>
                         </div>
                         <div class="post-content">
                             <a href="/subcriber/view/{{id}}" class="post-title">{{title}} <span class="badge badge-danger">Hot</span></a>

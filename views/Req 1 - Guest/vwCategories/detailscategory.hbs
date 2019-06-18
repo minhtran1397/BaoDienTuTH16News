@@ -36,9 +36,8 @@
                 <div class="col-12">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Subcriber</li>
-                            <li class="breadcrumb-item active" aria-current="page">Articles</li>
+                            <li class="breadcrumb-item"><a href="/"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page"><a href="/guest/detailcategories/{{this.category.id}}">{{this.category.name}}</a></li>
                         </ol>
                     </nav>
                 </div>
@@ -56,19 +55,22 @@
                     <div class="about-us-content bg-white mb-30 p-30 box-shadow">
                         <!-- Team Member Area -->
                         <div class="section-heading mt-30">
-                            <h5>List of articles prenium</h5>
+                            <h5>List of articles</h5>
                         </div>
                         <hr>
                         
                         <input type="hidden" class="form-control" id="total2" name="total2" value="{{this.article.length}}" required/>
                         {{#each this.article}}
                          <div class="contentPagedml2 single-team-member align-items-center">
-                            <div class="team-member-thumbnail">
-                                <img src="{{image}}" alt="">
-                                <div class="social-btn">
-                                    <a href="#"><i class="far fa-address-card"></i> Info</a>
+                                <div class="team-member-thumbnail">
+                                    
+                                   <img src="{{image}}" alt="">
+                                    <div class="social-btn">
+                                         <a href="/subcriber/view/{{id}}"><i class="far fa-address-card"></i> Detail</a>
+                                    </div>
+                                    
                                 </div>
-                            </div>
+                            
                             <div class="team-member-content">
                                 <h6>{{username}}
                     
@@ -78,13 +80,15 @@
                             {{#if premium}} <p style="color: white; background-color: #FF8C00; font-weight: bold;float:right;"> &nbsp Premium &nbsp </p>{{/if}}
                              <span>{{catename}}</span>
                              
-                             <p><strong>Title:</strong> {{title}}</p>
-                            <p><strong>Summary:</strong> {{summary}}</p>
+                            <div  class="post-content">
+                                <a href="/subcriber/view/{{id}}" class="post-title">{{title}}</a>
+                            </div>
+                            <p><strong></strong> {{summary}}</p>
                              {{!-- <button type="button" class="btn btn-outline-secondary"><p></p>See details</button> --}}
-                             <a class="btn btn-outline-secondary" href="/subcriber/view/{{id}}" role="button">
+                             {{!-- <a class="btn btn-outline-secondary" href="/subcriber/view/{{id}}" role="button">
                         
                                 See Detail
-                            </a>
+                            </a> --}}
                          </div>
                         </div> 
                      
@@ -141,7 +145,7 @@
                             <a href="#" class="post-title">{{title}} <span class="badge badge-danger">Hot</span></a>
                             
                             <div class="post-meta d-flex">   
-                                <a href="#">{{datePostFormated}} |</a>
+                                <a href="#">{{datePostFormated}}  &nbsp| &nbsp</a>
                                 <a href="/guest/detailcategories/{{idCategory}}">{{catName}}</a>
                             </div>
                         </div>
@@ -190,17 +194,9 @@
                 </div>
             </div>
             </div>
-        
-
-
-
-
-
-
 </div>
 </div>
 </section>
-<!-- ##### About Us Area End ##### -->
 
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>  
@@ -208,7 +204,6 @@
 <script src="http://1892.yn.lt/blogger/JQuery/Pagging/js/jquery.twbsPagination.js" type="text/javascript"></script>
 
 <script>
-
 $(function () {
     var pageSize = 4;
     showPage = function (page) {
@@ -240,4 +235,15 @@ $(function () {
     });
     console.info(obj.data());
 }); 
+</script>
+
+{{!-- random tag format --}}
+<script>    
+    $(document).ready(function(){
+    var classes = ["tagname1", "tagname2", "tagname3", "tagname4", "tagname5", "tagname6", "tagname7", "tagname8"];
+
+    $("#tagformat a").each(function(){
+        $(this).addClass(classes[~~(Math.random()*classes.length)]);
+    });
+});
 </script>

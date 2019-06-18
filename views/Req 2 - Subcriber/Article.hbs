@@ -22,7 +22,7 @@
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="breadcrumb-content">
-                        <h2>Single Article</h2>
+                        <h2>{{article.title}}</h2>
                     </div>
                 </div>
             </div>
@@ -37,9 +37,9 @@
                 <div class="col-12">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
-                           
-                            <li class="breadcrumb-item active" aria-current="page">Single Video</li>
+                            <li class="breadcrumb-item"><a href="/"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
+                            <li class="breadcrumb-item"><a href="/guest/detailcategories/{{article.idCategory}}">{{article.name}}</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Single Article</li>
                         </ol>
                     </nav>
                 </div>
@@ -65,19 +65,23 @@
                             
                             {{else}}
                             <div>
-                                <div><input readonly type="date"  class="form-control" data-date="" data-date-format="DD MMMM YYYY" value="{{this.article.datePost}}"></div>
+                                {{!-- Not worked --}}
+                                {{!-- <div><input readonly type="date"  class="form-control" data-date="" data-date-format="DD MMMM YYYY" value="{{this.article.datePost}}"></div> --}}
                                 <div style="color:#dc3545; font-size: 15px; margin-bottom: 13px;">Category: {{article.name}}</div>
+                                <div>{{article.datePostFormated}}</div>
                             </div>
                     
                             <h4 class="post-title" style="font-size: 20px; ">Title: {{article.title}}</h4>
                             <!-- Post Meta -->
-                            
-                            <textarea id="txtFullDes1">{{article.content}}</textarea>
-                            <br>
                             <div style="color:#dc3545; font-size: 15px; margin-bottom: 13px;"><strong>Summary:</strong></div>
                             <blockquote style="margin-bottom:10px;">
                                 <h6 class="quote-text">{{article.summary}}</h6>
                             </blockquote>
+                            {{!-- <textarea id="txtFullDes1">{{article.content}}</textarea> --}}
+                            <div>{{article.content}}</div>
+                            {{!-- <div id="txtFullDes1">{{article.content}}</div> --}}
+                            <br>
+                            
 
                             {{/if}}
             
@@ -85,11 +89,10 @@
                             <!-- Post Author -->
                             <div class="post-author d-flex align-items-center">
                                 <div class="post-author-thumb">
-                                    <img src="../../img/bg-img/52.jpg" alt="">
+                                    <img src="{{article.writerImage}}" alt="">
                                 </div>
                                 <div class="post-author-desc pl-4">
-                                    <a href="#" class="author-name">Alan Shaerer</a>
-                                    <p>Duis tincidunt turpis sodales, tincidunt nisi et, auctor nisi. Curabitur vulputate sapien eu metus ultricies fermentum nec vel augue. Maecenas eget lacinia est.</p>
+                                    <a href="#" class="author-name">{{article.writerName}}</a>
                                 </div>
                             </div>
                         </div>
@@ -198,7 +201,7 @@
                     </div>
                 </div>
 
-                <!-- Sidebar Widget -->
+                {{!-- <!-- Sidebar Widget -->
                 <div class="col-12 col-md-6 col-lg-5 col-xl-4">
                     <div class="sidebar-area bg-white mb-30 box-shadow">
                         <!-- Sidebar Widget -->
@@ -225,7 +228,7 @@
 
                             <!-- Catagory Widget -->
                             <ul class="catagory-widgets">
-                                {{#each this.cate}}
+                                {{#each cate}}
                                 
                                         <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> {{name}}</span> <span>{{soCate}}</span></a></li>
                                     
@@ -260,7 +263,80 @@
 
                      
                     </div>
+                </div> --}}
+<div class="post-sidebar-area right-sidebar  mb-30 box-shadow">
+                <!-- Sidebar Widget Right1 - Xem nhiều -->
+            <div class="single-sidebar-widget p-30">
+                <!-- Section Title -->
+                <div class="section-heading">
+                    <h5>Related Post</h5>
                 </div>
+
+                {{#each this.related}}
+                    {{#if premium}}
+                     <!-- Single Premium Post -->
+                    <div class="single-blog-post d-flex limiteachmostviews ">
+                        <div class="post-thumbnail">
+                            <a href="/subcriber/view/{{id}}"> <img src="{{image}}" alt="" style="height: 50px"></a>
+                        </div>
+                        <div class="post-content">
+                            <a href="/subcriber/view/{{id}}" class="post-title">
+                                {{title}} <span class="badge badge-warning">Premium</span>
+                            </a>
+                            <div class="post-meta d-flex">   
+                                <a href="/subcriber/view/{{id}}">{{datePostFormated}} |</a>
+                                <a href="/guest/detailcategories/{{idCategory}}">{{catName}}</a>
+                            </div>
+                        </div>
+                    </div> 
+                    {{else}}
+                    <!-- Single Blog Post -->
+                    <div class="single-blog-post d-flex limiteachmostviews ">
+                        <div class="post-thumbnail">
+                            <a href="/subcriber/view/{{id}}"> <img src="{{image}}" alt=""style="height: 50px"></a>
+                        </div>
+                        <div class="post-content">
+                            <a href="/subcriber/view/{{id}}" class="post-title">{{title}}
+                            <div class="post-meta d-flex">   
+                                <a href="/subcriber/view/{{id}}">{{datePostFormated}} |</a>
+                                <a href="/guest/detailcategories/{{idCategory}}">{{catName}}</a>
+                            </div>
+                        </div>
+                    </div> 
+                    {{/if}}                
+                {{/each}}
+
+                
+                 
+            </div>
+            <!-- End Sidebar Widget Right1 - Xem nhiều-->
+
+            <!-- Sidebar Widget -->
+            <!-- <div class="single-sidebar-widget">
+                <a href="danhsachbaiviet.html" class="add-img"><img src="img/bg-img/add.png" alt="">Đặt quảng cáo ở đây</a>
+            </div> -->
+            
+            <!-- Sidebar Widget Right2- Categories-->
+                <div class="single-sidebar-widget p-30" >
+                    <!-- Section Title -->
+                    <div class="section-heading">
+                        <h5>Categories</h5>
+                    </div>
+                    <div class="list-group list-group-flush " >
+                        {{#each lcCategories}}
+                        <a href="/guest/detailcategories/{{id}}" class="list-group-item list-group-item-action {{#if isActive}}active{{/if}}">
+                        {{name}}
+                        {{#if num_of_articles}}
+                        <span class="badge badge-danger float-right">{{num_of_articles}}</span>
+                        {{/if}}
+                        </a>
+                        {{/each}}
+                    </div>
+                </div>
+              
+             <!--End Sidebar Widget Right2- Categories-->
+            </div>
+
             </div>
         </div>
     </section>
