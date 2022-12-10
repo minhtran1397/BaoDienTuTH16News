@@ -19,7 +19,7 @@
   "homepage": "https://github.com/minhtran1397/BaoDienTuTH16News#readme",
   "dependencies": {
     "bcrypt": "^3.0.6",
-    "express": "^4.17.0",
+    "express": "^4.17.3",
     "express-handlebars": "^3.1.0",
     "express-handlebars-sections": "^1.0.1",
     "express-session": "^1.16.2",
